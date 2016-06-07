@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606163118) do
+ActiveRecord::Schema.define(version: 20160607145524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "deal_id"
+    t.datetime "date"
+    t.integer  "number_of_people"
+    t.boolean  "status"
+    t.string   "visitor_first_name"
+    t.string   "visitor_last_name"
+    t.string   "visitor_email"
+    t.string   "visitor_phone"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "bookings", ["deal_id"], name: "index_bookings_on_deal_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "deals", force: :cascade do |t|
     t.string   "name"
@@ -22,18 +39,54 @@ ActiveRecord::Schema.define(version: 20160606163118) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "discount_kind"
+    t.integer  "discount_value"
+    t.integer  "maximum_deal_capacity"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
   end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.string   "image_string"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "photos", ["restaurant_id"], name: "index_photos_on_restaurant_id", using: :btree
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "email_address"
     t.integer  "phone_number"
-    t.string   "photos"
     t.integer  "rating"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "street_name"
+    t.integer  "street_number"
+    t.string   "city_name"
+    t.string   "country_name"
+    t.string   "postal_code"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "kind"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_foreign_key "bookings", "deals"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "photos", "restaurants"
 end

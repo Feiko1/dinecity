@@ -9,7 +9,7 @@ class CreateBookings < ActiveRecord::Migration
       t.string :visitor_first_name
       t.string :visitor_last_name
       t.string :visitor_email
-      t.phone :visitor
+      t.string :visitor_phone
 
       t.timestamps null: false
     end
