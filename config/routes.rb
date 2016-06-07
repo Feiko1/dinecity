@@ -1,58 +1,53 @@
-Rails.application.routes.draw do
-  devise_for :users
-  root to: 'pages#home'
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  Rails.application.routes.draw do
+    root to: 'restaurants#index'
+    # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
+    # collection do
+      # get 'top', to: 'restaurants#top'
+      # get 'booking', to: 'restaurants#booking' ## CHECK
+      resources :bookings, only: [:new, :create]
+      # member do
+      #   get 'booking', to: 'restaurants#booking'
+      # end     <-- we take this out because we are using resources :Bookings etc...
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    end
+    namespace :owner do
+    resources :restaurants do  #we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
+      resources :deals
+      # resources :cms
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+#@ MAtt, if we want to add :booking to resources :restaurants only then we should do it outside
+# since only only works for the basic 7 methods
+# put inside member cause it needs to be linkee to the restaurant ID
+# collection =   url/restaurant/booking
+# member     =   url/restaurant/id/booking
+
+# Namespace allows for a sub folder with multiple controllers inside app/controllers so that
+# you can seperate the code for the controller based on their goals.
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
