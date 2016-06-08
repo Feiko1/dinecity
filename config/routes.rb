@@ -25,7 +25,7 @@
       resources :bookings, only: [:new, :create]
       # member do
       #   get 'booking', to: 'restaurants#booking'
-      # end     <-- we take this out because we are using resources :Bookings etc...
+      # end
 
     end
     namespace :owner do

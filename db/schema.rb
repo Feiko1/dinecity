@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160608220826) do
+=======
+ActiveRecord::Schema.define(version: 20160608122002) do
+>>>>>>> bf500cf0188c5cd1819607e54b26d6dc4b0c95f6
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +70,10 @@ ActiveRecord::Schema.define(version: 20160608220826) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
+    t.integer  "restaurant_id"
   end
+
+  add_index "deals", ["restaurant_id"], name: "index_deals_on_restaurant_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -89,7 +96,10 @@ ActiveRecord::Schema.define(version: 20160608220826) do
     t.string   "city_name"
     t.string   "country_name"
     t.string   "postal_code"
+    t.integer  "user_id"
   end
+
+  add_index "restaurants", ["user_id"], name: "index_restaurants_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -112,5 +122,7 @@ ActiveRecord::Schema.define(version: 20160608220826) do
 
   add_foreign_key "bookings", "deals"
   add_foreign_key "bookings", "users"
+  add_foreign_key "deals", "restaurants"
   add_foreign_key "photos", "restaurants"
+  add_foreign_key "restaurants", "users"
 end

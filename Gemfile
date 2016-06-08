@@ -16,8 +16,13 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
+<<<<<<< HEAD
 gem 'materialize-sass'
 gem 'activeadmin', github: 'activeadmin'
+=======
+
+gem 'faker'
+>>>>>>> bf500cf0188c5cd1819607e54b26d6dc4b0c95f6
 
 group :development, :test do
   gem 'binding_of_caller'
