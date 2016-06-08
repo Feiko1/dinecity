@@ -3,14 +3,14 @@
     # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
     # collection do
-      # get 'top', to: 'restaurants#top'
-      # get 'booking', to: 'restaurants#booking' ## CHECK
-      resources :bookings, only: [:new, :create]
+    #   get 'top', to: 'restaurants#top'
+    #   get 'booking', to: 'restaurants#booking' ## CHECK
+    resources :bookings, only: [:new, :create]
       # member do
       #   get 'booking', to: 'restaurants#booking'
-      # end     <-- we take this out because we are using resources :Bookings etc...
-
+      # end
     end
+
     namespace :owner do
     resources :restaurants do  #we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
       resources :deals
@@ -18,15 +18,6 @@
     end
   end
 end
-
-
-
-
-
-
-
-
-
 
 
 #@ MAtt, if we want to add :booking to resources :restaurants only then we should do it outside
