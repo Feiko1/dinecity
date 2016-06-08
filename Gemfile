@@ -17,7 +17,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'materialize-sass'
-gem 'activeadmin', '1.0.0.pre2'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'binding_of_caller'
