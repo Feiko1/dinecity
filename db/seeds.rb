@@ -30,7 +30,7 @@ end
 
 
 30.times do
-  name = Faker::Company.name
+  name = Faker::Lorem.word
   user_id = (User.all.sample).id
   phone_number = Faker::PhoneNumber.phone_number
   street_name = Faker::Address.street_name
