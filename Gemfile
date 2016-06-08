@@ -16,8 +16,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
-
-
+gem 'materialize-sass'
+gem 'activeadmin', '1.0.0.pre2'
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -26,8 +26,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-
-
 end
 
 group :production do
