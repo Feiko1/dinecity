@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:new, :create]
+  before_action :find_restaurant, only: [:new, :create]
 
   def new
     @booking = Booking.new
@@ -19,11 +19,16 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:date, :number_of_people, :status)
+    params.require(:booking).permit(:date, :number_of_people, :status, :deal_id, :user_id, :visitor_first_name, :visitor_last_name, :visitor_email, :visitor_phone)
   end
 
   def find_booking
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
 end
 
 
