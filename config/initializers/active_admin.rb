@@ -1,3 +1,7 @@
+def authenticate_admin!
+  redirect_to new_user_session_path unless current_user && current_user.admin
+end
+
 ActiveAdmin.setup do |config|
   # == Site Title
   #
@@ -5,6 +9,14 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "Dinecity"
+
+  config.authentication_method = :authenticate_admin!
+
+  config.current_user_method = :current_user
+
+  config.logout_link_path = :destroy_user_session_path
+
+  config.logout_link_method = :delete
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.

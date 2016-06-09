@@ -28,7 +28,6 @@ Booking.destroy_all
   user.save
 end
 
-
 30.times do
   name = Faker::Company.name
   user_id = (User.all.sample).id
@@ -124,7 +123,3 @@ end
     visitor_phone: visitor_phone)
   booking.save
 end
-
-
-
-
