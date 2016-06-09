@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
+
 <%= render 'layouts/flashes' %>
 <%= render 'layouts/navbar' %>
  <p class="notice"><%= notice %></p>
@@ -18,5 +19,24 @@
  <%= yield %>
 <%= render'layouts/footer' %>
  <%= javascript_include_tag 'application' %>
+ <!-- below is the facebook login javascript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1729792927278815',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 </body>
 </html>
