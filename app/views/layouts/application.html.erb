@@ -8,14 +8,17 @@
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
-</head>
-<body>
-<%= render'layouts/navbar' %>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
 
- <%= yield %>
-<%= render'layouts/footer' %>
- <%= javascript_include_tag 'application' %>
+</head>
+
+<body>
+  <%= render'layouts/navbar' %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= yield %>
+  <%= render'layouts/footer' %>
+  <%= javascript_include_tag 'application' %>
+
 </body>
 </html>
