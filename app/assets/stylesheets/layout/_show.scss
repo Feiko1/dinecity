@@ -1,7 +1,7 @@
 
 .restaurant-gallery {
   // background-color: #D1D1D1;
-  height: 500px;
+  height: 350px;
 }
 
 .gallery-image {
@@ -13,8 +13,43 @@
 }
 
 .restaurant-booking-form {
-  // background-color: blue;
-  height: 500px;
+  background-color: #EAEAEA;
+  height: 300px;
+  // border: 1px solid red;
 }
 
 //  BELOW: PHOTO SLIDER CSS
+#carousel-example-generic {
+  width: 500px;
+  height: 250px;
+}
+
+
+// BELOW: Reservation Form - Phase I
+#time {
+  // width: 280px;
+  padding: 6px 5px 5px 13px;
+  font-size: 14px;
+  line-height: 1;
+  border: 0;
+  height: 38px;
+  color: #57514a;
+  width: 213px;
+}
+
+.reservation-selector {
+  font-size: 15px;
+  color: #989898;
+  // width: 280px;
+  // // padding: 6px 5px 5px 13px;
+  // font-size: 15px;
+  // // line-height: 1;
+  // // border: 0;
+  // height: 36px;
+}
+
+#reservation-button {
+  text-align: center;
+  margin-top: 20px;
+}
+

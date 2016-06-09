@@ -6,31 +6,164 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-8 restaurant-gallery">
+      <br>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class=".active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
 
-    <div class="col-md-9 restaurant-gallery">
-      <img src="http://unsplash.it/450/300" alt="">
+        <!-- Wrapper for slides -->
+        <%# @trestaurants.each do |restaurant| %>
 
-    </div>
+        <%# restaurant.photos.each do |photo| %>
 
-    <div class="col-md-3 restaurant-booking-form">
-      <form>
-        <div class="form-group">
-          <h5>Reservation</h5>
-          <label for="Dateselector"></label>
-          <input type="date" class="form-control" placeholder="Date.today">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%#= image_tag photo.image_string %>
+            <%= image_tag("lamb.jpg") %>
+            <div class="carousel-caption">
+              <%#= link_to restaurant.name, "#"  %>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("beef.jpg") %>
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag("restaurant.jpg") %>
+             <!--  <div class="carousel-caption">
+                ...
+              </div> -->
+            </div>
+          </div>
+          <%# end %>
+          <%# end %>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <div class="form-group">
-          <label for="numberofpeople"></label>
-<!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
-          <input type="number" class="form-control" id="number-of-people" placeholder="Number of people" min="2" max="20">
-        </div>
-        <button type="submit" class="btn btn-success">Make Reservation</button>
-      </form>
+      </div>
 
+
+
+<!-- RESERVATION FORM - part one -->
+
+      <div class="col-md-3 restaurant-booking-form">
+        <form>
+          <div class="form-group">
+            <h5 style="text-align: center;">Reservation</h5>
+            <label for="Dateselector"></label>
+            <input type="date" class="form-control reservation-selector" placeholder="Date.today">
+          </div>
+          <div class="form-group reservation-selector">
+            <label for="numberofpeople"></label>
+            <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
+            <input type="number" class="form-control reservation-selector" id="number-of-people" placeholder="Number of people" min="2" max="20">
+          </div>
+          <div class="form-group">
+            <select name="time" id="time">
+              <option value="11:30 AM">11:30</option>
+              <option value="11:00 PM">11:00</option>
+              <option value="12:30 PM">12:30</option>
+              <option value="12:00 PM">12:00</option>
+              <option value="13:30 PM">13:30</option>
+              <option value="13:00 PM">13:00</option>
+              <option value="14:30 PM">14:30</option>
+              <option value="14:00 PM">14:00</option>
+              <option value="15:00 PM">15:00</option>
+              <option value="15:30 PM">15:30</option>
+              <option value="16:00 PM">16:00</option>
+              <option value="16:30 PM">16:30</option>
+              <option value="17:00 PM">17:00</option>
+              <option value="17:30 PM">17:30</option>
+              <option value="18:00 PM">18:00</option>
+              <option value="18:30 PM">18:30</option>
+              <option value="19:00 PM" selected>19:00</option>
+              <option value="19:30 PM">19:30</option>
+              <option value="20:00 PM">20:00</option>
+              <option value="20:30 PM">20:30</option>
+            </div>
+          </select>
+          <div class="form-group" id="reservation-button">
+            <button type="submit" class="btn btn-success">Make Reservation</button>
+          </div>
+        </form>
+      </div>
     </div>
-
   </div>
-</div>
 
-</div>
-</div>
+  <div class="row">
+    <div class="col-md-10">
+      <div>
+
+        <!-- NAV TABS, remove or add new -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#deal" aria-controls="home" role="tab" data-toggle="tab">Deal</a></li>
+          <li role="presentation"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
+          <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a></li>
+          <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
+        </ul>
+
+        <!-- TABS PANES, actual content - TO DO: INTERLINK WITH ERB TO CMS -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="deal">
+            <h4>Signature Menu:</h4>
+            <ul>
+              <li>Starter: Mousse of ham from the Ardennes "Pierre Wynants" </li>
+              <li>Main dish: Rack of veal and sweetbreads with morels and asparagus from Mechelen </li>
+              <li>Desert: Vanilla ice-cream with hot chocolate sauce </li>
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="details">
+            <br>
+            <p>As we believe that food tastes best when it is prepared with the freshest, local ingredients, we grow our own herbs and vegetables in the greenhouses and gardens at the restaurant and on our farmland in the Beemster area.
+            <br>
+            We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
+            <br>
+            We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+            On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
+            <br>
+            On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="contact">
+          <br>
+          <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
+          <ul>
+              <li>Comme chez Soi </li>
+              <li>23 place Rouppe • B-1000 Brussels • Belgium </li>
+              <li>Tel.: +32(0)2 512 29 21 </li>
+              <li>info@commechezsoi.be</li>
+              <li>Opening times :
+12:00-13:30 & 19:00-21:00</li>
+              <li>Opening days :
+Tuesday and Wednesday dinner;
+Thursday, Friday and Saturday lunch & dinner</li>
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="reviews">- Ryan Jeff: "Hmm jummy" 5/5</div>
+        </div>
+        <br><br><br>
+        <br>
+        <br>
+
+      </div>
+    </div>
+  </div>
+
+
+
+    <!--     <div class="form-group">
+          <input type="time" name="usr_time" data-format="hh:mm">
+        </div> -->
