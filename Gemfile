@@ -17,6 +17,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 
+gem 'materialize-sass'
+gem 'activeadmin', github: 'activeadmin'
+
 gem 'faker'
 gem 'omniauth-facebook'
 
