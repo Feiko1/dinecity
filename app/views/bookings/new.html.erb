@@ -1,3 +1,5 @@
+
+<div class="container">
 <h1>New Booking:</h1>
   <%= simple_form_for [@restaurant, @booking] do |f| %>
   <%= f.input :date, label: 'Date & Time' %>
@@ -14,3 +16,4 @@
 <% if current_user  %>
 <p>test</p>
 <% end  %>
+</div>

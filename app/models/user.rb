@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
   has_many :bookings, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable #:omniauthable  #add this later?
 
 end
