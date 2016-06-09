@@ -6,13 +6,31 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-7 restaurant-gallery">
-      <img src="http://unsplash.it/350/450" alt="" class="gallery-image">
-    </div>
-    <div class="col-md-5 restaurant-booking-form">
-      <h2>booking form</h2>
+
+    <div class="col-md-9 restaurant-gallery">
+      <img src="http://unsplash.it/450/300" alt="">
+
     </div>
 
+    <div class="col-md-3 restaurant-booking-form">
+      <form>
+        <div class="form-group">
+          <h5>Reservation</h5>
+          <label for="Dateselector"></label>
+          <input type="date" class="form-control" placeholder="Date.today">
+        </div>
+        <div class="form-group">
+          <label for="numberofpeople"></label>
+<!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
+          <input type="number" class="form-control" id="number-of-people" placeholder="Number of people" min="2" max="20">
+        </div>
+        <button type="submit" class="btn btn-success">Make Reservation</button>
+      </form>
+
+    </div>
 
   </div>
+</div>
+
+</div>
 </div>
