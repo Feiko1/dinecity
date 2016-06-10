@@ -6,14 +6,14 @@
 
   <%= f.input :visitor_first_name, label: 'your first name', error: 'name is mandatory', placeholder: 'enter first name' %>
   <%= f.input :visitor_last_name, label: 'your last name', error: 'name is mandatory', placeholder: 'enter last name' %>
-<%= f.input :visitor_email, placeholder: 'user@domain.com' %>
-<%= f.input :visitor_phone, placeholder: '+31-.....?' %>
-<%= f.input :number_of_people, collection: 1..9, prompt: "With how many will you dine?", selected: 3%>
+  <%= f.input :visitor_email, placeholder: 'user@domain.com' %>
+  <%= f.input :visitor_phone, placeholder: '+31-.....?' %>
+  <%= f.input :number_of_people, collection: 1..9, prompt: "With how many will you dine?", selected: 3%>
 
-<%= f.submit "To Booking Confirmation" %>
-<% end %>
+  <%= f.submit "To Booking Confirmation" %>
+  <% end %>
 
-<% if current_user  %>
+  <% if current_user  %>
 <p>test</p>
 <% end  %>
 </div>
