@@ -59,7 +59,7 @@
 
 
 
-<!-- RESERVATION FORM - part one -->
+      <!-- RESERVATION FORM - part one -->
 
       <div class="col-md-3 restaurant-booking-form">
         <form>
@@ -130,38 +130,54 @@
           <div role="tabpanel" class="tab-pane" id="details">
             <br>
             <p>As we believe that food tastes best when it is prepared with the freshest, local ingredients, we grow our own herbs and vegetables in the greenhouses and gardens at the restaurant and on our farmland in the Beemster area.
-            <br>
-            We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
-            <br>
-            We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
-            On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
-            <br>
-            On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contact">
-          <br>
-          <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
-          <ul>
-              <li>Comme chez Soi </li>
-              <li>23 place Rouppe • B-1000 Brussels • Belgium </li>
-              <li>Tel.: +32(0)2 512 29 21 </li>
-              <li>info@commechezsoi.be</li>
-              <li>Opening times :
-12:00-13:30 & 19:00-21:00</li>
-              <li>Opening days :
-Tuesday and Wednesday dinner;
-Thursday, Friday and Saturday lunch & dinner</li>
-            </ul>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="reviews">- Ryan Jeff: "Hmm jummy" 5/5</div>
-        </div>
-        <br><br><br>
-        <br>
-        <br>
+              <br>
+              We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
+              <br>
+              We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+              On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
+              <br>
+              On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="contact">
+              <br>
+              <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
+              <ul>
+                <li> <%= @restaurant.name %>
+                  <!-- Comme chez Soi  -->
+                </li>
+                <li> <%= @restaurant.street_name %> <%= @restaurant.street_number %> • <%= @restaurant.postal_code %> <%= @restaurant.city_name %> <%= @restaurant.country_name %> </li>
+                <li>Tel.: <%= @restaurant.phone_number %>
+                  <!-- +32(0)2 512 29 21  -->
+                </li>
+                <li>Email: <%= @restaurant.email_address %>
+                  <!-- info@commechezsoi.be -->
+                </li>
+                <li>Opening times :
+                  12:00-13:30 & 19:00-21:00</li>
+                  <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
+                  <li>Opening days :
+                    Tuesday and Wednesday dinner;
+                    Thursday, Friday and Saturday lunch & dinner</li>
+                  </ul>
+                  <br>
+                  <ul>
+<!-- <%= render 'restaurants/map' %> -->
+             </ul>
 
-      </div>
-    </div>
-  </div>
+
+
+           </div>
+           <div role="tabpanel" class="tab-pane" id="reviews">- Ryan Jeff: "Hmm jummy" 5/5</div>
+         </div>
+         <br><br><br>
+         <br>
+         <br>
+
+       </div>
+     </div>
+   </div>
+
+<%= render 'restaurants/map' %>
 
 
 
