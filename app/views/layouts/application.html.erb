@@ -16,16 +16,32 @@
 </head>
 
 <body>
-
+  <div class="wrapper">
   <%= render 'layouts/navbar' %>
+</div>
   <%= render 'layouts/flashes' %>
 
   <%= yield %>
+  <%= render 'layouts/footer' %>
+ <%= javascript_include_tag 'application' %>
+ <!-- below is the facebook login javascript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1729792927278815',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
 
-  <%= render'layouts/footer' %>
-  <%= javascript_include_tag 'application' %>
-
-  <%= yield(:after_js) %>
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 </body>
 </html>

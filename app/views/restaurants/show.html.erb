@@ -1,6 +1,7 @@
 <!-- #put a link which directs to booking#new (From matts brabnch) -->
-
-<h2><%= @restaurant.name %></h2>
+<br>
+<br>
+<h2 id="restaurant-name"><%= @restaurant.name %></h2>
 <hr>
 <h4><% link_to "Make a reservation", new_restaurant_booking_path(@restaurant) %></h4>
 
@@ -8,7 +9,6 @@
   <div class="row">
 
     <div class="col-md-8 restaurant-gallery">
-      <br>
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -68,10 +68,10 @@
             <label for="Dateselector"></label>
             <input type="date" class="form-control reservation-selector" placeholder="Date.today">
           </div>
-          <div class="form-group reservation-selector">
+          <div class="form-group reservation-selector fix-positioning">
             <label for="numberofpeople"></label>
             <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
-            <input type="number" class="form-control reservation-selector" id="number-of-people" placeholder="Number of people" min="2" max="20">
+            <input type="number" class="form-control reservation-selector" id="number-of-people" placeholder="Number of people" min="2" max="20" style="margin-top: 3px;">
           </div>
           <div class="form-group">
             <select name="time" id="time">
@@ -155,29 +155,45 @@
                 <li>Opening times :
                   12:00-13:30 & 19:00-21:00</li>
                   <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
+
                   <li>Opening days :
                     Tuesday and Wednesday dinner;
                     Thursday, Friday and Saturday lunch & dinner</li>
                   </ul>
                   <br>
                   <ul>
-<!-- <%= render 'restaurants/map' %> -->
-             </ul>
+                    <!-- <%= render 'restaurants/map' %> -->
+                  </ul>
 
+                </div>
+                <div role="tabpanel" class="tab-pane" id="reviews">
+                  <h3>
+                    <%= pluralize @restaurant.reviews.size, "review" %>
+                  </h3>
 
+                  <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+                  <div id="reviews">
+                    <% if @restaurant.reviews.blank? %>
+                    Be the first to leave a review for <%= @restaurant.name %>
+                    <% else %>
+                    <% @restaurant.reviews.each do |review| %>
+                    <%= render 'reviews/show', review: review %>
+                    <% end %>
+                    <% end %>
+                  </div>
+                </div>
 
-           </div>
-           <div role="tabpanel" class="tab-pane" id="reviews">- Ryan Jeff: "Hmm jummy" 5/5</div>
-         </div>
-         <br><br><br>
-         <br>
-         <br>
+              </div>
+            </div>
+            <br><br><br>
+            <br>
+            <br>
 
-       </div>
-     </div>
-   </div>
+          </div>
+        </div>
+      </div>
 
-<%= render 'restaurants/map' %>
+      <%= render 'restaurants/map' %>
 
 
 

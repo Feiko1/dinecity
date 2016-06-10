@@ -10,15 +10,21 @@ class RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.all.order('created_at DESC')
     end
+
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
 
-  @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
+    @review = Review.new
+
+    @markers = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
     end
+
+
   end
 
 end
+
