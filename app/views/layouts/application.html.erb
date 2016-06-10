@@ -12,12 +12,13 @@
 </head>
 
 <body>
+  <div class="wrapper">
+  <%= render 'layouts/navbar' %>
+</div>
+  <%= render 'layouts/flashes' %>
 
-<%= render 'layouts/flashes' %>
-<%= render 'layouts/navbar' %>
-
- <%= yield %>
-<%= render'layouts/footer' %>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
  <%= javascript_include_tag 'application' %>
  <!-- below is the facebook login javascript -->
 <script>
