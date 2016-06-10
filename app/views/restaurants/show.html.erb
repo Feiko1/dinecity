@@ -1,6 +1,7 @@
 <!-- #put a link which directs to booking#new (From matts brabnch) -->
-
-<h2><%= @restaurant.name %></h2>
+<br>
+<br>
+<h2 id="restaurant-name"><%= @restaurant.name %></h2>
 <hr>
 <h4><% link_to "Make a reservation", new_restaurant_booking_path(@restaurant) %></h4>
 
@@ -8,7 +9,6 @@
   <div class="row">
 
     <div class="col-md-8 restaurant-gallery">
-      <br>
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -59,7 +59,7 @@
 
 
 
-<!-- RESERVATION FORM - part one -->
+      <!-- RESERVATION FORM - part one -->
 
       <div class="col-md-3 restaurant-booking-form">
         <form>
@@ -68,10 +68,10 @@
             <label for="Dateselector"></label>
             <input type="date" class="form-control reservation-selector" placeholder="Date.today">
           </div>
-          <div class="form-group reservation-selector">
+          <div class="form-group reservation-selector fix-positioning">
             <label for="numberofpeople"></label>
             <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
-            <input type="number" class="form-control reservation-selector" id="number-of-people" placeholder="Number of people" min="2" max="20">
+            <input type="number" class="form-control reservation-selector" id="number-of-people" placeholder="Number of people" min="2" max="20" style="margin-top: 3px;">
           </div>
           <div class="form-group">
             <select name="time" id="time">
@@ -130,38 +130,55 @@
           <div role="tabpanel" class="tab-pane" id="details">
             <br>
             <p>As we believe that food tastes best when it is prepared with the freshest, local ingredients, we grow our own herbs and vegetables in the greenhouses and gardens at the restaurant and on our farmland in the Beemster area.
-            <br>
-            We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
-            <br>
-            We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
-            On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
-            <br>
-            On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="contact">
-          <br>
-          <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
-          <ul>
-              <li>Comme chez Soi </li>
-              <li>23 place Rouppe • B-1000 Brussels • Belgium </li>
-              <li>Tel.: +32(0)2 512 29 21 </li>
-              <li>info@commechezsoi.be</li>
-              <li>Opening times :
-12:00-13:30 & 19:00-21:00</li>
-              <li>Opening days :
-Tuesday and Wednesday dinner;
-Thursday, Friday and Saturday lunch & dinner</li>
-            </ul>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="reviews">- Ryan Jeff: "Hmm jummy" 5/5</div>
-        </div>
-        <br><br><br>
-        <br>
-        <br>
+              <br>
+              We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
+              <br>
+              We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+              On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
+              <br>
+              On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="contact">
+              <br>
+              <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
+              <ul>
+                <li>Comme chez Soi </li>
+                <li>23 place Rouppe • B-1000 Brussels • Belgium </li>
+                <li>Tel.: +32(0)2 512 29 21 </li>
+                <li>info@commechezsoi.be</li>
+                <li>Opening times :
+                  12:00-13:30 & 19:00-21:00</li>
+                  <li>Opening days :
+                    Tuesday and Wednesday dinner;
+                    Thursday, Friday and Saturday lunch & dinner</li>
+                  </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="reviews">
 
-      </div>
-    </div>
-  </div>
+                  <!-- Reviews -->
+
+                  <h3>
+                    <%= pluralize @restaurant.reviews.size, "review" %>
+                  </h3>
+
+                  <div id="reviews">
+                    <% if @restaurant.reviews.blank? %>
+                    Be the first to leave a review for <%= @restaurant.name %>
+                    <% else %>
+                    <% @restaurant.reviews.each do |review| %>
+                    <%= render 'reviews/show', review: review %>
+                    <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <br>
+
+            </div>
+          </div>
+        </div>
 
 
 

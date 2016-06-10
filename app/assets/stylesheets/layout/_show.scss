@@ -1,4 +1,8 @@
 
+#restaurant-name {
+  margin-left: 105px;
+}
+
 .restaurant-gallery {
   // background-color: #D1D1D1;
   height: 350px;
@@ -15,13 +19,22 @@
 .restaurant-booking-form {
   background-color: #EAEAEA;
   height: 300px;
-  // border: 1px solid red;
+// border: 1px solid red;
 }
 
 //  BELOW: PHOTO SLIDER CSS
 #carousel-example-generic {
-  width: 500px;
-  height: 250px;
+  width: 550px;
+  height: 300px;
+}
+
+#carousel-example-generic img {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // min-width: 100%;
+  // height: 500px;
+  // max-width: none;
 }
 
 
@@ -40,6 +53,8 @@
 .reservation-selector {
   font-size: 15px;
   color: #989898;
+  margin-top: 5px;
+  margin-bottom: 5px;
   // width: 280px;
   // // padding: 6px 5px 5px 13px;
   // font-size: 15px;
@@ -48,8 +63,14 @@
   // height: 36px;
 }
 
+.fix-positioning {
+  margin-bottom: 25px;
+  margin-top: -6px;
+}
+
 #reservation-button {
   text-align: center;
   margin-top: 20px;
 }
+
 
