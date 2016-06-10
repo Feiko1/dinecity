@@ -1,14 +1,13 @@
-
-<div class="container">
+<br>
+<br>
+<div class="container" style="width: 60%;">
 <h1>New Booking:</h1>
   <%= simple_form_for [@restaurant, @booking] do |f| %>
-  <%= f.input :date, label: 'Date & Time' %>
 
   <%= f.input :visitor_first_name, label: 'your first name', error: 'name is mandatory', placeholder: 'enter first name' %>
   <%= f.input :visitor_last_name, label: 'your last name', error: 'name is mandatory', placeholder: 'enter last name' %>
   <%= f.input :visitor_email, placeholder: 'user@domain.com' %>
   <%= f.input :visitor_phone, placeholder: '+31-.....?' %>
-  <%= f.input :number_of_people, collection: 1..9, prompt: "With how many will you dine?", selected: 3%>
 
   <%= f.submit "To Booking Confirmation" %>
   <% end %>
@@ -17,3 +16,5 @@
 <p>test</p>
 <% end  %>
 </div>
+
+<br>

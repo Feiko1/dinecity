@@ -100,8 +100,9 @@
             <option value="20:30 PM">20:30</option>
           </div>
         </select>
+
         <div class="form-group" id="reservation-button">
-          <button type="submit" class="btn btn-success">Make Reservation</button>
+          <%= link_to "Make Reservation",  new_restaurant_booking_path(@restaurant), class:"btn btn-success" %>
         </div>
       </form>
     </div>
@@ -142,18 +143,7 @@
             <br>
             <p>On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
           </div>
-          <div role="tabpanel" class="tab-pane" id="contact">
-            <br>
 
-            <p>As we believe that food tastes best when it is prepared with the freshest, local ingredients, we grow our own herbs and vegetables in the greenhouses and gardens at the restaurant and on our farmland in the Beemster area.
-              <br>
-              We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
-              <br>
-              We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
-              On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
-              <br>
-              On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
-            </div>
             <div role="tabpanel" class="tab-pane" id="contact">
               <br>
               <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
@@ -187,7 +177,7 @@
                     <%= pluralize @restaurant.reviews.size, "review" %>
                   </h3>
 
-                  <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+
                   <div id="reviews">
                     <% if @restaurant.reviews.blank? %>
                     Be the first to leave a review for <%= @restaurant.name %>
@@ -213,13 +203,12 @@
 
     </div>
   </div>
-  <div id="bottom-white-space">
-
-  </div>
-
 
       <%= render 'restaurants/map' %>
 
+  <div id="bottom-white-space">
+
+  </div>
 
 
 
