@@ -1,13 +1,19 @@
 .header-cover-image {
-    background-image: url('background.jpg');
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
+    background: no-repeat center center;
+    background-image: url('background-chair.jpg');
+    // background-size: 100%;
+    //-webkit-background-size: cover;
+    //-moz-background-size: cover;
+    //-o-background-size: cover;
     //background-size: cover;
-    position: fixed;
-    top: 0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    // position: fixed;
+    margin-top: 52px;
     left: 0px;
     right: 0px;
-    height: 380px;
+    height: 300px;
     z-index: -1;
   }
