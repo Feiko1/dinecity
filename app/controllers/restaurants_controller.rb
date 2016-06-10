@@ -10,9 +10,13 @@ class RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.all.order('created_at DESC')
     end
+
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review = Review.new
   end
+
 end
+

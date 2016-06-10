@@ -161,6 +161,7 @@
                     <%= pluralize @restaurant.reviews.size, "review" %>
                   </h3>
 
+                   <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
                   <div id="reviews">
                     <% if @restaurant.reviews.blank? %>
                     Be the first to leave a review for <%= @restaurant.name %>
