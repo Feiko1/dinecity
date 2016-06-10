@@ -1,7 +1,7 @@
 /* Main class */
 .background-nav{
   background-color: #4C4C4C;
-  opacity: 0.8;
+  opacity: 0.91;
   -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
   box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
@@ -12,9 +12,6 @@
 .container-fluid ul li a.nav-color{
   color:white;
 }
-.navbar-form{
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
+ul li button .btn-success{
+  padding-top: 5px;
 }

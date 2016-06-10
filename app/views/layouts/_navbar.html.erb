@@ -8,24 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="nav-color navbar-brand " href="#"><i class="fa fa-glass" aria-hidden="true"></i> DineCity</a>
-    </div>
-      <%= form_tag(restaurants_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Restaurant", class: "form-control" %>
-        <%= submit_tag "Search", class: "btn btn-primary btn-sm outline" %>
+      <%= link_to "/", class: "nav-color navbar-brand" do %>
+        <i class="fa fa-glass" aria-hidden="true"></i> DineCity
       <% end %>
-
-      <!-- <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="What city?">
-        </div>
-        <button type="submit" class="btn btn-default">search for restaurants</button>
-      </form> -->
+    </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log-In</a></li>
-        <li><%= link_to "Log-Out", destroy_user_session_path, method: :delete%> </li>
-        <li class="dropdown">
-          <a href="#" class="nav-color dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+        <li><%= link_to 'Home', root_path, class: "nav-color" %></li>
+        <li><%= link_to 'About', 'about.html', class: "nav-color" %></li>
+        <!-- <li><a class="nav-color" href="#">Profile</a></li>
+        <li><%= link_to "Log-Out", destroy_user_session_path, class:"nav-color",  method: :delete%> </li> -->
+         <li class="dropdown">
+          <button type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-lg dropdown-toggle"><h6>Profile</h6></button></a>
           <ul class="dropdown-menu">
             <li><a href="#">Sign-In</a></li>
             <li><a href="#">Sign-Up</a></li>

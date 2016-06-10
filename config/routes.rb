@@ -48,16 +48,3 @@ end
 # Namespace allows for a sub folder with multiple controllers inside app/controllers so that
 # you can seperate the code for the controller based on their goals.
 #
-
-
-
-
-
-
-
-
-
-
-
-
-
