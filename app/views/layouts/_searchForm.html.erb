@@ -1,0 +1,6 @@
+<div class="container">
+  <%= form_tag(restaurants_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Restaurant", class: "form-control" %>
+    <%= submit_tag "Search", class: "btn btn-primary btn-sm outline" %>
+  <% end %>
+</div>
