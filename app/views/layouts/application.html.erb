@@ -12,9 +12,10 @@
 </head>
 
 <body>
-
-<%= render 'layouts/flashes' %>
-<%= render 'layouts/navbar' %>
+  <div class="wrapper">
+  <%= render 'layouts/navbar' %>
+</div>
+  <%= render 'layouts/flashes' %>
 
  <%= yield %>
 <%= render'layouts/footer' %>
