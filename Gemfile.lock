@@ -108,10 +108,7 @@ GEM
     geocoder (1.3.7)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-<<<<<<< HEAD
-=======
     gmaps4rails (2.1.2)
->>>>>>> fcad5657ef6b7675236f1ccaea4020ea20418fd3
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
