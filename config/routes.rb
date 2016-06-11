@@ -1,25 +1,28 @@
   Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
-  root to: 'restaurants#index'
-  get 'homeadmin/dashboard'
+    ActiveAdmin.routes(self)
+    get 'homeadmin/dashboard'
 
-  get 'homeadmin/account'
 
-  get 'homeadmin/offer'
+    get 'homeadmin/account'
 
-  get 'homeadmin/booking'
+    get 'homeadmin/offer'
 
-  get 'homeadmin/analytics'
+    get 'homeadmin/booking'
 
-  get 'homeadmin/support'
+    get 'homeadmin/analytics'
 
-  get 'homeadmin/howto'
+    get 'homeadmin/support'
 
-  get 'homeadmin/billing'
+    get 'homeadmin/howto'
+
+    get 'homeadmin/billing'
+
+    root to: 'restaurants#index'
 
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } #used for facebook login API
     # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
+    resources :reviews, only: :create
     # collection do
     #   get 'top', to: 'restaurants#top'
     #   get 'booking', to: 'restaurants#booking' ## CHECK

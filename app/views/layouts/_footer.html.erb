@@ -5,16 +5,16 @@
         <div class="col-sm-4">
           <div class="footer-logo">
             <br>
-            <h3><i class="fa fa-glass fa-2x" aria-hidden="true"></i> DineCity</h3>
+            <h4><i class="fa fa-glass fa-1x" aria-hidden="true"></i> DineCity</h4>
             <p>The World's Leading Best<br>Online Restaurant &amp; Booking Platform</p>
             <br>
-            <p class="muted">© 2016 <b>DineCity</b></p>
+            <p class="muted">&copy;&nbsp;<%=Date.today.year%>&nbsp;<b>DineCity</b></p>
             <a href="#">Terms of Service</a>
             <a href="#">Privacy Policy</a>
           </div>
         </div>
         <div class="col-sm-2">
-          <h4>Product</h4>
+          <h5>Solutions</h5>
           <ul class="list-unstyled">
             <li><a href="#">Desktop App</a></li>
             <li><a target="_blank" href="#">Phone Apps</a></li>
@@ -23,7 +23,7 @@
           </ul>
         </div>
         <div class="col-sm-2">
-          <h4>Resources</h4>
+          <h5>Resources</h5>
           <ul class="list-unstyled">
             <li><a href="#">How To Start</a></li>
             <li><a target="_blank" href="#">How To</a></li>
@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div class="col-sm-2">
-          <h4>Support</h4>
+          <h5>Support</h5>
           <ul class="list-unstyled">
             <li><a href="#" target="_blank">Documentation</a></li>
             <li><a href="#" target="_blank">Technical Support</a></li>
@@ -41,7 +41,7 @@
           </ul>
         </div>
         <div class="col-sm-2">
-          <h4>Company</h4>
+          <h5>Company</h5>
           <ul class="list-unstyled">
             <li><a target="_blank" href="#">Blog</a></li>
             <li><a href="#">About Us</a></li>
@@ -55,7 +55,7 @@
       <div class="col-lg-12 text-center">
         <div class="newsletter" id="email">
           <form action="subscribe" id="invite" method="POST" onsubmit="return false;">
-            <h4><strong>Newsletter</strong></h4>
+            <h5><strong>Newsletter</strong></h5>
             <p>Join Our Newseletter and stay updated!</p>
             <div class="col-md-3"></div>
             <div class="col-md-3">
@@ -73,11 +73,12 @@
           </form>
         </div>
         <script type="text/javascript">
+        //JavaScript for Newsletter subscription
           $(document).ready(function() {
           $(".btnsignup").on("click",function(){
           var email = $("#address").val();
           if(validateEmail(email)){
-          $.post("http://phptravels.com/subscribe.php",$("#invite").serialize(),function(resp){
+          $.post("http",$("#invite").serialize(),function(resp){
           // console.log(resp);
           $("#result").html("<div class='alert alert-success'>"+resp+"</div>").fadeIn("slow");
           });

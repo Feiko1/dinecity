@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4 search-margin">
+      <%= form_tag(restaurants_path, :method => "get", id: "search-input", class: "input-group col-md-12") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "In which city would you like to eat?", class: "form-control input-md" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Search", class: "btn btn-success btn-md" %>
+      </span>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+    <!-- <%= form_tag(restaurants_path, :method => "get", id: "search-form", class: "navbar-form col-md-6") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Restaurant", class: "form-control" %>
+      <%= submit_tag "Search", class: "btn btn-primary btn-sm outline" %>
+    <% end %> -->

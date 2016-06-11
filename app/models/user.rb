@@ -21,3 +21,4 @@ def self.find_for_facebook_oauth(auth)
     end
   end
 end
+
