@@ -1,5 +1,6 @@
   Rails.application.routes.draw do
   ActiveAdmin.routes(self)
+  root to: 'restaurants#index'
   get 'homeadmin/dashboard'
 
   get 'homeadmin/account'
@@ -16,7 +17,6 @@
 
   get 'homeadmin/billing'
 
-    root to: 'restaurants#index'
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } #used for facebook login API
     # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
@@ -47,16 +47,3 @@ end
 # Namespace allows for a sub folder with multiple controllers inside app/controllers so that
 # you can seperate the code for the controller based on their goals.
 #
-
-
-
-
-
-
-
-
-
-
-
-
-
