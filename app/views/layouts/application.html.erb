@@ -21,7 +21,7 @@
 </div>
   <%= render 'layouts/flashes' %>
 
-  <%= yield %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
   <%= render 'layouts/footer' %>
  <%= javascript_include_tag 'application' %>
  <!-- below is the facebook login javascript -->
