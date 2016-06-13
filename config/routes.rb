@@ -2,6 +2,7 @@
     ActiveAdmin.routes(self)
     get 'homeadmin/dashboard'
 
+
     get 'homeadmin/account'
 
     get 'homeadmin/offer'
@@ -17,6 +18,7 @@
     get 'homeadmin/billing'
 
     root to: 'restaurants#index'
+
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } #used for facebook login API
     # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
