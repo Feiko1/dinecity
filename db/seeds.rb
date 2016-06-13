@@ -13,6 +13,10 @@ Restaurant.destroy_all
 Photo.destroy_all
 Deal.destroy_all
 Booking.destroy_all
+Review.destroy_all
+
+
+
 
 30.times do
   first_name = Faker::Name.first_name
@@ -27,6 +31,18 @@ Booking.destroy_all
     kind: kind)
   user.save
 end
+
+r = Restaurant.create(name: "Ambrosia", #added one specific restaurant with semantically useful information
+    phone_number: 0618413386,
+    street_name: "Lange Voorhout",
+    street_number: 20,
+    city_name: "Den Haag",
+    country_name: "The Netherlands",
+    postal_code: "2514 EE",
+    email_address: "info@ambrosia.nl",
+    user_id: (User.all.sample).id
+    )
+r.save
 
 30.times do
   name = Faker::Lorem.word
@@ -123,3 +139,16 @@ end
     visitor_phone: visitor_phone)
   booking.save
 end
+
+30.times do
+  restaurant_instance = (Restaurant.all.sample)  #
+  restaurant_id = restaurant_instance.id
+  content = Faker::Lorem.sentence
+
+  review = Review.create(
+    restaurant_id: restaurant_id,
+    content: content)
+  review.save
+end
+
+
