@@ -1,1 +1,21 @@
-<div><span> <%= image_tag "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png", class:"avatar"  %> </span></div> <p class="review_text"> <%= review.content %> </p>
+<div class="row review-padding">
+  <div class="col-md-1">
+    <span>
+      <%= image_tag "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png", class:"avatar-large"  %>
+    </div>
+    <div class="col-md-11">
+      <% if review.user %>
+      <strong><%= review.user.first_name %></strong>
+      <% else %>
+      <strong><span>Anonymous</span></strong>
+      <% end %>
+    </span>
+    <br>
+    <span style="color: #A8A8A8; font-style: italic;">
+      <%= time_ago_in_words(review.created_at) %> ago
+    </span>
+    <span>
+      <p class="review_text"> <%= review.content %> </p>
+    </span>
+  </div>
+</div>
