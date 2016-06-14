@@ -33,7 +33,7 @@ Review.destroy_all
 end
 
 r = Restaurant.create(name: "Ambrosia", #added one specific restaurant with semantically useful information
-    phone_number: 0618413386,
+    phone_number: 065,
     street_name: "Lange Voorhout",
     street_number: 20,
     city_name: "Den Haag",
