@@ -164,51 +164,51 @@
                 12:00-13:30 & 19:00-21:00</li>
                 <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
 
-              <li>Opening days :
-                Tuesday and Wednesday dinner;
-                Thursday, Friday and Saturday lunch & dinner
-              </li>
-            </ul>
+                <li>Opening days :
+                  Tuesday and Wednesday dinner;
+                  Thursday, Friday and Saturday lunch & dinner
+                </li>
+              </ul>
 
-            <br>
-            <ul>
-              <!-- <%= render 'restaurants/map' %> -->
-            </ul>
+              <br>
+              <ul>
+                <!-- <%= render 'restaurants/map' %> -->
+              </ul>
 
-          </div>
-
-          <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
-            <h4>
-              Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>
-            </h4>
-            <hr>
-
-
-            <div id="reviews">
-
-              <% if @restaurant.reviews.blank? %>
-                Be the first to leave a review for <%= @restaurant.name %>
-              <% else %>
-              <% @restaurant.reviews.each do |review| %>
-                <%= render 'reviews/show', review: review %>
-              <% end %>
             </div>
-            <% end %>
-            <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
-          </div>
 
-        </div>
-          </div>
-          <br><br><br>
-          <br>
-          <br>
+            <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
+              <h4>
+                Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>
+              </h4>
+              <hr>
 
+
+              <div id="reviews">
+
+                <% if @restaurant.reviews.blank? %>
+                Be the first to leave a review for <%= @restaurant.name %>
+                <% else %>
+                <% @restaurant.reviews.each do |review| %>
+                <%= render 'reviews/show', review: review %>
+                <% end %>
+              </div>
+              <% end %>
+              <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+            </div>
+
+          </div>
         </div>
+        <br><br><br>
+        <br>
+        <br>
+
       </div>
     </div>
-
-
   </div>
+
+
+</div>
 </div>
 
 <%= render 'restaurants/map' %>
