@@ -3,7 +3,6 @@
   padding-bottom: 100px;
 }
 
-
 .matt-signup-wrapper{
   margin-top: 110px;
   margin-bottom: 30px;
@@ -34,3 +33,56 @@
 //     /* box-shadow: 25px 20px 11px lightgrey; */
 //     width: 531px;
 // }
+
+
+// .control-label {
+//   position: relative;
+// }
+// .control-label .i {
+//  position: absolute;
+//  padding: 10px;
+//  pointer-events: none;
+// }
+
+// .left-addon .i  { left:  0px;}
+// .right-addon .i { right: 0px;}
+
+// .left-addon input  { padding-left:  30px; }
+// .right-addon input { padding-right: 30px; }
+
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .i {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .i  { left:  0px;}
+.right-addon .i { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.errspan {
+  float: right;
+  top: 35px;
+  right: 95%;
+  position: relative;
+  z-index: 2;
+  color: grey;
+}
+
+.errspan-user {
+  float: right;
+  top: 35px;
+  right: 0px;
+  position: relative;
+  z-index: 2;
+  color: grey;
+}
