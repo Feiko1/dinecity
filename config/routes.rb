@@ -1,21 +1,5 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  get 'homeadmin/dashboard'
-
-
-  # get 'homeadmin/account'
-
-  # get 'homeadmin/offer'
-
-  # get 'homeadmin/booking'
-
-  # get 'homeadmin/analytics'
-
-  # get 'homeadmin/support'
-
-  # get 'homeadmin/howto'
-
-  # get 'homeadmin/billing'
 
   root to: 'restaurants#index'
 
@@ -33,10 +17,14 @@ Rails.application.routes.draw do
    end
 
    namespace :owner do
-    resources :restaurants do  #we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
-      resources :deals
-      # resources :cms
+    resources :restaurants, only: [:index, :show] do
+      resources :deals, only: :create
     end
+
+      # do we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
+      #resources :deals
+      # resources :cms
+    #end
   end
 end
 

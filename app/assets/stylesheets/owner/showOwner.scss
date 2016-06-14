@@ -1,0 +1,30 @@
+.tabs-left {
+  border-bottom: none;
+  padding-top: 2px;
+  color: #424242;
+}
+.tabs-left {
+  border-right: 1px solid #ddd;
+}
+.tabs-right {
+  border-left: 1px solid #ddd;
+}
+.tabs-left>li, .tabs-right>li {
+  float: none;
+  margin-bottom: 2px;
+}
+.tabs-left>li {
+  margin-right: -1px;
+}
+.tabs-right>li {
+  margin-left: -1px;
+}
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+  border-raidus: 5px;
+  border-bottom-color: #1565c0;
+  border-right-color: transparent;
+  background-color: #424242;
+  color: white;
+}

@@ -22,4 +22,8 @@
 @import "layout/flashes";
 
 // Device
-@import "device/sign_in"
+@import "device/sign_in";
+
+//Owner CMS Layouts
+@import "owner/navOwner";
+@import "owner/showOwner";

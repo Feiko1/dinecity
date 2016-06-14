@@ -1,6 +1,22 @@
-<% content_for :content do %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Dine City</title>
+  <%= csrf_meta_tags %>
 
-  HERE MY OWNER MENU
-  <%= yield %>
-<% end %>
-<%= render template: "layouts/application" %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+ <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
+</head>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+<footer class="footer">
+  <%= render 'owner/layout/footerOwner' %>
+</footer>
+</html>
