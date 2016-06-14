@@ -12,6 +12,9 @@
         <i class="fa fa-glass" aria-hidden="true"></i> DineCity
       <% end %>
     </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Home', root_path, class: "nav-color" %></li>
         <li><%= link_to 'About', 'about.html', class: "nav-color" %></li>
@@ -29,7 +32,7 @@
           <h6>Profile</h6></button></a>
                 <% end  %>
 
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu navbar-collapse" id="bs-example-navbar-collapse-1">
             <% if current_user  %>
             <li><%= link_to "Profile" %> </li>
             <!-- TODO: add profile path link! -->
@@ -43,6 +46,7 @@
           </ul>
         </li>
       </ul>
+      </div>
     </div><!-- /.navbar-collapse
   </div><!-- /.container-fluid -->
 </nav>
