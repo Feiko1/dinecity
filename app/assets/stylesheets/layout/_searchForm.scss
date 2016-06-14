@@ -13,7 +13,19 @@
     border: solid 1px #E4E4E4;
     border-radius: 6px;
     background-color: #fff;
+    // :focus{     // this expands the search form when selected; to be implemented later
+    //   width:500px;
+    //   transition: width 1s;
+    // }
 }
+
+// #search-input:focus{
+//     padding: 2px;
+//     border: solid 1px #E4E4E4;
+//     border-radius: 6px;
+//     background-color: #fff;
+//     width:200px;
+// }
 
 #search-input input{
     border: 0;
@@ -34,6 +46,7 @@
     box-shadow: none;
     border-left: solid 1px #ccc;
 }
+
 
 #search-input .glyphicon-search{
     font-size: 23px;
