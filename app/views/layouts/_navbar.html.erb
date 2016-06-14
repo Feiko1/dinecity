@@ -12,19 +12,41 @@
         <i class="fa fa-glass" aria-hidden="true"></i> DineCity
       <% end %>
     </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Home', root_path, class: "nav-color" %></li>
         <li><%= link_to 'About', 'about.html', class: "nav-color" %></li>
-        <!-- <li><a class="nav-color" href="#">Profile</a></li>
-        <li><%= link_to "Log-Out", destroy_user_session_path, class:"nav-color",  method: :delete%> </li> -->
+
+ <% if current_user  %>
+ <li><%= link_to 'Register as Restaurant Owner', new_user_registration_path, class: "nav-color" %> </li>
+      <% end  %>
+
          <li class="dropdown">
-          <button type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-lg dropdown-toggle"><h6>Profile</h6></button></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Sign-In', '/users/sign_in' %></li>
-            <li><a href="#">Sign-Up</a></li>
+          <button type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-lg dropdown-toggle"><%= image_tag "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png", class:"avatar"  %>
+           <% if current_user  %>
+          <h6><%= current_user.email %> </h6></button></a>
+          <!-- TODO: change this to user firstname -->
+              <% else %>
+          <h6>Profile</h6></button></a>
+                <% end  %>
+
+          <ul class="dropdown-menu navbar-collapse" id="bs-example-navbar-collapse-1">
+            <% if current_user  %>
+            <li><%= link_to "Profile" %> </li>
+            <!-- TODO: add profile path link! -->
+            <li><%= link_to "Log-Out", destroy_user_session_path,  method: :delete%> </li>
+            <% else %>
+            <li><%= link_to 'Log-In', new_user_session_path %></li>
+            <li><%= link_to 'Sign-Up', new_user_registration_path %> </li>
+
+            <!-- this is temporary, we'll reroute this elsewhere -->
+            <% end  %>
           </ul>
         </li>
       </ul>
+      </div>
     </div><!-- /.navbar-collapse
   </div><!-- /.container-fluid -->
 </nav>
