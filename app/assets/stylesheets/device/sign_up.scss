@@ -1,0 +1,14 @@
+
+
+.facebook-link {
+  background-color: #3B5998;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+  margin-top: 6px;
+  display: inline-block;
+  &:hover {
+    color: white;
+    background-color: #355089;
+  }
+}
