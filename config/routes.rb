@@ -1,26 +1,10 @@
-  Rails.application.routes.draw do
-    ActiveAdmin.routes(self)
-    get 'homeadmin/dashboard'
+Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
 
+  root to: 'restaurants#index'
 
-    get 'homeadmin/account'
-
-    get 'homeadmin/offer'
-
-    get 'homeadmin/booking'
-
-    get 'homeadmin/analytics'
-
-    get 'homeadmin/support'
-
-    get 'homeadmin/howto'
-
-    get 'homeadmin/billing'
-
-    root to: 'restaurants#index'
-
-    devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } #used for facebook login API
-    # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } #used for facebook login API
+  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
     resources :reviews, only: :create
     # collection do
@@ -29,14 +13,18 @@
     resources :bookings, only: [:new, :create]
       # member do
       #   get 'booking', to: 'restaurants#booking'
-      # end
+     # end
+   end
+
+   namespace :owner do
+    resources :restaurants, only: [:index, :show] do
+      resources :deals, only: :create
     end
 
-    namespace :owner do
-    resources :restaurants do  #we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
-      resources :deals
+      # do we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
+      #resources :deals
       # resources :cms
-    end
+    #end
   end
 end
 
