@@ -5,9 +5,15 @@
     </div>
     <div class="col-md-11">
       <% if review.user %>
-      <strong><%= review.user.first_name %></strong>
+      <strong>
+        <%= review.user.first_name %>
+      </strong>
       <% else %>
-      <strong><span>Anonymous</span></strong>
+      <strong>
+        <span>
+          Anonymous
+        </span>
+      </strong>
       <% end %>
     </span>
     <br>
@@ -15,6 +21,7 @@
       <%= time_ago_in_words(review.created_at) %> ago
     </span>
     <span>
+      <p> <%= review.rating %> </p>
       <p class="review_text"> <%= review.content %> </p>
     </span>
   </div>
