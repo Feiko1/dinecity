@@ -66,11 +66,21 @@ r.save
     user_id: user_id
     )
   restaurant.save
+
+  3.times do
+
+    content = Faker::Lorem.paragraph
+    review = Review.new
+    review.restaurant = restaurant
+    review.user       = User.last(10).sample
+    review.content    = content
+    review.save
+  end
 end
 
 30.times do
   image_string = Faker::Avatar.image
-    restaurant_id = (Restaurant.all.sample).id
+  restaurant_id = (Restaurant.all.sample).id
   photo = Photo.create(image_string: image_string,
     restaurant_id: restaurant_id
     )
