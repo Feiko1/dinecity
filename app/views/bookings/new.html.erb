@@ -1,20 +1,40 @@
 <br>
 <br>
+
+
 <div class="container" style="width: 60%;">
-<h1>New Booking:</h1>
-  <%= simple_form_for [@restaurant, @booking] do |f| %>
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4 padding-form matt-signup-wrapper">
 
-  <%= f.input :visitor_first_name, label: 'your first name', error: 'name is mandatory', placeholder: 'enter first name' %>
-  <%= f.input :visitor_last_name, label: 'your last name', error: 'name is mandatory', placeholder: 'enter last name' %>
-  <%= f.input :visitor_email, placeholder: 'user@domain.com' %>
-  <%= f.input :visitor_phone, placeholder: '+31-.....?' %>
+      <h1>New Booking:</h1>
+      <%= simple_form_for [@restaurant, @booking] do |f| %>
 
-  <%= f.submit "To Booking Confirmation" %>
-  <% end %>
+      <div class="space-around">
+        <div style="flex-grow: 1;">
+          <%= f.input :visitor_first_name, label: 'your first name', error: 'name is mandatory', placeholder: 'enter first name' %>
+        </div>
+        <div style="flex-grow: 1;">
+          <%= f.input :visitor_last_name, label: 'your last name', error: 'name is mandatory', placeholder: 'enter last name' %>
+        </div>
+      </div>
 
-  <% if current_user  %>
-<p>test</p>
-<% end  %>
+      <%= f.input :visitor_email, label: 'Your email (to confirm)', placeholder: 'user@domain.com' %>
+      <%= f.input :visitor_phone, label: 'Your phone number', placeholder: 'tel.' %>
+      <%= f.submit "Send Booking Confirmation Mail" %>
+      <% end %>
+
+<!-- FOR NEXT TIME: pass other variables [time; max number of people] into hidden field -->
+
+<!--    <div class="form-group" id="reservation-button">
+          <%= link_to "Make Reservation",  new_restaurant_booking_path(@restaurant), class:"btn btn-success" %>
+ -->
+
+      <h4>You may need to check your email filters</h4>
+      <% if current_user  %>
+
+      <% end  %>
+    </div>
+  </div>
 </div>
 
 <br>
