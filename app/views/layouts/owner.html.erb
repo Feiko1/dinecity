@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>CMS Dine City</title>
   <%= csrf_meta_tags %>
-
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
  <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
@@ -15,6 +14,9 @@
   <%= render 'owner/layout/navOwner' %>
   <div class="container">
     <%= yield %>
+  </div>
+  <div class="container">
+  <hr>
   </div>
   <%= javascript_include_tag 'application' %>
   <!-- below is the facebook login javascript -->
@@ -36,7 +38,7 @@
     }(document, 'script', 'facebook-jssdk'));
  </script>
 </body>
-<!-- <footer class="footer">
+ <div class="wrapper">
   <%= render 'owner/layout/footerOwner' %>
-</footer> -->
+</div>
 </html>

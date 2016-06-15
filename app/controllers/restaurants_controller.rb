@@ -22,9 +22,6 @@ class RestaurantsController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
     end
-
-
   end
 
 end
-

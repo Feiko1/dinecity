@@ -1,10 +1,3 @@
-<div id="navOwner-layout-padding"></div>
-<div id="headshow">
-  <%= link_to "View Page", restaurants_path(params[:id]), class: "btn btn-warning btn-sm" %>
-  <button class="btn btn-success btn-xs" type="button">
-    <p>Notification <span class="label label-danger">4</span></p>
-  </button>
-</div>
 <div  class="col-md-12">
        <hr/>
        <div class="col-xs-3 col-md-2"> <!-- required for floating -->
@@ -23,8 +16,8 @@
        <div class="col-xs-12 col-md-9">
          <!-- Tab panes -->
          <div class="tab-content">
-           <div class="tab-pane active" id="dashboard-v">Dashboard</div>
-           <div class="tab-pane" id="accounts-v">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div>
+           <div class="tab-pane active" id="dashboard-v"><%= render 'owner/components/dashboard' %></div>
+           <div class="tab-pane" id="accounts-v"><%= render 'owner/components/accounts' %></div>
            <div class="tab-pane" id="offers-v"><%= render 'owner/components/offers' %></div>
            <div class="tab-pane" id="bookings-v"><%= render 'owner/components/bookings' %></div>
            <div class="tab-pane" id="analytics-v">Analytics</div>

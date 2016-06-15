@@ -1,7 +1,11 @@
 <table class="table table-hover">
   <thead>
     <tr class="info">
-      <th>#</th>
+      <th>
+        <label>
+        <input type="checkbox"> #
+        </label>
+        </th>
       <th>Thumbnail</th>
       <th>Title</th>
       <th>Price</th>
@@ -10,6 +14,7 @@
       <th>Start</th>
       <th>End</th>
       <th>Persons</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -22,12 +27,16 @@
       <td>Image</td>
       <td>Cake</td>
       <td>$20</td>
+      <td>5%</td>
       <td>Amsterdam</td>
       <td>Jan 1</td>
       <td>Jan 3</td>
       <td>5</td>
       <td>
-        <span class="label label-danger">Edit</span>
+        <span class="label label-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</span>
+      </td>
+      <td>
+        <span class="label label-danger"><i class="fa fa-eye" aria-hidden="true"></i> View</span>
       </td>
     </tr>
     <tr>
@@ -39,15 +48,23 @@
       <td>Image</td>
       <td>Cake</td>
       <td>$20</td>
+      <td>5%</td>
       <td>Amsterdam</td>
       <td>Jan 1</td>
       <td>Jan 3</td>
       <td>5</td>
       <td>
-        <span class="label label-danger">Edit</span>
+        <span class="label label-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</span>
+      </td>
+      <td>
+        <span class="label label-danger"><i class="fa fa-eye" aria-hidden="true"></i> View</span>
       </td>
     </tr>
   </tbody>
 </table>
-<%= link_to 'Add', '/owner/add', class: "btn btn-success" %>
-<%= link_to 'Delete', '/owner/add', class: "btn btn-warning btn-primary" %>
+<%= link_to 'Add', class: "btn btn-success" do  %>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+<% end %>&nbsp;
+<%= link_to 'Delete', class: "btn btn-warning btn-primary" do %>
+    <i class="fa fa-trash" aria-hidden="true"> </i> Delete
+<% end %>
