@@ -6,29 +6,26 @@
 .restaurant-gallery {
   // background-color: #D1D1D1;
   height: 350px;
+  width: 650px;
 }
 
 .gallery-image {
   height: 350px;
-  width: 450px;
+  width: 650px;
   padding: 15px 0 0 0px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.restaurant-booking-form {
-  background-color: #EAEAEA;
-  height: 300px;
-  margin-left: 6.77%;
-// border: 1px solid red;
-}
+
+
 
 
 
 //  BELOW: PHOTO SLIDER CSS
 #carousel-example-generic {
-  width: 550px;
-  height: 300px;
+  width: 700px;
+  height: 350px;
 }
 
 #carousel-example-generic img {
@@ -41,27 +38,33 @@
 }
 
 .carousel-inner > .item > img {
-  height: 300px;
+  height: 350px;
 }
 
 
 // BELOW: Reservation Form - Phase I
+
+.restaurant-booking-form {
+  background-color: #EAEAEA;
+  height: 350px;
+  margin-left: 9.8%;
+}
+
 #time {
-  // width: 280px;
   padding: 6px 5px 5px 13px;
   font-size: 14px;
   line-height: 1;
   border: 0;
   height: 38px;
   color: #57514a;
-  width: 213px;
+  width: 262.5px;
 }
 
 .reservation-selector {
   font-size: 15px;
   color: #989898;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 9px;
+  margin-bottom: 9px;
   // width: 280px;
   // // padding: 6px 5px 5px 13px;
   // font-size: 15px;
@@ -77,13 +80,16 @@
 
 #reservation-button {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 33.3px;
 }
 
 // BELOW: White space bottom
 #bottom-white-space {
 }
 
+.header-items {
+  margin-bottom: 50px;
+}
 
 // TABS & PANEL
 
@@ -99,7 +105,16 @@
   border-left: 1px solid #DCDCDC;
   border-bottom: 1px solid #DCDCDC;
   border-right: 1px solid #DCDCDC;
-  padding: 10px 10px 10px 10px;
+}
+
+.feiko-content-padding {
+  padding: 30px 30px 30px 30px;
+}
+
+#signature-menu {
+  padding-left: 40px;
+  font-size: 40px;
+  color: #38B999;
 }
 
 #feiko-tab-deal li {
@@ -115,7 +130,27 @@
   list-style-type: none;
 }
 
+#feiko-li-styling {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 18px;
+
+// .review-background {
+//   background-color: #D1D1D1;
+//   font-weight: 300;
+// }
+
+}
+
 .review_text {
-  margin-left: 50px;
+  padding-top: 45px;
   margin-top: -30px;
+}
+
+.review-name-padding {
+  padding-left: 50px;
+}
+
+.review-padding {
+  margin-bottom: 20px;
 }
