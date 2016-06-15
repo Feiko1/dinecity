@@ -50,29 +50,11 @@
 // .left-addon input  { padding-left:  30px; }
 // .right-addon input { padding-right: 30px; }
 
-.inner-addon {
-    position: relative;
-}
-
-/* style icon */
-.inner-addon .i {
-  position: absolute;
-  padding: 10px;
-  pointer-events: none;
-}
-
-/* align icon */
-.left-addon .i  { left:  0px;}
-.right-addon .i { right: 0px;}
-
-/* add padding  */
-.left-addon input  { padding-left:  30px; }
-.right-addon input { padding-right: 30px; }
 
 .errspan {
   float: right;
   top: 35px;
-  right: 95%;
+  right: 1%;
   position: relative;
   z-index: 2;
   color: grey;
