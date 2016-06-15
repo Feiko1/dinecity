@@ -1,14 +1,14 @@
 .tabs-left {
   border-bottom: none;
-  padding-top: 2px;
+  padding-top: 1px;
   color: #424242;
 }
 .tabs-left {
   border-right: 1px solid #ddd;
 }
-.tabs-right {
-  border-left: 1px solid #ddd;
-}
+// .tabs-right {
+//   border-left: 1px solid #ddd;
+// }
 .tabs-left>li, .tabs-right>li {
   float: none;
   margin-bottom: 2px;
@@ -22,9 +22,23 @@
 .tabs-left>li.active>a,
 .tabs-left>li.active>a:hover,
 .tabs-left>li.active>a:focus {
-  border-raidus: 5px;
   border-bottom-color: #1565c0;
   border-right-color: transparent;
-  background-color: #424242;
-  color: white;
+  -webkit-box-shadow: -1px 3px 7px 0px rgba(67, 50, 51, 0.41);
+  -moz-box-shadow:    -1px 3px 7px 0px rgba(67, 50, 51, 0.41);
+  box-shadow:         -1px 3px 7px 0px rgba(67, 50, 51, 0.41);
+}
+.tabs-left>li>a {
+  border-radius: 10px 0px 0px 0px;
+  -moz-border-radius: 10px 0px 0px 0px;
+  -webkit-border-radius: 10px 0px 0px 0px;
+  border: 0px solid #000000;
+  // -webkit-box-shadow: -1px 3px 7px 0px rgba(67, 50, 51, 0.41);
+  // -moz-box-shadow:    -1px 3px 7px 0px rgba(67, 50, 51, 0.41);
+  // box-shadow:         -1px 3px 7px 0px rgba(67, 50, 51, 0.41);
+}
+//head message and view page
+#headshow{
+  float: right;
+  padding-bottom: -3px;
 }

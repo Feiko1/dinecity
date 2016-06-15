@@ -1,16 +1,22 @@
+<div id="navOwner-layout-padding"></div>
+<div id="headshow">
+  <%= link_to "View Page", restaurants_path(params[:id]), class: "btn btn-warning btn-sm" %>
+  <button class="btn btn-success btn-xs" type="button">
+    <p>Notification <span class="label label-danger">4</span></p>
+  </button>
+</div>
 <div  class="col-md-12">
-       <h3>CMS Owner</h3>
        <hr/>
        <div class="col-xs-3 col-md-2"> <!-- required for floating -->
          <!-- Nav tabs -->
          <ul class="nav nav-tabs tabs-left sideways">
-           <li class="active"><a href="#dashboard-v" data-toggle="tab">Dashboard</a></li>
-           <li><a href="#accounts-v" data-toggle="tab">Accounts</a></li>
-           <li><a href="#offers-v" data-toggle="tab">Offers</a></li>
-           <li><a href="#bookings-v" data-toggle="tab">Bookings</a></li>
-           <li><a href="#analytics-v" data-toggle="tab">Analytics</a></li>
-           <li><a href="#billings-v" data-toggle="tab">Billings</a></li>
-           <li><a href="#support-v" data-toggle="tab">Support</a></li>
+           <li class="active"><a href="#dashboard-v" data-toggle="tab"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+           <li><a href="#accounts-v" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i> Accounts</a></li>
+           <li><a href="#offers-v" data-toggle="tab"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a></li>
+           <li><a href="#bookings-v" data-toggle="tab"><i class="fa fa-book" aria-hidden="true"></i> Bookings</a></li>
+           <li><a href="#analytics-v" data-toggle="tab"><i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a></li>
+           <li><a href="#billings-v" data-toggle="tab"><i class="fa fa-money" aria-hidden="true"></i> Billings</a></li>
+           <li><a href="#support-v" data-toggle="tab"><i class="fa fa-phone-square" aria-hidden="true"></i> Support</a></li>
          </ul>
        </div>
 
@@ -19,11 +25,11 @@
          <div class="tab-content">
            <div class="tab-pane active" id="dashboard-v">Dashboard</div>
            <div class="tab-pane" id="accounts-v">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div>
-           <div class="tab-pane" id="offers-v">Offers</div>
-           <div class="tab-pane" id="bookings-v">Bookings</div>
+           <div class="tab-pane" id="offers-v"><%= render 'owner/components/offers' %></div>
+           <div class="tab-pane" id="bookings-v"><%= render 'owner/components/bookings' %></div>
            <div class="tab-pane" id="analytics-v">Analytics</div>
-           <div class="tab-pane" id="billings-v">Billings</div>
-           <div class="tab-pane" id="support-v">Support</div>
+           <div class="tab-pane" id="billings-v"><%= render 'owner/components/billings' %></div>
+           <div class="tab-pane" id="support-v"><%= render 'owner/components/support' %></div>
          </div>
        </div>
        <div class="clearfix"></div>

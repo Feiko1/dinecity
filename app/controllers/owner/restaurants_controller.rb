@@ -14,6 +14,6 @@ module Owner
     #     flash[:alert] = "You are not owner of any restaurant"
     #     redirect_to root_path
     #   end
-    #end
+    # end
   end
 end
