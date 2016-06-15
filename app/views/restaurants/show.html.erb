@@ -1,6 +1,7 @@
 <!-- #put a link which directs to booking#new (From matts brabnch) -->
 <br>
 <br>
+<div class="padded">
 <h2 id="restaurant-name"><%= @restaurant.name %></h2>
 <hr>
 <h4><% link_to "Make a reservation", new_restaurant_booking_path(@restaurant) %></h4>
@@ -202,9 +203,10 @@
 
 
     </div>
+      <%= render 'restaurants/map' %>
   </div>
 
-      <%= render 'restaurants/map' %>
+
 
   <div id="bottom-white-space">
 

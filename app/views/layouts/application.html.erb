@@ -20,7 +20,9 @@
   <%= render 'layouts/flashes' %>
 
   <%= yield %>
+  <%= render 'layouts/footer' %>
  <%= javascript_include_tag 'application' %>
+<%= yield(:after_js) %>
  <!-- below is the facebook login javascript -->
 <script>
   window.fbAsyncInit = function() {
@@ -41,7 +43,5 @@
 </script>
 
 </body>
-<footer>
-<%= render 'layouts/footer' %>
-</footer>
+
 </html>
