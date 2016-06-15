@@ -26,6 +26,9 @@
 
 //Owner CMS Layouts
 @import "owner/navOwner";
+@import 'owner/footerOwner';
 @import "owner/showOwner";
+@import "owner/dashboard";
+@import "owner/accounts";
 
 @import "device/sign_up"
