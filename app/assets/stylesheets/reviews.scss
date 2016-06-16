@@ -1,3 +1,23 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.simple_form {
+  display: block;
+  margin-top: 0em;
+  margin-bottom: 10px;
+  padding-bottom: 30px;
+}
+
+.rating-container .filled-stars {
+  color: #5CB85C;
+}
+
+// .rating-container .empty-stars {
+//   color: red;
+// }
+
+.glyphicon-star-empty:before {
+  content: "\e006";
+  color: #E6E6E6;
+}

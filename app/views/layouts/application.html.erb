@@ -21,8 +21,9 @@
 
   <%= yield %>
   <%= render 'layouts/footer' %>
- <%= javascript_include_tag 'application' %>
-<%= yield(:after_js) %>
+  <%= javascript_include_tag 'application' %>
+  <%= yield(:after_js) %>
+
  <!-- below is the facebook login javascript -->
 <script>
   window.fbAsyncInit = function() {

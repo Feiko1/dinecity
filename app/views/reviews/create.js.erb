@@ -1,8 +1,23 @@
+
 // app/views/reviews/create.js.erb
 // Here you will write *javascript* that would be executed by the browser
 <% if @review.errors.any? %>
   // Render new review form with errors
   $('#new_review').html("<%= j render 'reviews/form', restaurant: @restaurant, review: @review %>");
+  $('#new_review .rating').rating({
+    starCaptions: {
+      0.5: 'Bad experience',
+      1: 'Would recommend to mother-in-law',
+      1.5: 'Should improve',
+      2: 'Nice food',
+      2.5: 'Nice food & decor',
+      3: 'Recommended',
+      3.5: 'Recommended & come again',
+      4: 'Yummmmmmy',
+      4.5: 'Worth the detour',
+      5: 'Food for the gods'
+    }
+  });
 <% else %>
   // Create a paragraph for the new review. But hide it.
   var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();
@@ -13,6 +28,5 @@
   // Remove the text from the content textarea.
   $('#review_content').val('');
 <% end %>
-
 
 //this is where i left off

@@ -72,28 +72,31 @@
             <div class="col-md-3"></div>
           </form>
         </div>
-        <script type="text/javascript">
-        //JavaScript for Newsletter subscription
-          $(document).ready(function() {
-          $(".btnsignup").on("click",function(){
-          var email = $("#address").val();
-          if(validateEmail(email)){
-          $.post("http",$("#invite").serialize(),function(resp){
-          // console.log(resp);
-          $("#result").html("<div class='alert alert-success'>"+resp+"</div>").fadeIn("slow");
-          });
-          }else{
-          $("#result").html("");
-          $("#result").html("<div class='alert alert-danger'>Email Address is Invalid</div>").fadeIn("slow");
-          }
-          setTimeout(function(){  $("#result").html("");  }, 15000);
-          });
-          });
-          function validateEmail(email) {
-          var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-          return re.test(email);
-          }
-        </script>
+
+        <%= content_for :after_js do %>
+          <script type="text/javascript">
+          //JavaScript for Newsletter subscription
+            $(document).ready(function() {
+            $(".btnsignup").on("click",function(){
+            var email = $("#address").val();
+            if(validateEmail(email)){
+            $.post("http",$("#invite").serialize(),function(resp){
+            // console.log(resp);
+            $("#result").html("<div class='alert alert-success'>"+resp+"</div>").fadeIn("slow");
+            });
+            }else{
+            $("#result").html("");
+            $("#result").html("<div class='alert alert-danger'>Email Address is Invalid</div>").fadeIn("slow");
+            }
+            setTimeout(function(){  $("#result").html("");  }, 15000);
+            });
+            });
+            function validateEmail(email) {
+            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            return re.test(email);
+            }
+          </script>
+        <% end %>
       </div>
     </div>
   </div>

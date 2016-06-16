@@ -26,8 +26,10 @@ gem 'omniauth-facebook'
 
 gem "coffee-rails"
 gem "gmaps4rails"
+
 source 'https://rails-assets.org' do  # Add this at line 2
   gem "rails-assets-underscore"
+  gem "rails-assets-bootstrap-star-rating"
 end
 
 group :development, :test do
