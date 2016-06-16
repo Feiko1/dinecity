@@ -7,6 +7,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "bootstrap-star-rating";
 
 // Your CSS
 @import "layout/index";
@@ -22,4 +23,5 @@
 @import "layout/flashes";
 
 // Device
-@import "device/sign_in"
+@import "device/sign_in";
+@import "reviews";

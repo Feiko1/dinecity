@@ -181,29 +181,32 @@
               <h4>
                 Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>
               </h4>
-              <hr>
+               <hr>
 
+              <!-- This form = actual input for rating & review -->
+              <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+                <hr>
 
+              <!-- The list of reviews  -->
               <div id="reviews">
-
                 <% if @restaurant.reviews.blank? %>
-                Be the first to leave a review for <%= @restaurant.name %>
+                 Be the first to leave a review for <%= @restaurant.name %>
                 <% else %>
-                <% @restaurant.reviews.each do |review| %>
-                <%= render 'reviews/show', review: review %>
+                  <% @restaurant.reviews.each do |review| %>
+                  <%= render 'reviews/show', review: review %>
+                  <% end %>
                 <% end %>
               </div>
-              <% end %>
-              <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+
             </div>
-
           </div>
-        </div>
-        <br><br><br>
-        <br>
-        <br>
 
+        </div>
       </div>
+      <br><br><br>
+      <br>
+      <br>
+
     </div>
   </div>
 
