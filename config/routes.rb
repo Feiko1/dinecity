@@ -17,7 +17,7 @@ Rails.application.routes.draw do
    end
 
    namespace :owner do
-    resources :restaurants, only: [:index, :show] do
+    resources :restaurants, only: [:index, :show, :edit] do
       resources :deals, only: :create
     end
 
