@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     # collection do
     #   get 'top', to: 'restaurants#top'
     #   get 'booking', to: 'restaurants#booking' ## CHECK
-    resources :bookings, only: [:new, :create]
-      # member do
+    resources :bookings, only: [:new, :create] do
+        member do
+          get :confirm
+        end
+      end
       #   get 'booking', to: 'restaurants#booking'
      # end
    end

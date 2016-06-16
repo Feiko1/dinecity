@@ -1,22 +1,34 @@
 class BookingsController < ApplicationController
   before_action :find_restaurant, only: [:new, :create]
-
+  before_action :find_booking, only: [:confirm]
   def new
 
     @booking = Booking.new
-    check_user
+    @number_of_people = params["number-of-people"]
+    @datetime= "#{params['booking-date']} #{params[:time]}"
+    check_user  ##this interpolates
+
   end
 
   def create
     @booking = Booking.create(booking_params)
+    @booking.number_of_people = @booking.number_of_people.to_i
     @booking.deal = @deal
     @booking.user = current_user
 
+    @booking.date = @booking.date.to_datetime
+
+
     if @booking.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to confirm_restaurant_booking_path(@restaurant, @booking)
     else
       render :new
     end
+
+  end
+
+  def confirm
+    @restaurant = find_restaurant
   end
 
   private
@@ -25,7 +37,7 @@ class BookingsController < ApplicationController
   end
 
   def find_booking
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:id])
   end
 
   def find_restaurant
