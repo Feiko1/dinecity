@@ -19,16 +19,32 @@
              <!-- Nav tabs -->
              <ul class="nav nav-tabs tabs-left sideways">
                <li>
-                 <a href="#dashboard-v"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
+                 <%= link_to owner_dashboards_path do %>
+                   <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+                 <% end %>
+               </li>
+               <li class="<%= owner_tab_css_class("account") %>">
+                 <%= link_to edit_owner_account_path do %>
+                   <i class="fa fa-user" aria-hidden="true"></i> Account
+                 <% end %>
+                 <!-- <a href="#accounts-v"><i class="fa fa-user" aria-hidden="true"></i> Accounts</a> -->
                </li>
                <li class="<%= owner_tab_css_class("restaurants") %>">
-                 <%= link_to owner_restaurants_path do %>
-                   <i class="fa fa-user" aria-hidden="true"></i> Accounts
+                 <% if current_user.restaurants.count == 1 %>
+                   <%= link_to edit_owner_restaurant_path(current_user.restaurants.first) do %>
+                     <i class="fa fa-cutlery" aria-hidden="true"></i> Restaurant
+                   <% end %>
+                 <% else %>
+                   <%= link_to owner_restaurants_path do %>
+                     <i class="fa fa-cutlery" aria-hidden="true"></i> Restaurants
+                   <% end %>
                  <% end %>
                  <!-- <a href="#accounts-v"><i class="fa fa-user" aria-hidden="true"></i> Accounts</a> -->
                </li>
                <li>
-                 <a href="#offers-v"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a>
+                 <%= link_to  owner_offers_path do %>
+                   <i class="fa fa-briefcase" aria-hidden="true"></i> Offers
+                 <% end %>
                </li>
                <li class="<%= owner_tab_css_class("bookings") %>">
                  <%= link_to owner_bookings_path do %>
@@ -39,8 +55,10 @@
                <li>
                  <a href="#analytics-v"><i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a>
                </li>
-               <li>
-                 <a href="#billings-v"><i class="fa fa-money" aria-hidden="true"></i> Billings</a>
+               <li class="<%= owner_tab_css_class("Billings") %>">
+                 <%= link_to owner_billings_path do %>
+                   <i class="fa fa-money" aria-hidden="true"></i> Billings
+                 <% end %>
                </li>
                <li>
                  <a href="#support-v"><i class="fa fa-phone-square" aria-hidden="true"></i> Support</a>
