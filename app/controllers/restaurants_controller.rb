@@ -25,4 +25,16 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def create ##check this code it came from LW
+    @restaurant = current_user.restaurants.build(restaurant_params)
+
+    if @restaurant.save
+      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
+  end
+
+
 end

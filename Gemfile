@@ -33,6 +33,8 @@ source 'https://rails-assets.org' do  # Add this at line 2
   gem "rails-assets-bootstrap-star-rating"
 end
 
+gem "letter_opener", group: :development
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
