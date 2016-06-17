@@ -13,7 +13,52 @@
 </head>
   <%= render 'owner/layout/navOwner' %>
   <div class="container">
-    <%= yield %>
+    <div  class="col-md-12">
+           <hr/>
+           <div class="col-xs-3 col-md-2"> <!-- required for floating -->
+             <!-- Nav tabs -->
+             <ul class="nav nav-tabs tabs-left sideways">
+               <li>
+                 <a href="#dashboard-v"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
+               </li>
+               <li class="<%= owner_tab_css_class("restaurants") %>">
+                 <%= link_to owner_restaurants_path do %>
+                   <i class="fa fa-user" aria-hidden="true"></i> Accounts
+                 <% end %>
+                 <!-- <a href="#accounts-v"><i class="fa fa-user" aria-hidden="true"></i> Accounts</a> -->
+               </li>
+               <li>
+                 <a href="#offers-v"><i class="fa fa-briefcase" aria-hidden="true"></i> Offers</a>
+               </li>
+               <li class="<%= owner_tab_css_class("bookings") %>">
+                 <%= link_to owner_bookings_path do %>
+                   <i class="fa fa-book" aria-hidden="true"></i> Bookings
+                 <% end %>
+                 <!-- <a href="#bookings-v"><i class="fa fa-book" aria-hidden="true"></i> Bookings</a> -->
+               </li>
+               <li>
+                 <a href="#analytics-v"><i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a>
+               </li>
+               <li>
+                 <a href="#billings-v"><i class="fa fa-money" aria-hidden="true"></i> Billings</a>
+               </li>
+               <li>
+                 <a href="#support-v"><i class="fa fa-phone-square" aria-hidden="true"></i> Support</a>
+               </li>
+             </ul>
+           </div>
+
+           <div class="col-xs-12 col-md-9">
+             <!-- Tab panes -->
+             <div class="tab-content">
+               <div class="tab-pane active" id="accounts-v">
+                 <%= yield %>
+               </div>
+             </div>
+           </div>
+           <div class="clearfix"></div>
+    </div>
+
   </div>
   <div class="container">
   <hr>
