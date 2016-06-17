@@ -2,180 +2,193 @@
 <br>
 <br>
 <div class="padded">
-<h2 id="restaurant-name"><%= @restaurant.name %></h2>
-<hr>
-<h4><% link_to "Make a reservation", new_restaurant_booking_path(@restaurant) %></h4>
+  <h2 id="restaurant-name"><%= @restaurant.name %></h2>
+  <hr>
+  <h4><% link_to "Make a reservation", new_restaurant_booking_path(@restaurant) %></h4>
 
-<div class="container">
-  <div class="header-items">
-    <div class="row">
+  <div class="container">
+    <div class="header-items">
+      <div class="row">
 
-      <div class="col-md-7 restaurant-gallery">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-          <!-- CAROUSEL Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class=".active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-          </ol>
+        <div class="col-md-7 restaurant-gallery">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- CAROUSEL Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class=".active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
 
-          <!-- CAROUSEL Wrapper for slides -->
-          <%# @trestaurants.each do |restaurant| %>
+            <!-- CAROUSEL Wrapper for slides -->
+            <%# @trestaurants.each do |restaurant| %>
 
-          <%# restaurant.photos.each do |photo| %>
+            <%# restaurant.photos.each do |photo| %>
 
-          <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <%#= image_tag photo.image_string %>
-              <%= image_tag("bocinq1.jpg") %>
-              <div class="carousel-caption">
-                <%#= link_to restaurant.name, "#"  %>
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <%#= image_tag photo.image_string %>
+                <%= image_tag("bocinq1.jpg") %>
+                <div class="carousel-caption">
+                  <%#= link_to restaurant.name, "#"  %>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("background.jpg") %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("bocinqbar.jpg") %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("beef.jpg") %>
               </div>
             </div>
-            <div class="item">
-              <%= image_tag("background.jpg") %>
-              <div class="carousel-caption">
-              </div>
-            </div>
-            <div class="item">
-              <%= image_tag("bocinqbar.jpg") %>
-              <div class="carousel-caption">
-              </div>
-            </div>
-            <div class="item">
-              <%= image_tag("beef.jpg") %>
-            </div>
+            <%# end %>
+            <%# end %>
+
+            <!-- CAROUSEL Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <%# end %>
-          <%# end %>
-
-          <!-- CAROUSEL Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
-      </div>
 
 
 
-      <!-- RESERVATION FORM - part one -->
+        <!-- RESERVATION FORM - part one -->
 
 
-    <div class="col-md-3 col-md-offset-1 restaurant-booking-form">
+        <div class="col-md-3 col-md-offset-1 restaurant-booking-form">
 
-      <%= form_tag(new_restaurant_booking_path(@restaurant), method: "get") do |form| %>
-        <div class="form-group">
-          <h5 style="text-align: center;">Reservation</h5>
-          <label for="Dateselector"></label>
-          <input type="date" class="form-control reservation-selector" name="booking-date" placeholder="Date.today">
-        </div>
-        <div class="form-group reservation-selector fix-positioning">
-          <label for="numberofpeople"></label>
-          <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
-          <input type="number" class="form-control reservation-selector" name="number-of-people" placeholder="Number of people" min="2" max="20" style="margin-top: 3px;">
-        </div>
-        <div class="form-group">
-          <select name="time" id="time">
-            <option value="11:30 AM">11:30</option>
-            <option value="11:00 PM">11:00</option>
-            <option value="12:30 PM">12:30</option>
-            <option value="12:00 PM">12:00</option>
-            <option value="13:30 PM">13:30</option>
-            <option value="13:00 PM">13:00</option>
-            <option value="14:30 PM">14:30</option>
-            <option value="14:00 PM">14:00</option>
-            <option value="15:00 PM">15:00</option>
-            <option value="15:30 PM">15:30</option>
-            <option value="16:00 PM">16:00</option>
-            <option value="16:30 PM">16:30</option>
-            <option value="17:00 PM">17:00</option>
-            <option value="17:30 PM">17:30</option>
-            <option value="18:00 PM">18:00</option>
-            <option value="18:30 PM">18:30</option>
-            <option value="19:00 PM" selected>19:00</option>
-            <option value="19:30 PM">19:30</option>
-            <option value="20:00 PM">20:00</option>
-            <option value="20:30 PM">20:30</option>
+          <%= form_tag(new_restaurant_booking_path(@restaurant), method: "get") do |form| %>
+          <div class="form-group">
+            <h5 style="text-align: center;">Reservation</h5>
+            <label for="Dateselector"></label>
+            <input type="date" class="form-control reservation-selector" name="booking-date" placeholder="Date.today">
+          </div>
+          <div class="form-group reservation-selector fix-positioning">
+            <label for="numberofpeople"></label>
+            <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
+            <input type="number" class="form-control reservation-selector" name="number-of-people" placeholder="Number of people" min="2" max="20" style="margin-top: 3px;">
+          </div>
+          <div class="form-group">
+            <select name="time" id="time">
+              <option value="11:30 AM">11:30</option>
+              <option value="11:00 PM">11:00</option>
+              <option value="12:30 PM">12:30</option>
+              <option value="12:00 PM">12:00</option>
+              <option value="13:30 PM">13:30</option>
+              <option value="13:00 PM">13:00</option>
+              <option value="14:30 PM">14:30</option>
+              <option value="14:00 PM">14:00</option>
+              <option value="15:00 PM">15:00</option>
+              <option value="15:30 PM">15:30</option>
+              <option value="16:00 PM">16:00</option>
+              <option value="16:30 PM">16:30</option>
+              <option value="17:00 PM">17:00</option>
+              <option value="17:30 PM">17:30</option>
+              <option value="18:00 PM">18:00</option>
+              <option value="18:30 PM">18:30</option>
+              <option value="19:00 PM" selected>19:00</option>
+              <option value="19:30 PM">19:30</option>
+              <option value="20:00 PM">20:00</option>
+              <option value="20:30 PM">20:30</option>
             </div>
           </select>
 
-        <div class="form-group" id="reservation-button">
-          <%= submit_tag("Make Reservation", class:"btn btn-success")%>
-        </div>
-<% end  %>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-11">
-    <div>
-
-      <!-- NAV TABS, remove or add new -->
-      <ul class="nav nav-tabs feiko-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#deal" aria-controls="home" role="tab" data-toggle="tab">Deal</a></li>
-        <li role="presentation"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
-        <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a></li>
-        <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
-      </ul>
-
-      <!-- TABS PANES, actual content - TO DO: INTERLINK WITH ERB TO CMS -->
-      <div class="tab-content feiko-tab-content">
-        <div role="tabpanel" class="tab-pane active feiko-content-padding" id="deal">
-          <p id="signature-menu">Signature Menu</p>
-          <ul id="feiko-tab-deal">
-            <li><strong>Starter:</strong> Mousse of ham from the Ardennes "Pierre Wynants" </li>
-            <li><strong>Soup:</strong> Portobello mushroom soup </li>
-            <li><strong>Main dish:</strong> Rack of veal and sweetbreads with morels and asparagus from Mechelen </li>
-            <li><strong>Desert:</strong> Vanilla ice-cream with hot chocolate sauce </li>
-          </ul>
-        </div>
-        <div role="tabpanel" class="tab-pane feiko-content-padding" id="details">
-          <br>
-          <p>As we believe that food tastes best when it is prepared with the freshest, local ingredients, we grow our own herbs and vegetables in the greenhouses and gardens at the restaurant and on our farmland in the Beemster area.</p>
-          <br>
-          <p>We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.</p>
-          <br>
-          <p>We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
-            On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.</p>
-            <br>
-            <p>On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.</p>
+          <div class="form-group" id="reservation-button">
+            <%= submit_tag("Make Reservation", class:"btn btn-success")%>
           </div>
+          <% end  %>
+        </div>
+      </div>
+    </div>
 
-          <div role="tabpanel" class="tab-pane feiko-content-padding" id="contact">
-            <br>
-            <p> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.</p>
-            <ul>
-              <li> <%= @restaurant.name %>
-                <!-- Comme chez Soi  -->
-              </li>
-              <li> <%= @restaurant.street_name %> <%= @restaurant.street_number %> • <%= @restaurant.postal_code %> <%= @restaurant.city_name %> <%= @restaurant.country_name %> </li>
-              <li>Tel.: <%= @restaurant.phone_number %>
-                <!-- +32(0)2 512 29 21  -->
-              </li>
-              <li>Email: <%= @restaurant.email_address %>
-                <!-- info@commechezsoi.be -->
-              </li>
-              <li>Opening times :
-                12:00-13:30 & 19:00-21:00</li>
+    <div class="row row-spacing">
+      <div class="col-md-11">
+        <div>
+
+          <!-- NAV TABS, remove or add new -->
+          <ul class="nav nav-tabs feiko-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#deal" aria-controls="home" role="tab" data-toggle="tab">Deal</a></li>
+            <li role="presentation"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a></li>
+            <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a></li>
+            <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
+          </ul>
+
+          <!-- TABS PANES, actual content - TO DO: INTERLINK WITH ERB TO CMS -->
+          <div class="tab-content feiko-tab-content">
+            <div role="tabpanel" class="tab-pane active feiko-content-padding" id="deal">
+              <p id="menu-title">
+                Signature Menu
+              </p>
+              <ul id="feiko-tab-deal">
+                <li><strong>Starter</strong> <p> Mousse of ham from the Ardennes "Pierre Wynants" </p></li>
+                <li><strong>Soup</strong> <p>Portobello mushroom soup</p> </li>
+                <li><strong>Main course</strong> <p>Rack of veal and sweetbreads with morels and asparagus from Mechelen</p> </li>
+                <li><strong>Desert</strong> <p>Vanilla ice-cream with hot chocolate sauce</p> </li>
+              </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane feiko-content-padding" id="details">
+              <br>
+              <p>
+                As we believe that food tastes best when it is prepared with the freshest, local ingredients, we grow our own herbs and vegetables in the greenhouses and gardens at the restaurant and on our farmland in the Beemster area.
+              </p>
+              <br>
+              <p>
+                We daily create one fixed menu, based on the harvest of our nursery, supplemented with the best additional ingredients from local suppliers.
+              </p>
+              <br>
+              <p>
+                We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+                On fine summer days, lunches and pre-dinner drinks are served outside on the patio in the herb garden.
+              </p>
+              <br>
+              <p>
+                On-line reservations can be made on our website. De Kas observes a non-smoking policy, and pets are not allowed in the restaurant.
+              </p>
+            </div>
+
+            <div role="tabpanel" class="tab-pane feiko-content-padding" id="contact">
+              <ul>
+                <strong><h3> Restaurant <%= @restaurant.name %></h3></strong>
+                <li>
+                  <strong>Address:</strong> <%= @restaurant.street_name %> <%= @restaurant.street_number %> • <%= @restaurant.postal_code %> <%= @restaurant.city_name %> <%= @restaurant.country_name %>
+                </li>
+                <li>
+                  <strong>Tel.:</strong> <%= @restaurant.phone_number %>
+                </li>
+                <li>
+                  <strong>Email:</strong> <%= @restaurant.email_address %>
+                </li>
+                <li>
+                  <strong>Opening times:</strong>
+                  12:00-13:30 & 19:00-21:00
+                </li>
                 <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
 
-                <li>Opening days :
+                <li>
+                  <strong>Opening days:</strong>
                   Tuesday and Wednesday dinner;
                   Thursday, Friday and Saturday lunch & dinner
                 </li>
-              </ul>
 
-              <br>
-              <ul>
-                <!-- <%= render 'restaurants/map' %> -->
+                <li>
+                <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+                </p>
+                </li>
+
               </ul>
+              <br>
 
             </div>
 
@@ -183,20 +196,20 @@
               <h4>
                 Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>
               </h4>
-               <hr>
+              <hr>
 
               <!-- This form = actual input for rating & review -->
               <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
-                <hr>
+              <hr>
 
               <!-- The list of reviews  -->
               <div id="reviews">
                 <% if @restaurant.reviews.blank? %>
-                 Be the first to leave a review for <%= @restaurant.name %>
+                Be the first to leave a review for <%= @restaurant.name %>
                 <% else %>
-                  <% @restaurant.reviews.each do |review| %>
-                  <%= render 'reviews/show', review: review %>
-                  <% end %>
+                <% @restaurant.reviews.each do |review| %>
+                <%= render 'reviews/show', review: review %>
+                <% end %>
                 <% end %>
               </div>
 
@@ -210,7 +223,7 @@
       <br>
 
     </div>
-      <%= render 'restaurants/map' %>
+    <%= render 'restaurants/map' %>
   </div>
 
 

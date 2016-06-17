@@ -1,25 +1,17 @@
-
+// Spacing, layout, padding & margin
 #restaurant-name {
   margin-left: 105px;
 }
 
 .restaurant-gallery {
-  // background-color: #D1D1D1;
   height: 350px;
   width: 650px;
 }
 
-.gallery-image {
-  height: 350px;
-  width: 650px;
-  padding: 15px 0 0 0px;
-  margin-left: auto;
-  margin-right: auto;
+.row-spacing {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
-
-
-
-
 
 
 //  BELOW: PHOTO SLIDER CSS
@@ -111,16 +103,19 @@
   padding: 30px 30px 30px 30px;
 }
 
-#signature-menu {
-  padding-left: 40px;
+#menu-title {
   font-size: 40px;
   color: #38B999;
+  text-align: center;
 }
 
 #feiko-tab-deal li {
   list-style-type: none;
   line-height: 2;
+  text-align: center;
 }
+
+// REVIEWS CSS BELOW
 
 #reviews ul {
 }
