@@ -21,7 +21,20 @@ class RestaurantsController < ApplicationController
     @markers = Gmaps4rails.build_markers([@restaurant]) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
+      marker.infowindow render_to_string(:partial => "/restaurants/map_box", locals: {restaurant: restaurant})
     end
   end
+
+  def create ##check this code it came from LW
+    @restaurant = current_user.restaurants.build(restaurant_params)
+
+    if @restaurant.save
+      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
+  end
+
 
 end
