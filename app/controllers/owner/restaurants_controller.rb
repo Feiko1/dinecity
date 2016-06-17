@@ -28,15 +28,15 @@ module Owner
 
     def restaurant_params
       params.require(:restaurant).permit(
-        :name,
-        :email_address,
-        :phone_number,
-        :street_number,
-        :street_name,
-        :city_name,
-        :country_name,
-        :postal_code
-        )
+          :name,
+          :email_address,
+          :phone_number,
+          :street_number,
+          :street_name,
+          :city_name,
+          :country_name,
+          :postal_code
+          )
     end
   end
 end

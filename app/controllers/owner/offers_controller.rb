@@ -1,5 +1,5 @@
 module Owner
-  class BookingsController < Owner::BaseController
+  class OffersController < Owner::BaseController
     def index
     end
 

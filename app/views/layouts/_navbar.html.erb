@@ -34,10 +34,18 @@
                 <% end  %>
 
           <ul class="dropdown-menu navbar-collapse" id="bs-example-navbar-collapse-1">
-            <% if current_user  %>
+
+            <% if current_user.kind == "owner"  %>
+            <li><%= link_to "Profile" %> </li>
+            <!-- TODO: add profile path link! -->
+            <li><%= link_to 'Your CMS', owner_restaurants_path %> </li>
+            <li><%= link_to "Log-Out", destroy_user_session_path,  method: :delete%> </li>
+            <% elsif current_user  %>
+
             <li><%= link_to "Profile" %> </li>
             <!-- TODO: add profile path link! -->
             <li><%= link_to "Log-Out", destroy_user_session_path,  method: :delete%> </li>
+
             <% else %>
             <li><%= link_to 'Log-In', new_user_session_path %></li>
             <li><%= link_to 'Sign-Up', new_user_registration_path %> </li>
