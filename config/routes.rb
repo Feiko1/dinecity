@@ -20,9 +20,11 @@ Rails.application.routes.draw do
    end
 
    namespace :owner do
-    resources :restaurants, only: [:index, :show] do
+    resources :restaurants, only: [:index, :show, :edit, :update] do
       resources :deals, only: :create
     end
+
+    resources :bookings, only: [:index]
 
       # do we'll solve the 'delete and edit' links in the controller. if current.user == restaurant.user, delete //
       #resources :deals
