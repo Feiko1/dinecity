@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-11">
     <% if review.user %>
-    <strong>
+    <strong style="font-size: 18px;">
       <%= review.user.first_name %>
     </strong>
     <% else %>
@@ -16,11 +16,11 @@
     <% end %>
     <br>
     <span style="color: #A8A8A8; font-style: italic;">
-    <%= time_ago_in_words(review.created_at) %> ago
-   </span>
-   <span>
-    <p> <%= review.rating %> </p>
+      <%= time_ago_in_words(review.created_at) %> ago
+    </span>
+    <span>
+    <%= text_field_tag "rating_#{review.id}", review.rating, class: "rating-loading rating-static", :'data-size' => "sm" %>
+    </span>
     <p class="review_text"> <%= review.content %> </p>
-  </span>
-</div>
+  </div>
 </div>

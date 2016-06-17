@@ -12,3 +12,7 @@ $(".rating").rating({
     5: 'Food for the gods'
   }
 });
+
+$(document).on('ready', function(){
+  $('.rating-static').rating({ displayOnly: true, step: 0.5 });
+});

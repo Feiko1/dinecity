@@ -1,10 +1,15 @@
 
 <%= simple_form_for([ restaurant, review ], remote: true) do |form| %>
   <%= form.input :content %>
-  <%= form.input :rating, input_html: { class: 'rating kv-ltr-theme-default-star
-    rating-loading', id:"input-3-ltr-star-md",
-    name:"input-3-ltr-star-md", value:"3", dir:"ltr", :'data-size' => "xs",
-    :'data-min' => "0", :'data-max' => "5", :'data-step' => "0.5" } %>
+  <%= form.input :rating, input_html: {
+      class: 'rating kv-ltr-theme-default-star rating-loading',
+      value: "3",
+      dir: "ltr",
+      :'data-size' => "xs",
+      :'data-min' => "0",
+      :'data-max' => "5",
+      :'data-step' => "0.5"
+    } %>
   <%= form.button :submit, class:'btn-success' %>
 <% end %>
 
