@@ -1,6 +1,19 @@
 class BookingsController < ApplicationController
   before_action :find_restaurant, only: [:new, :create]
   before_action :find_booking, only: [:confirm]
+
+  def index
+    @bookings = Booking.all
+
+    #Search form for index pages
+    if params[:search]
+      @bookings = Booking.search(params[:search]).order("created_at DESC")
+    else
+      @bookings = Booking.all.order('created_at DESC')
+    end
+
+  end
+
   def new
 
     @booking = Booking.new
@@ -11,13 +24,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.number_of_people = @booking.number_of_people.to_i
-    @booking.deal = @deal
     @booking.user = current_user
-
     @booking.date = @booking.date.to_datetime
-
 
     if @booking.save
       redirect_to confirm_restaurant_booking_path(@restaurant, @booking)
@@ -35,7 +45,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:date, :number_of_people, :status, :deal_id, :user_id, :visitor_first_name, :visitor_last_name, :visitor_email, :visitor_phone)
+    params.require(:booking).permit(:date, :number_of_people, :status, :deal_id, :visitor_first_name, :visitor_last_name, :visitor_email, :visitor_phone)
   end
 
   def find_booking

@@ -33,15 +33,15 @@ Review.destroy_all
 end
 
 r = Restaurant.create(name: "Ambrosia", #added one specific restaurant with semantically useful information
-    phone_number: 065,
-    street_name: "Lange Voorhout",
-    street_number: 20,
-    city_name: "Den Haag",
-    country_name: "The Netherlands",
-    postal_code: "2514 EE",
-    email_address: "info@ambrosia.nl",
-    user_id: (User.all.sample).id
-    )
+  phone_number: 065,
+  street_name: "Lange Voorhout",
+  street_number: 20,
+  city_name: "Den Haag",
+  country_name: "The Netherlands",
+  postal_code: "2514 EE",
+  email_address: "info@ambrosia.nl",
+  user_id: (User.all.sample).id
+  )
 r.save
 
 30.times do
@@ -76,19 +76,7 @@ r.save
     review.content    = content
     review.save
   end
-end
 
-30.times do
-  image_string = Faker::Avatar.image
-  restaurant_id = (Restaurant.all.sample).id
-  photo = Photo.create(image_string: image_string,
-    restaurant_id: restaurant_id
-    )
-  photo.save
-end
-
-
-30.times do
   name = Faker::Company.buzzword
   description = Faker::Lorem.words(4)
   start_date = Faker::Date.backward(14)
@@ -119,9 +107,21 @@ end
     thursday: thursday,
     friday: friday,
     saturday: saturday,
-    sunday: sunday)
+    sunday: sunday,
+    restaurant: restaurant)
   deal.save
+
 end
+
+30.times do
+  image_string = Faker::Avatar.image
+  restaurant_id = (Restaurant.all.sample).id
+  photo = Photo.create(image_string: image_string,
+    restaurant_id: restaurant_id
+    )
+  photo.save
+end
+
 
 
 30.times do
@@ -131,7 +131,7 @@ end
   deal_id = (Deal.all.sample).id
   date = Faker::Time.between(DateTime.now, DateTime.now + 21)
   number_of_people = rand(1..6)
-  status = Faker::Boolean.boolean #shouldn't status be a string variable? As we cannot 'destroy' it, only cancel it
+  status = "booking_requested_by_user" #shouldn't status be a string variable? As we cannot 'destroy' it, only cancel it
   visitor_first_name = user_instance.first_name
   visitor_last_name = user_instance.last_name
   visitor_email = user_instance.email
