@@ -1,5 +1,9 @@
 <h1>BookingMailer#user_booking_confirmation</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/booking_mailer/user_booking_confirmation.html.erb
-</p>
+
+Dear <%= @user.first_name %> <%= @user.last_name %>
+
+<p>you have requested a booking at <strong><%= @restaurant.name  %> </strong> for <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %> for <%= @booking.number_of_people %> people </p>
+
+
+<h2>Please click the link </h2>
