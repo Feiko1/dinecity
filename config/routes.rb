@@ -7,10 +7,8 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
     resources :reviews, only: :create
-    # collection do
-    #   get 'top', to: 'restaurants#top'
-    #   get 'booking', to: 'restaurants#booking' ## CHECK
-    resources :bookings, only: [:new, :create] do
+
+    resources :bookings, only: [:new, :create, :update, :show] do
         member do
           get :confirm
         end

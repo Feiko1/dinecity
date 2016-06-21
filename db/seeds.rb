@@ -14,6 +14,7 @@ Photo.destroy_all
 Deal.destroy_all
 Booking.destroy_all
 Review.destroy_all
+Course.destroy_all
 
 
 
@@ -83,7 +84,7 @@ r.save
   end_date = Faker::Date.forward(23)
   status = Faker::Boolean.boolean
   discount_kind = "discount"
-  discount_value = rand(1..60)
+  price = rand(1..60)
   maximum_deal_capacity = rand(1..40)
   monday = Faker::Boolean.boolean
   tuesday = Faker::Boolean.boolean
@@ -99,7 +100,7 @@ r.save
     end_date: end_date,
     status: status,
     discount_kind: discount_kind,
-    discount_value: discount_value,
+    price: price,
     maximum_deal_capacity: maximum_deal_capacity,
     monday: monday,
     tuesday: tuesday,
@@ -110,7 +111,41 @@ r.save
     sunday: sunday,
     restaurant: restaurant)
   deal.save
+  1.times do
 
+    course_name = "starter"
+    description = Faker::Lorem.words(4)
+
+    course = Course.new
+    course.deal       = deal
+    course.course_name = course_name
+    course.description    = description
+    course.save
+  end
+
+  1.times do
+
+    course_name = "main"
+    description = Faker::Lorem.words(4)
+
+    course = Course.new
+    course.deal       = deal
+    course.course_name = course_name
+    course.description    = description
+    course.save
+  end
+
+  1.times do
+
+    course_name = "desert"
+    description = Faker::Lorem.words(4)
+
+    course = Course.new
+    course.deal       = deal
+    course.course_name = course_name
+    course.description    = description
+    course.save
+  end
 end
 
 30.times do
@@ -124,7 +159,7 @@ end
 
 
 
-30.times do
+15.times do
   user_instance = (User.all.sample)  #
 
   user_id = user_instance.id

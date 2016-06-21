@@ -132,6 +132,12 @@
                 Signature Menu
               </p>
               <ul id="feiko-tab-deal">
+                <% @restaurant.deals.each do |deal| %>
+                <% deal.courses.each do |course| %>
+                Course name: <%= course.course_name  %>
+                <% end  %>
+                <% end  %>
+                <br>
                 <li><strong>Starter</strong> <p> Mousse of ham from the Ardennes "Pierre Wynants" </p></li>
                 <li><strong>Soup</strong> <p>Portobello mushroom soup</p> </li>
                 <li><strong>Main course</strong> <p>Rack of veal and sweetbreads with morels and asparagus from Mechelen</p> </li>
@@ -183,8 +189,8 @@
                 </li>
 
                 <li>
-                <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
-                </p>
+                  <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+                  </p>
                 </li>
 
               </ul>
