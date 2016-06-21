@@ -41,8 +41,8 @@
                  <% end %>
                  <!-- <a href="#accounts-v"><i class="fa fa-user" aria-hidden="true"></i> Accounts</a> -->
                </li>
-               <li>
-                 <%= link_to  owner_offers_path do %>
+               <li class="<%= owner_tab_css_class("deals") %>">
+                 <%= link_to  owner_deals_path do %>
                    <i class="fa fa-briefcase" aria-hidden="true"></i> Offers
                  <% end %>
                </li>
@@ -50,7 +50,6 @@
                  <%= link_to owner_bookings_path do %>
                    <i class="fa fa-book" aria-hidden="true"></i> Bookings
                  <% end %>
-                 <!-- <a href="#bookings-v"><i class="fa fa-book" aria-hidden="true"></i> Bookings</a> -->
                </li>
                <li>
                  <a href="#analytics-v"><i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a>
@@ -78,9 +77,9 @@
     </div>
 
   </div>
-  <div class="container">
-  <hr>
-  </div>
+    <div class="container">
+    <hr>
+    </div>
   <%= javascript_include_tag 'application' %>
   <!-- below is the facebook login javascript -->
  <script>
