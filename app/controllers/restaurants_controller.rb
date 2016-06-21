@@ -10,7 +10,6 @@ class RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.all.order('created_at DESC')
     end
-
   end
 
   def show
@@ -23,6 +22,10 @@ class RestaurantsController < ApplicationController
       marker.lng restaurant.longitude
       marker.infowindow render_to_string(:partial => "/restaurants/map_box", locals: {restaurant: restaurant})
     end
+  end
+
+  def new
+
   end
 
   def create ##check this code it came from LW

@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :find_restaurant, only: [:new, :create]
-  before_action :find_booking, only: [:confirm]
+  before_action :find_restaurant, only: [:new, :create, :booking, :summary, :confirm, :update]
+  before_action :find_booking, only: [:summary, :confirm, :update]
 
   def index
     @bookings = Booking.all
@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
     else
       @bookings = Booking.all.order('created_at DESC')
     end
-
   end
 
   def new
@@ -30,21 +29,33 @@ class BookingsController < ApplicationController
     @booking.date = @booking.date.to_datetime
 
     if @booking.save
-      redirect_to confirm_restaurant_booking_path(@restaurant, @booking)
+      flash[:success] = "Please confirm by clicking the link in your email"
+      redirect_to summary_restaurant_booking_path(@restaurant, @booking)
     else
+      flash[:error] = "Ooooppss, something went wrong!"
       render :new
     end
   end
 
-  def update
-raise "crisis!"
+
+  def summary
   end
 
   def confirm
-    @restaurant = find_restaurant
   end
 
+  def update
+    @booking.status = "confirmed"
+    if @booking.save
+      flash[:success] = "Booking Confirmed!"
+      BookingMailer.owner_booking_alert(@restaurant.user, @booking, @restaurant).deliver_now
+      redirect_to restaurant_path(@restaurant)
+    else
+      flash[:error] = "oh oh, something went wrong"
+      render :new
+    end
 
+  end
 
   private
   def booking_params

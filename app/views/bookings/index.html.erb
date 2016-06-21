@@ -20,9 +20,12 @@
       <h5>For <%= booking.number_of_people %> people</h5>
       <h5> <strong> Status: </strong>
         <% if booking.status == "booking_requested_by_user" %>
-        You have made your booking request! Awaiting restaurant confirmation...
+        Booking request submitted! Please confirm in your email
         <% link_to "Cancel booking" %>
         <!-- TODO: implement booking.status change -->
+        <% elsif booking.status == "confirmed" %>
+        You have confirmed your booking request! Awaiting restaurant confirmation...
+        <% link_to "Cancel booking" %>
         <% end  %></h5>
 
         <% end %>

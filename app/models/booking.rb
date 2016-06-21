@@ -12,7 +12,7 @@ class Booking < ActiveRecord::Base
   end
 
   # def send_owner_booking_confirmation_email
-  #   BookingMailer.user_booking_confirmation(self).deliver_now
+  #   BookingMailer.owner_booking_alert(self).deliver_now
   # end
 
 end
