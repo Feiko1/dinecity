@@ -8,15 +8,33 @@
 .search-margin{
   margin-top: 262px;
 }
+
 #search-input{
-    padding: 2px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
+    // padding: 2px;
+    // border: solid 1px #E4E4E4;
+    border-radius: 4px 4px 4px 4px;
+    background-color: white;
     // :focus{     // this expands the search form when selected; to be implemented later
     //   width:500px;
     //   transition: width 1s;
     // }
+}
+
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 400px;
+    margin-bottom: 0;
+    height: 50px;
+    font-size: 16px;
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: -1px;
+    height: 50px;
+    width: 168px;
 }
 
 // #search-input:focus{
@@ -30,10 +48,11 @@
 #search-input input{
     border: 0;
     box-shadow: none;
+    border-radius: 4px;
 }
 
 #search-input button{
-    margin: 2px 0 0 0;
+    margin: 0 0 0 0;
     background: none;
     box-shadow: none;
     border: 0;
