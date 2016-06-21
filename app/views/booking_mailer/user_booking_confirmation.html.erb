@@ -1,8 +1,12 @@
-<h1>BookingMailer#user_booking_confirmation</h1>
 
+<div>
 
+<% if @user %>
 Dear <%= @user.first_name %> <%= @user.last_name %>
 <!-- FIX this: if not logged in -->
+<% elsif  %>
+Dear <%= @booking.visitor_first_name  %> <%= @booking.visitor_last_name  %>,
+<% end  %>
 
 <p>you have requested a booking at <strong><%= @restaurant.name  %> </strong> for <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %> for <%= @booking.number_of_people %> people </p>
 
@@ -10,3 +14,4 @@ Dear <%= @user.first_name %> <%= @user.last_name %>
 <h2>Please click the link:
   <%= link_to "Confirm your Booking", confirm_restaurant_booking_url(@restaurant, @booking), method: :patch, class:"btn btn-success" %></h2>
 <!-- add confirmation token -->
+</div>
