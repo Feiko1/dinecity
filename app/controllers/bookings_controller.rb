@@ -34,7 +34,10 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def update
+raise "crisis!"
   end
 
   def confirm

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616235933) do
+ActiveRecord::Schema.define(version: 20160621095400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 20160616235933) do
   add_index "bookings", ["deal_id"], name: "index_bookings_on_deal_id", using: :btree
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
+  create_table "courses", force: :cascade do |t|
+    t.string   "course_name"
+    t.string   "description"
+    t.integer  "deal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "courses", ["deal_id"], name: "index_courses_on_deal_id", using: :btree
+
   create_table "deals", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -57,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160616235933) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.string   "discount_kind"
-    t.integer  "discount_value"
+    t.integer  "price"
     t.integer  "maximum_deal_capacity"
     t.boolean  "monday"
     t.boolean  "tuesday"
@@ -137,6 +147,7 @@ ActiveRecord::Schema.define(version: 20160616235933) do
 
   add_foreign_key "bookings", "deals"
   add_foreign_key "bookings", "users"
+  add_foreign_key "courses", "deals"
   add_foreign_key "deals", "restaurants"
   add_foreign_key "photos", "restaurants"
   add_foreign_key "restaurants", "users"
