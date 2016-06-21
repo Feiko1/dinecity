@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       resources :deals, only: :create
     end
       resources :bookings, only: [:index, :edit, :update]
-      resources :offers, only: [:index, :edit, :update]
+      resources :deals, only: [:index, :edit, :create, :new, :update, :destroy]
       resources :billings, only: [:index]
       resources :dashboards, only: [:index]
 
