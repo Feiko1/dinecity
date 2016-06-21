@@ -9,7 +9,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @greeting = "Hi"
 
-    mail(to: "matthijs.m.maas@gmail.com", subject: "Welcome to DineCity! | Great Dining is a Principle")
-    # mail(to: @user.email, subject: "Welcome to DineCity! | Great Dining is a Principle"
+    # mail(to: "matthijs.m.maas@gmail.com", subject: "Welcome to DineCity! | Great Dining is a Principle")
+    mail(to: @user.email, subject: "Welcome to DineCity! | Great Dining is a Principle")
   end
 end

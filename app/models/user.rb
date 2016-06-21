@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
 
-         # after_create :send_welcome_email  #sends welcome email
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+
+         after_create :send_welcome_email  #sends welcome email
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

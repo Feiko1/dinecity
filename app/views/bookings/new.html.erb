@@ -47,6 +47,8 @@
 
 <%= f.hidden_field :status, value: "booking_requested_by_user" %>
 
+<%= f.hidden_field :deal_id, value: @restaurant.deals.first.id %>
+<!-- PLEASE CHANGE THIS VALUE ONCE WE IMPLEMENT DEAL SELECTOR -->
 <%= f.submit "Send Booking Confirmation Mail" %>
 <% end %>
 
