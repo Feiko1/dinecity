@@ -1,0 +1,8 @@
+
+Dear <%= @restaurant.user.first_name %> <%= @restaurant.user.last_name %>
+<!-- FIX this: if not logged in -->
+
+<p>you have received a booking request for <strong><%= @restaurant.name  %> </strong> from <%= @booking.user.first_name %>
+
+ for <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %> for <%= @booking.number_of_people %> people </p>
+

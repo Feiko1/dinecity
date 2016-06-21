@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
     resources :bookings, only: [:new, :create, :update, :show] do
         member do
+          get :summary
           get :confirm
         end
       end

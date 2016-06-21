@@ -134,7 +134,8 @@
               <ul id="feiko-tab-deal">
                 <% @restaurant.deals.each do |deal| %>
                 <% deal.courses.each do |course| %>
-                Course name: <%= course.course_name  %>
+                <h4><strong><%= course.course_name  %></strong></h4>
+                <p><%= course.course_name  %></p>
                 <% end  %>
                 <% end  %>
                 <br>
