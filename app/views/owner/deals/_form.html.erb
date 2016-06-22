@@ -17,9 +17,11 @@
             <div class="modal-body">
               <div class='row'>
                 <div class='col-xs-offset-2 col-xs-8'>
-                  <%= simple_form_for :deal do |f| %>
+                  <%= simple_form_for  :deal do |f| %>
                   <%= f.input :name %>
                   <%= f.input :description %>
+                  <%= f.hidden_field :restaurant_id, value: "#{@restaurants.first.id}" %>
+
                   <div class='form-group'>
                     <div class='col-sm-offset-2 col-sm-10'>
                   <%= f.submit class: 'btn btn-primary btn-sm' %>

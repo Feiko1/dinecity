@@ -1,59 +1,53 @@
+<!-- Add button for offers -->
+<div class="add-edit-btn">
+<%= link_to "#addOffer", class: "btn btn-success btn-sm", "data-toggle" => "modal" do %>
+<i class="fa fa-plus-circle" aria-hidden="true"></i> Add
+<% end %>
+<%= render 'form' %>
+<%= link_to 'Delete', class: "btn btn-warning btn-sm" do %>
+    <i class="fa fa-trash" aria-hidden="true"> </i> Delete
+<% end %>
+</div>
+<br /><br />
 <table class="table table-hover">
   <thead>
     <tr class="info del">
       <th>
         <label>
-        <input type="checkbox"> #
+        <input type="checkbox">
         </label>
         </th>
-      <th>Thumbnail</th>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Discount</th>
+      <th>Menu Name</th>
       <th>Location</th>
-      <th>Start</th>
-      <th>End</th>
+      <th>Course Name</th>
+      <th>Description</th>
+      <th>Price</th>
       <th>Persons</th>
-      <th></th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
-    <!-- <tr>
-      <td>
-       <label>
-       <input type="checkbox"> 1
-       </label>
-     </td>
-      <td contenteditable="true" >Image</td>
-      <td contenteditable="true" >Cake</td>
-      <td contenteditable="true">$20</td>
-      <td contenteditable="true">5%</td>
-      <td contenteditable="true">Amsterdam</td>
-      <td contenteditable="true">Jan 1</td>
-      <td contenteditable="true">Jan 3</td>
-      <td contenteditable="true">5</td>
-      <td>
-        <span class="label label-danger"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</span>
-      </td>
-      <td>
-        <span class="label label-danger"><i class="fa fa-eye" aria-hidden="true"></i> View</span>
-      </td>
-    </tr> -->
+    <% @restaurants.each do |restaurant| %>
+    <% restaurant.deals.each do |deal| %>
     <tr>
       <td>
        <label>
-       <input type="checkbox"> 2
+       <input type="checkbox">
        </label>
      </td>
-      <td contenteditable="true">Image</td>
-      <td contenteditable="true">Cake</td>
-      <td>$20</td>
+      <td contenteditable="true"><%=h deal.name %></td>
+      <td contenteditable="true"><%=h deal.description %></td>
+
       <td>5%</td>
       <td>Amsterdam</td>
       <td>Jan 1</td>
       <td>Jan 3</td>
       <td>5</td>
       <td>
+        <% end %>
+      <% end %>
         <%= button_tag(type: "submit", class: "editbtn btn btn-success btn-xs") do %>
          <i class="fa fa-pencil"> </i> Edit
         <% end %>
@@ -64,39 +58,3 @@
     </tr>
   </tbody>
 </table>
-  <!-- Add button for offers -->
-  <%= link_to "#addOffer", class: "btn btn-success btn-xs", "data-toggle" => "modal" do %>
-  <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
-  <% end %>
-  <%= render 'form' %>
-  <%= link_to 'Delete', class: "btn btn-warning btn-xs" do %>
-      <i class="fa fa-trash" aria-hidden="true"> </i> Delete
-  <% end %>
-<!-- <body>
-    <table>
-        <thead>
-            <tr>
-                <th class="col1">Header 1</th>
-                <th class="col2">Header 2</th>
-                <th class="col3">Header 3</th>
-                <th class="col3">Header 4</th>
-            </tr>
-        </thead>
-        <tr class="del">
-            <td contenteditable="true">Row 0 Column 0</td>
-            <td contenteditable="false">Row 0 Column 1</td>
-            <td contenteditable="false">Row 0 Column 2</td>
-            <td>
-                <button class="editbtn">Edit</button>
-            </td>
-        </tr>
-        <tr class="del">
-            <td contenteditable="false">Row 1 Column 0</td>
-            <td contenteditable="false">Row 1 Column 1</td>
-            <td contenteditable="false">Row 1 Column 2</td>
-            <td>
-                <button class="editbtn">Edit</button>
-            </td>
-        </tr>
-    </table>
-</body> -->
