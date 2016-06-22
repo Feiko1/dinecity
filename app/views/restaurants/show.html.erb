@@ -135,9 +135,9 @@
                 <% @restaurant.deals.each do |deal| %>
                 <% deal.courses.each do |course| %>
                 <li><strong><%= course.course_name.capitalize  %></strong>
-                <p><%= course.description %></p> </li>
-                <% end  %>
-                <% end  %>
+                  <p><%= course.description %></p> </li>
+                  <% end  %>
+                  <% end  %>
             <!--
                 <li><strong>Starter</strong> <p> Mousse of ham from the Ardennes "Pierre Wynants" </p></li>
                 <li><strong>Soup</strong> <p>Portobello mushroom soup</p> </li>
@@ -201,7 +201,16 @@
 
             <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
               <h4>
-                Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>
+                Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>, with an average rating of
+                <% sum = 0 %>
+                <% @restaurant.reviews.each do |review| %>
+                <% sum = sum + review.rating %>
+                <% end  %>
+                <% rating_average = (sum / @restaurant.reviews.size) %>
+                <%= rating_average %>
+              <span>
+              <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
+              </span>
               </h4>
               <hr>
 
