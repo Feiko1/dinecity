@@ -26,14 +26,14 @@
          <li class="dropdown">
           <button type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-lg dropdown-toggle btn-avatar"><%= image_tag "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png", class:"avatar"  %>
            <% if current_user  %>
-          <h6><%= current_user.first_name %> </h6>
+          <h6 id="feiko-h6-override"><%= current_user.first_name%> </h6>
           </button></a>
           <!-- TODO: change this to user firstname -->
               <% else %>
          </button></a>
                 <% end  %>
 
-          <ul class="dropdown-menu navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="dropdown-menu navbar-collapse feiko-dropdown-menu" id="bs-example-navbar-collapse-1", style="left: 0;">
 
             <% if current_user %>
               <% if current_user.kind == "owner" %>
@@ -44,8 +44,8 @@
                 <li><%= link_to "Log-Out", destroy_user_session_path,  method: :delete%> </li>
 
             <% else %>
-            <li><%= link_to 'Log-In', new_user_session_path %></li>
-            <li><%= link_to 'Sign-Up', new_user_registration_path %> </li>
+            <!-- <li><%#= link_to 'Log-In', new_user_session_path %></li> -->
+            <!-- <li><%#= link_to 'Sign-Up', new_user_registration_path %> </li> -->
 
             <!-- this is temporary, we'll reroute this elsewhere -->
             <% end  %>

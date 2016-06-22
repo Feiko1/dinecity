@@ -1,16 +1,44 @@
+// Card layout
 .card {
- padding: 0 auto;
- text-align: center;
- p {
-  font-size: 13px;
+  top: 0px;
+  padding: 0px;
+  margin: 10px 10px 10px 10px;
+  text-align: center;
+  width: 370px;
+  box-shadow: 0px 0px 0px 0px white;
+  transition-delay: -0.2s;
+  p {
+    font-size: 14px;
+    width: 290px;
+    margin: 0 auto;
+  }
+
+}
+
+.card:hover {
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 7px 18px 7px rgba(1, 1, 1, 0.2);
+  top: -5px;
+  cursor: pointer;
+  border-top: none;
+}
+
+// Actual card inside
+
+.thumbnail-feiko {
+ background-color: #F6F6F6;
+ border-radius: 3px;
+ height: 310px;
+ width: 370px;
+ top: 0;
+ float: left;
+ box-shadow: 1px 1px 6px -1px rgba(0,0,0,0.35);
+ img {
+  width: 100%;
+  height: 190px;
 }
 }
 
-.thumbnail {
- background-color: #E6E6E6;
- height: 260px;
- box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-}
 
 .resto-name {
   font-weight: bold;
