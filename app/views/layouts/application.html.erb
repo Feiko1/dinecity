@@ -13,7 +13,8 @@
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
 
 </head>
-<body>
+<!-- body line below allows us to set certain styling per page.. -->
+<body class="<%= params[:controller] %>-<%= params[:action] %> ">
   <div class="wrapper">
   <%= render 'layouts/navbar' %>
 </div>
