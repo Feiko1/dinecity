@@ -110,8 +110,26 @@
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #2093D7;
-  border-color: #204d74;
+  background-color: $brand-blue;
+  border-color: $brand-blue;
+}
+
+.btn-success:focus, .btn-success.focus {
+  color: #fff;
+  background-color: $brand-blue;
+  border-color: $brand-blue;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: $brand-blue;
+  border-color: $brand-blue;
+}
+
+.btn-success:active:hover, .btn-success.active:hover, .open > .dropdown-toggle.btn-success:hover, .btn-success:active:focus, .btn-success.active:focus, .open > .dropdown-toggle.btn-success:focus, .btn-success:active.focus, .btn-success.active.focus, .open > .dropdown-toggle.btn-success.focus {
+  color: #fff;
+  background-color: $brand-blue;
+  border-color: $brand-blue;
 }
 
 .benefit-icon {

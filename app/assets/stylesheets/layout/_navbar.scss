@@ -9,7 +9,7 @@
 }
 
 .navbar-brand {
-  padding-left: 169px;
+  padding-left: 150px;
   font-size: 24px;
   word-spacing: 2px;
   letter-spacing: 1px;
@@ -47,6 +47,7 @@ ul li button .btn-success {
 // navbar: avatar section
 
 .btn-avatar {
+  margin-right: 154px;
   background-color: #1A1B1F;
   border: 0px;
   border-radius: 4px;
@@ -57,10 +58,20 @@ ul li button .btn-success {
   }
 }
 
+.btn-avatar :hover {
+  background-color: transparent;
+}
+
 .btn-success:hover {
   color: #fff;
   background-color: $brand-blue;
   border-color: $brand-blue;
+}
+
+.btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: $brand-blue;
+    border-color: $brand-blue;
 }
 
 .avatar {
@@ -68,7 +79,13 @@ ul li button .btn-success {
   height: 40px;
   background-color: $brand-blue;
   border: 2px solid $brand-blue;
-  h6 {
+}
+
+// User Name
+h6, .h6 {
+    font-size: 15px;
     display: inline;
-  }
+    padding-left: 7px;
+    padding-right: 7px;
+    text-decoration: underline $brand-blue;
 }
