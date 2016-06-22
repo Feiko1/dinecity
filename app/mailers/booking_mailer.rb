@@ -36,7 +36,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to:       @restaurant.email_address, ##CHECK THIS
-      subject:  "booking request on #{@booking.date} by #{@user.first_name} #{@user.last_name}"
+      subject:  "booking request on #{@booking.date} for #{@booking.number_of_people} by #{@user.first_name} #{@user.last_name}"
       )
   end
 end
