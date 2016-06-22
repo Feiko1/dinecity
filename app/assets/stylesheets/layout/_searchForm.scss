@@ -6,18 +6,48 @@
 //     padding-top: 190px;
 // }
 .search-margin{
-  margin-top: 262px;
+  // margin-top: 262px;    <-- don't activate.. messes up flexbox in home.html.erb
+  // margin-left: 30%;
 }
+
+
+.header-search {
+  margin: 20px auto;
+  margin-top: 50px;
+}
+
 #search-input{
-    padding: 2px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
+    // padding: 2px;
+    // border: solid 1px #E4E4E4;
+    border-radius: 4px 4px 4px 4px;
+    background-color: white;
+    width: 300px;
+    // margin-left: 50%;
     // :focus{     // this expands the search form when selected; to be implemented later
     //   width:500px;
     //   transition: width 1s;
     // }
-}
+  }
+
+  .input-group .form-control {
+    // position: relative;
+    z-index: 2;
+    float: left;
+    width: 400px;
+    margin-bottom: 0;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: -1px;
+    height: 50px;
+    width: 168px;
+    background-color: $brand-blue;
+    border: 0px;
+    font-size: 20px;
+  }
 
 // #search-input:focus{
 //     padding: 2px;
@@ -27,27 +57,31 @@
 //     width:200px;
 // }
 
-#search-input input{
-    border: 0;
-    box-shadow: none;
+.search-input-field {
+  color: black;
+  width: 500px;
+  padding: 14px;
+  border: 0;
+  box-shadow: none;
+  border-radius: 4px;
 }
 
 #search-input button{
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
+  margin: 0 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
 }
 
 #search-input button:hover{
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
 }
 
 
 #search-input .glyphicon-search{
-    font-size: 23px;
+  font-size: 23px;
 }

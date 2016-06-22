@@ -3,7 +3,7 @@
  * ------------------------------------- */
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
+$base-font: "Montserrat", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
@@ -24,7 +24,33 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color: #26A4F0;
+
+// Navbar
+$brand-color-nav: #2C2E35;
+
+// Footer
+$brand-color-footer: #474F56;
+
+// Brand color blue
+$brand-blue: #26A4F0;
+
+// Header White
+$white: white;
+
+// Wrapper color
+$light-gray: #f3f3f3f;
+
+// Gray for text
+$color-text: #4D4D4D;
+
+// Instance Gray for Headers
+$color-header: #303030;
+
+
+
+
+
 
 $red: #EE5F5B;
 $blue: #469AE0;

@@ -15,8 +15,10 @@ class BookingsController < ApplicationController
 
   def new
 
-    @booking = Booking.new
     @number_of_people = params["number-of-people"]
+    @booking = Booking.new(
+      number_of_people: @number_of_people
+    )
     @datetime= "#{params['booking-date']} #{params[:time]}"
     check_user  ##this interpolates
 
