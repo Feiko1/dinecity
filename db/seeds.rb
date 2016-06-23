@@ -116,7 +116,7 @@ r.save
   1.times do
 
     course_name = "starter"
-    description = Faker::Lorem.words(4)
+    description = Faker::Lorem.sentence(4)
 
     course = Course.new
     course.deal       = deal
@@ -127,7 +127,7 @@ r.save
 
   1.times do
 
-    course_name = "main"
+      course_name = "main"
     description = Faker::Lorem.words(4)
 
     course = Course.new
@@ -187,6 +187,7 @@ end
   booking.save
 end
 
+
 # 30.times do
 #   restaurant_instance = (Restaurant.all.sample)  #
 #   restaurant_id = restaurant_instance.id
@@ -197,5 +198,4 @@ end
 #     content: content)
 #   review.save
 # end
-
 
