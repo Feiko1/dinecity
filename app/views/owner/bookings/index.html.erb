@@ -12,23 +12,21 @@ BOOKINGS
     </tr>
   </thead>
   <tbody>
+    <% for booking in @bookings %>
+    <% if booking.deal.restaurant.user_id == current_user.id %>
     <tr>
       <td>1</td>
-      <td>3474374</td>
-      <td>RM234</td>
-      <td>Ryan Jeff</td>
-      <td>Jan 20 2015</td>
-      <td>$180</td>
-      <td>In Progress</td>
+      <td><%= booking.deal_id %></td>
+      <td><%= booking.user.first_name %></td>
+      <td><%= booking.user.last_name %></td>
+      <td><%= booking.user.email %></td>
+      <td>$<%= booking.deal.price %></td>
+      <td>$<%= booking.number_of_people %></td>
+      <td>$<%= booking.date.strftime("%A the %dth of %B, at %H:%M") %></td>
+      <td><%= booking.status %></td>
+      <td><%= submit_tag "Confirm", class: "btn btn-success btn-sm" %> </td>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>3474374</td>
-      <td>RM234</td>
-      <td>Ryan Jeff</td>
-      <td>Jan 20 2015</td>
-      <td>$180</td>
-      <td>In Progress</td>
-    </tr>
+    <% end %>
+    <% end %>
   </tbody>
 </table>

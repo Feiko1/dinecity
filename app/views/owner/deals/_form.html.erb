@@ -17,9 +17,16 @@
             <div class="modal-body">
               <div class='row'>
                 <div class='col-xs-offset-2 col-xs-8'>
-                  <%= simple_form_for :deal do |f| %>
+                  <%= simple_form_for @deal, url: owner_deals_path do |f| %>
                   <%= f.input :name %>
-                  <%= f.input :description %>
+                  <!-- Cityname must inputed -->
+                  <%= f.simple_fields_for :courses do |course_form| %>
+                    <%= course_form.input :course_name %>
+                    <%= course_form.input :description %>
+                  <% end %>
+                  <%= f.hidden_field :restaurant_id %>
+
+
                   <div class='form-group'>
                     <div class='col-sm-offset-2 col-sm-10'>
                   <%= f.submit class: 'btn btn-primary btn-sm' %>

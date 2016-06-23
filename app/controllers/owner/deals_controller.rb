@@ -1,23 +1,35 @@
 module Owner
   class DealsController < Owner::BaseController
-    def index
+    # before_filter only: [:index, :edit, :new, :update]
+    before_action :find_owner, only: [:edit, :update]
+
+    def show
+      @deal = Deal.find(params[:id])
+      @course = Course.find(params[:id])
     end
 
-    def edit
+    def index
+      @restaurants = Restaurant.where(user_id: current_user.id)
+      @restaurant = @restaurants.first
+      @deal = Deal.new(restaurant: @restaurant)
+      3.times { @deal.courses.build }
     end
 
     def new
-      raise
       @deal = Deal.new
     end
 
     def create
       @deal = Deal.new(deal_params)
-      if @deal.save
+      if @deal.save!
         flash[:success] = "Deal was successfully created"
         redirect_to owner_deals_path(@deal)
       else
         render 'new'
+    end
+
+    def edit
+      @deal = Deal.find(params[:id])
     end
 
     def update
@@ -30,10 +42,6 @@ module Owner
       end
     end
 
-    def show
-
-    end
-
     def destroy
       @deal.destroy
       flash[:danger] = "Deal was successfully deleted"
@@ -42,8 +50,15 @@ module Owner
 
     private
     def deal_params
-      params.require(:deal).permit(:name, :description)
+      params.require(:deal).permit(:name, :description, :restaurant_id, courses_attributes:[:id, :course_name, :description])
     end
 
+    def find_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
+    def find_owner
+      @user = User.find(params[:user_id])
+    end
   end
 end
