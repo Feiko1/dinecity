@@ -33,6 +33,7 @@ class RestaurantsController < ApplicationController
 
     if @restaurant.save
       RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      # ^ COMMENT BEFORE SEED
       redirect_to restaurant_path(@restaurant)
     else
       render :new

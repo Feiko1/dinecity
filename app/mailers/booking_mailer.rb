@@ -24,7 +24,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to:       "#{@first_name} #{@last_name} <#{@email}>",  #@user.email, ##CHECK THIS
-      subject:  "Please confirm your booking for a great evening at #{@restaurant}"
+      subject:  "Please confirm your booking for a great evening at #{@restaurant.name}"
       )
   end
 

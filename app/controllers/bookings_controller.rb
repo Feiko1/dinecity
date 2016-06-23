@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.date = @booking.date.to_datetime
 
-    if @booking.save
+    if @booking.save!
       flash[:success] = "Please confirm by clicking the link in your email"
       redirect_to summary_restaurant_booking_path(@restaurant, @booking)
     else
@@ -51,6 +51,7 @@ class BookingsController < ApplicationController
     if @booking.save
       flash[:success] = "Booking Confirmed!"
       BookingMailer.owner_booking_alert(@restaurant.user, @booking, @restaurant).deliver_now
+      #^ COMMENT THIS BEFORE SEED
       redirect_to restaurant_path(@restaurant)
     else
       flash[:error] = "oh oh, something went wrong"
