@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
     @restaurant = current_user.restaurants.build(restaurant_params)
 
     if @restaurant.save
-      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      # RestaurantMailer.creation_confirmation(@restaurant).deliver_now
       redirect_to restaurant_path(@restaurant)
     else
       render :new
