@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.date = @booking.date.to_datetime
 
-    if @booking.save
+    if @booking.save!
       flash[:success] = "Please confirm by clicking the link in your email"
       redirect_to summary_restaurant_booking_path(@restaurant, @booking)
     else
