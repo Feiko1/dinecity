@@ -12,6 +12,10 @@ Dear <%= @booking.visitor_first_name  %> <%= @booking.visitor_last_name  %>,
 
 
 <h2>Please click the link:
+
   <%= link_to "Confirm your Booking", confirm_restaurant_booking_url(@restaurant, @booking), method: :patch, class:"btn btn-success" %></h2>
 <!-- add confirmation token -->
+
+<!-- add hyperlink /restaurants/219/bookings/210/confirm -->
+
 </div>
