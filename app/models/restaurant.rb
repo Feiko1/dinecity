@@ -8,7 +8,7 @@ class Restaurant < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode #, if: :street_name_changed?
 
-  after_create :send_restaurant_creation_email  #
+  # after_create :send_restaurant_creation_email  #
 
   def self.search(search)
     where("name LIKE ?", "%#{search}%") #TIS NEEDS TO BE MADE CASE INSENSITIVE
