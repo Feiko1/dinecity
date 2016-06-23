@@ -50,7 +50,8 @@ class BookingsController < ApplicationController
     @booking.status = "confirmed"
     if @booking.save
       flash[:success] = "Booking Confirmed!"
-      # BookingMailer.owner_booking_alert(@restaurant.user, @booking, @restaurant).deliver_now
+      BookingMailer.owner_booking_alert(@restaurant.user, @booking, @restaurant).deliver_now
+      #^ COMMENT THIS BEFORE SEED
       redirect_to restaurant_path(@restaurant)
     else
       flash[:error] = "oh oh, something went wrong"
