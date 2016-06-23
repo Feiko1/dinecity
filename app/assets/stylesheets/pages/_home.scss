@@ -13,7 +13,7 @@
 
 .banner-image {
   background-image: linear-gradient(-225deg, rgba(0,0,0,0.35) 0%,
-    rgba(0,0,0,0.35) 50%), url('banner-image.jpg');
+    rgba(0,0,0,0.35) 50%), image-url('banner-image.jpg');
   // background-image: image-url('banner-image.jpg');
   width: 100%;
   height: 100vh;
@@ -68,7 +68,7 @@
 // BELOW: BENEFITS WRAPPER
 
 .wrapper-benefits {
-  background-image: url('benefit-background.jpg');
+  background-image: image-url('benefit-background.jpg');
   background-size: cover;
   background-position: left;
   height: 580px;
