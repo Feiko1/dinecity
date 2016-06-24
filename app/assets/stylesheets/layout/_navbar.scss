@@ -1,18 +1,92 @@
 /* Main class */
 .background-nav{
-  background-color: #1C1C1C;
+  background-color: $brand-color-nav;
   opacity: 0.97;
   -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
   box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
   border-bottom: 0px;
 }
-.navbar-header > a.nav-color{
+
+.navbar-brand {
+  padding-left: 150px;
+  font-size: 24px;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+
+// Logo/title Dinecity (left side)
+.navbar-header > a.nav-color {
   color: white;
+  transition: color 0.5s ease;
 }
-.container-fluid ul li a.nav-color{
-  color:white;
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: white;
+  background-color: transparent;
 }
-ul li button .btn-success{
+
+// Clickable links
+
+.container-fluid ul li a.nav-color {
+  color: white;
+  transition: color 0.5s ease;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: $brand-blue;
+  background-color: transparent;
+}
+
+ul li button .btn-success {
   padding-top: 5px;
+}
+
+
+
+// navbar: avatar section
+
+.btn-avatar {
+  margin-right: 154px;
+  background-color: #1A1B1F;
+  border: 0px;
+  border-radius: 4px;
+  padding: 5px 12px 2px 13px;
+  transition: background-color 0.5s ease;
+  :hover {
+    background-color: $brand-blue;
+  }
+}
+
+.btn-avatar :hover {
+  background-color: transparent;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: $brand-blue;
+  border-color: $brand-blue;
+}
+
+.btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: $brand-blue;
+    border-color: $brand-blue;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: $brand-blue;
+  border: 2px solid $brand-blue;
+}
+
+// User Name
+h6, .h6 {
+    font-size: 15px;
+    display: inline;
+    padding-left: 7px;
+    padding-right: 7px;
+    text-decoration: underline $brand-blue;
 }

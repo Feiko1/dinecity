@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
-  root to: 'restaurants#index'
+  root to: 'pages#home'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' } #used for facebook login API
 
-  resources :restaurants, only: [:index, :show] do  #basic filtering has distinct form on index page; this search box passes
+  resources :restaurants, only: [:index, :show, :create, :new] do  #basic filtering has distinct form on index page; this search box passes
     resources :reviews, only: :create
 
     resources :bookings, only: [:new, :create, :update, :show] do
         member do
+          get :summary
           get :confirm
         end
       end

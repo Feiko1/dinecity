@@ -23,19 +23,20 @@ class BookingMailer < ApplicationMailer
     @restaurant = booking.deal.restaurant
 
     mail(
-      to:       @email,  #@user.email, ##CHECK THIS
-      subject:  "Please confirm your booking for a great evening at #{@restaurant}"
+      to:       "#{@first_name} #{@last_name} <#{@email}>",  #@user.email, ##CHECK THIS
+      subject:  "Please confirm your booking for a great evening at #{@restaurant.name}"
       )
   end
 
-  # def owner_booking_request(booking, user, restaurant)
-  #   @booking = booking
-  #   @user = user
-  #   @restaurant = restaurant
 
-  #   mail(
-  #     to:       @restaurant.user.email, ##CHECK THIS
-  #     subject:  "booking request on #{@booking.date} by #{@owner.first_name} #{@owner.last_name}"
-  #     )
-  # end
+  def owner_booking_alert(user, booking, restaurant)
+    @user = user
+    @booking = booking
+    @restaurant = restaurant
+
+    mail(
+      to:       @restaurant.email_address, ##CHECK THIS
+      subject:  "booking request on #{@booking.date} for #{@booking.number_of_people} by #{@user.first_name} #{@user.last_name}"
+      )
+  end
 end

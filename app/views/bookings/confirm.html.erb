@@ -1,27 +1,8 @@
 
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
+<br><br><br><br><br><br><br>
 
-<% if current_user %>
-<p> Thank you <%= current_user.first_name %>! </p>
-<% else %>
-<p> Thank you!</p>
-<% end  %>
-<p>you have requested a booking at <strong><%= @restaurant.name  %> </strong> for <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %> for <%= @booking.number_of_people %> people </p>
+<h1> confirm your booking here </h1>
 
-<p><strong>Please Note:</strong> we have sent you a confirmation email.</p>
-<p> In order to confirm your booking, please click on the button in your email.</p>
-
-<p>We wish you a great meal, company, and evening!</p>
-
-<%= link_to "back to restaurant", restaurant_path(@restaurant)  %>
-
-</div>
-<br>
-<br>
-<br>
+<%= link_to "confirm your booking here", restaurant_booking_path(@restaurant, @booking), method: :patch, style:"btn btn-success" %>
+<br><br><br>

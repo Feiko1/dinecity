@@ -9,6 +9,7 @@ class Restaurant < ActiveRecord::Base
   after_validation :geocode #, if: :street_name_changed?
 
   after_create :send_restaurant_creation_email  #
+  #DEACTIVATE BEFORE SEED
 
   def self.search(search)
     where("name LIKE ?", "%#{search}%") #TIS NEEDS TO BE MADE CASE INSENSITIVE

@@ -12,12 +12,18 @@
       <a href="#" class="btn btn-success styling-button link-styling">Log In</a>
     </div>
   </div>
-</div>
 
 
 <!-- Booking Overview -->
 <div class="booking-summary">
-  <span>Test</span>
+  <h4>Reservation details:</h4>
+  <ul>
+    <li>Date and time:
+    <%= @datetime %>
+    </li>
+    <li>Number of people: <%= @number_of_people %></li>
+
+  </ul>
 </div>
 
 
@@ -25,7 +31,8 @@
 <h2>To confirm your booking</h2>
 <br>
 <%= simple_form_for [@restaurant, @booking] do |f| %>
-
+  <%= f.input :number_of_people, as: "hidden" %>
+<!-- add komma then new line, add a real datetime -->
 
 <div class="space-around">
   <div style="flex-grow: 1;">
@@ -66,3 +73,4 @@
       </div>
 
       <br>
+</div>

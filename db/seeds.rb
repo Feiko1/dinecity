@@ -71,10 +71,12 @@ r.save
   3.times do
 
     content = Faker::Lorem.paragraph
+    rating = rand(1..5)
     review = Review.new
     review.restaurant = restaurant
     review.user       = User.last(10).sample
     review.content    = content
+    review.rating     = rating
     review.save
   end
 
@@ -185,13 +187,15 @@ end
   booking.save
 end
 
-30.times do
-  restaurant_instance = (Restaurant.all.sample)  #
-  restaurant_id = restaurant_instance.id
-  content = Faker::Lorem.sentence
 
-  review = Review.create(
-    restaurant_id: restaurant_id,
-    content: content)
-  review.save
-end
+# 30.times do
+#   restaurant_instance = (Restaurant.all.sample)  #
+#   restaurant_id = restaurant_instance.id
+#   content = Faker::Lorem.sentence
+
+#   review = Review.create(
+#     restaurant_id: restaurant_id,
+#     content: content)
+#   review.save
+# end
+
