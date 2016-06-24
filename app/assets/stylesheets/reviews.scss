@@ -6,16 +6,13 @@
   display: block;
   margin-top: 0em;
   margin-bottom: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 
 .rating-container .filled-stars {
-  color: #5CB85C;
+  color: $brand-blue;
 }
 
-// .rating-container .empty-stars {
-//   color: red;
-// }
 
 .glyphicon-star-empty:before {
   content: "\e006";
