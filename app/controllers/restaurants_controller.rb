@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+# before_action :find_restaurant, only: [:new, :create, :booking, :summary, :confirm, :update]
+
   def index
     @restaurants = Restaurant.all
     @unsplash_counter = 242
@@ -11,6 +13,13 @@ class RestaurantsController < ApplicationController
       @restaurants = Restaurant.all.order('created_at DESC')
     end
   end
+
+  def registration
+    RestaurantMailer.registration(restaurant_request_params).deliver_now
+    flash[:notice] = "Your information is being processed; you will hear from us within 24 hours"
+    redirect_to root_path
+  end
+
 
   def show
     @restaurant = Restaurant.find(params[:id])
@@ -25,6 +34,13 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+# @number_of_people = params["number-of-people"]
+#     @booking = Booking.new(
+#       number_of_people: @number_of_people
+#     )
+#     @datetime= "#{params['booking-date']} #{params[:time]}"
+#     check_user  ##this interpolates
+
 
   end
 
@@ -39,6 +55,19 @@ class RestaurantsController < ApplicationController
       render :new
     end
   end
+private
+
+def restaurant_request_params
+  params.require(:registration).permit(:owner_first_name,
+    :owner_last_name,
+    :personal_owner_email,
+    :personal_owner_phone,
+    :restaurant_name,
+    :restaurant_address,
+    :restaurant_phone,
+    :restaurant_email,
+    :restaurant_registration_number)
+end
 
 
 end

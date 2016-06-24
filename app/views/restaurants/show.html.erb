@@ -129,8 +129,9 @@
           <div class="tab-content feiko-tab-content">
             <div role="tabpanel" class="tab-pane active feiko-content-padding" id="deal">
               <p id="menu-title">
-                Signature Menu
+                <%= @restaurant.deals.first.name %>
               </p>
+              <h3 style="text-align: center"> Price: &#8364; <%= @restaurant.deals.first.price %> </h3>
               <ul id="feiko-tab-deal">
                 <% @restaurant.deals.each do |deal| %>
                 <% deal.courses.each do |course| %>

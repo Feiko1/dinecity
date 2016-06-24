@@ -1,6 +1,38 @@
+
+
 <div class="booking_wrapper">
 
-<h1>HERE BE RESTAURANT REGISTRATION FORMS</h1>
+  <h1>Benefit from the DineCity Approach!</h1>
+  <!-- change domain name -->
+  <br>
+  <p>Please send us your details: we will contact you within 24 hours</p>
+  <%= simple_form_for :registration, url: registration_restaurants_path do |f| %>
+  <h3>Your Personal Contact Information:</h3>
+  <div class="space-around">
+    <div style="flex-grow: 1;">
+      <%= f.input :owner_first_name, label: 'your first name', error: 'name is mandatory', placeholder: 'enter first name' %>
+      <!-- this sets the attribute visitor_first_name -->
+    </div>
+    <div style="flex-grow: 1;">
+      <%= f.input :owner_last_name, label: 'your last name', error: 'name is mandatory', placeholder: 'enter last name' %>
+      <!-- this sets the attribute visitor_second_name -->
+    </div>
+  </div>
 
+  <%= f.input :personal_owner_email, label: 'Your personal email (for confirmation purposes', placeholder: 'owner@domain.com' %>
+  <%= f.input :personal_owner_phone, label: 'Your phone number', placeholder: 'tel.' %>
+  <h3>Your Restaurant Information</h3>
+  <!-- TODO: add number require & regex check -->
+  <%= f.input :restaurant_name, label: 'Restaurant name', placeholder: '...' %>
+  <%= f.input :restaurant_address, label: 'Full restaurant address', placeholder: '...' %>
+  <%= f.input :restaurant_phone, label: 'Restaurant phone number', placeholder: 'tel.' %>
 
+  <%= f.input :restaurant_email, label: 'Restaurant Email', placeholder: 'info@restaurant.com' %>
+  <%= f.input :restaurant_registration_number, label: 'Your restaurant registration number (kvk)', placeholder: '...' %>
+
+  <%= f.submit "Submit Restaurant Registration Request" %>
+  <% end %>
+</div>
+
+<br>
 </div>
