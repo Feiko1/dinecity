@@ -5,10 +5,14 @@ module Owner
 
     def show
       @deal = Deal.find(params[:id])
+      @course = Course.find(params[:id])
     end
 
     def index
       @restaurants = Restaurant.where(user_id: current_user.id)
+      @restaurant = @restaurants.first
+      @deal = Deal.new(restaurant: @restaurant)
+      3.times { @deal.courses.build }
     end
 
     def new
@@ -46,7 +50,7 @@ module Owner
 
     private
     def deal_params
-      params.require(:deal).permit(:name, :description, :restaurant_id)
+      params.require(:deal).permit(:name, :description, :restaurant_id, courses_attributes:[:id, :course_name, :description])
     end
 
     def find_restaurant

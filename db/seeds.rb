@@ -114,7 +114,7 @@ r.save
   1.times do
 
     course_name = "starter"
-    description = Faker::Lorem.words(4)
+    description = Faker::Lorem.sentence(4)
 
     course = Course.new
     course.deal       = deal
@@ -125,7 +125,7 @@ r.save
 
   1.times do
 
-    course_name = "main"
+      course_name = "main"
     description = Faker::Lorem.words(4)
 
     course = Course.new
@@ -195,5 +195,3 @@ end
     content: content)
   review.save
 end
-
-
