@@ -13,4 +13,12 @@
             }
             $(this).html($(this).html() == 'Edit' ? 'Update' : 'Edit')
         });
+
+        //for Date functionality of the deal
+                $('input[name="datefilter"]').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        });
     });

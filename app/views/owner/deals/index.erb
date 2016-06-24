@@ -4,19 +4,14 @@
 <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
 <% end %>
 <%= render 'form' %>
-<%= link_to 'Delete', class: "btn btn-warning btn-sm" do %>
-    <i class="fa fa-trash" aria-hidden="true"> </i> Delete
-<% end %>
 </div>
 <br /><br />
 <table class="table table-hover">
   <thead>
     <tr class="info del">
       <th>
-        <label>
-        <input type="checkbox">
-        </label>
-        </th>
+        ID
+      </th>
       <th>Menu Name</th>
       <th>Location</th>
       <th>Course Name</th>
@@ -33,12 +28,10 @@
       <% restaurant.deals.each do |deal| %>
             <tr>
               <td>
-               <label>
-               <input type="checkbox">
-               </label>
+                <%= deal.id %>
               </td>
-              <td contenteditable="true">
-                <%=h deal.name %>
+              <td contenteditable="false">
+                <%= deal.name %>
               </td>
               <td contenteditable="false">
                 <%= restaurant.city_name %>
@@ -54,17 +47,24 @@
                       <%= course.course_name %>
                 <% end %>
               </td>
-              <td><%= deal.price %></td>
-              <td><%= deal.maximum_deal_capacity %></td>
-              <td><%= deal.start_date %></td>
-              <td><%= deal.end_date %></td>
-              <td>
-                <%= button_tag(type: "submit", class: "editbtn btn btn-success btn-xs") do %>
+              <td contenteditable="false">$ <%= deal.price %></td>
+              <td contenteditable="false"><%= deal.maximum_deal_capacity%></td>
+              <td contenteditable="false"><%= deal.start_date %></td>
+              <td contenteditable="false"><%= deal.end_date %></td>
+              <td contenteditable="false">
+                <%= button_tag(type: "submit", class: "editbtn btn btn-warning btn-xs btn-size") do %>
                  <i class="fa fa-pencil"> </i> Edit
+                <% end %>
+                <div class="clear"></div>
+                <%= link_to restaurant_path(@restaurant), class: "btn btn-info btn-xs btn-size" do %>
+                <i class="fa fa-eye" aria-hidden="true"></i> View
+                <% end %>
+                <div class="clear"></div>
+                <%= link_to owner_deal_path(deal), class: "btn btn-xs btn-danger btn-size", method: :delete do %>
+                <i class="fa fa-trash" aria-hidden="true"></i> Delete
                 <% end %>
               </td>
               <td>
-                <%= link_to 'View', restaurant_path(@restaurant) %>
               </td>
       <% end %>
     <% end %>

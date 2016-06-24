@@ -1,6 +1,6 @@
 <div id="accounts-layout" class="row">
   <%= simple_form_for @owner, url: owner_account_path do |form| %>
-  <div class="col-md-4">
+  <div class="col-md-offset-2 col-md-4">
     <%= form.input :first_name %>
     <%= form.input :last_name %>
     <%= form.input :email %>
@@ -12,13 +12,12 @@
       <%= label_tag :password_confirmation %>
       <%= password_field_tag :password_confirmation, nil, class: "form-control" %>
     </div>
-    <div class="checkbox">
+    <!-- <div class="checkbox">
       <label>
         <input type="checkbox"> Email News Letter
       </label>
-    </div>
-    <%= submit_tag "Update", class: "btn btn-success" %>
-    <!-- <%= link_to "Cancel", owner_restaurants_path, class: "btn btn-default" %> -->
+    </div> -->
+    <%= submit_tag "Update", class: "btn btn-success btn-sm" %>
   </div>
   <% end %>
 </div>

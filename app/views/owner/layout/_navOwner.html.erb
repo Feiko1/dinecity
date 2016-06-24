@@ -9,16 +9,16 @@
       <!-- Gear Layout CSS moving -->
     </div>
     <div id="headshow">
-      <%= link_to restaurants_path, class: "btn btn-sm" do  %>
+      <%= link_to root_path, class: "btn btn-sm" do  %>
           <i class="fa fa-home fa-2x" aria-hidden="true"></i>
       <% end %>&nbsp;
-      <%= link_to restaurants_path(params[:id]), class: "btn btn-warning btn-sm" do  %>
+      <%= link_to restaurants_path(params[:id]), class: "btn btn-info btn-sm" do  %>
           <i class="fa fa-eye" aria-hidden="true"></i> View Your Page
       <% end %>&nbsp;
-      <button class="btn btn-success btn-xs" type="button">
+      <!-- <button class="btn btn-success btn-xs" type="button">
         <p>Notification <span class="label label-danger">4</span></p>
-      </button>&nbsp;
-      <%= link_to destroy_user_session_path, class: "btn btn-info btn-sm font-color",  method: :delete do  %>
+      </button>&nbsp; -->
+      <%= link_to destroy_user_session_path, class: "btn btn-danger btn-sm font-color",  method: :delete do  %>
           <i class="fa fa-user" aria-hidden="true"></i>&nbsp;Log-Out
       <% end %>&nbsp;
       <!-- Profile logout -->
