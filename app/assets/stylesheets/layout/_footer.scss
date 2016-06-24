@@ -3,9 +3,32 @@ footer.footer {
     text-decoration: none;
     // padding: 4em 0;
     color: white;
-    background-color: #4C4C4C;
+    background-color: $brand-color-footer;
     -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
     box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
     padding-top: 30px;
+    a:hover {
+      color: white;
+      text-decoration: none;
+    }
+}
+
+.form-email {
+  display: inline-flex;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  align: center;
+  input {
+    width: 300px;
+  }
+}
+
+.email-input {
+  width: 300px;
+}
+
+// Operational Countries
+.countries-styling {
+  color: white;
 }

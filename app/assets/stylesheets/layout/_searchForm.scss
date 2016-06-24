@@ -45,9 +45,17 @@
     height: 50px;
     width: 168px;
     background-color: $brand-blue;
+    transition: background-color 0.3s ease 0s;
     border: 0px;
     font-size: 20px;
+    &:hover {
+      background-color: $brand-blue-hover;
+    }
   }
+
+
+
+
 
 // #search-input:focus{
 //     padding: 2px;
@@ -64,6 +72,7 @@
   border: 0;
   box-shadow: none;
   border-radius: 4px;
+  font-size: 15px;
 }
 
 #search-input button{

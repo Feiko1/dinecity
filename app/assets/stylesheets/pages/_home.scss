@@ -34,7 +34,7 @@
 }
 
 .header-1 {
-  font-size: 85px;
+  font-size: 77px;
 }
 
 .h2 {
@@ -63,6 +63,10 @@
 
 .how-to-image {
   width: 50px;
+}
+
+.feiko {
+  width: 200px;
 }
 
 // BELOW: BENEFITS WRAPPER
@@ -100,7 +104,7 @@
   height: 45px;
   font-size: 18px;
   background-color: $brand-blue;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease-in 0s;
   border: 0px;
   padding-top: 10px;
   align: center;
@@ -110,8 +114,7 @@
 
 .btn-primary:hover {
   color: #fff;
-  background-color: $brand-blue;
-  border-color: $brand-blue;
+  background-color: $brand-blue-hover;
 }
 
 .btn-success:focus, .btn-success.focus {
@@ -159,9 +162,10 @@
 }
 
 .video-tutorial-css {
-  width: 414px;
-  height: 222px;
+  // width: 414px;
+  // height: 222px;
   margin-bottom: 50px;
+  margin-right: 30px;
 }
 
 .feiko-text-video {

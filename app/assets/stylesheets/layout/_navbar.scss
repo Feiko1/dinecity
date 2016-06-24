@@ -48,6 +48,21 @@ ul li button .btn-success {
   width: 100px;
 }
 
+// Testing new log in options
+.log-in-button {
+  // border: 1px solid white;
+  background-color: $brand-color-nav;
+  color: white;
+  outline: 1;
+  font-size: 17px;
+  padding: 0 auto;
+  :hover {
+    $brand-color-nav: white;
+    color: black;
+    outline: 0;
+  }
+}
+
 
 // navbar: avatar section
 

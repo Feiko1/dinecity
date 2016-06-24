@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to "/", class: "nav-color navbar-brand" do %>
-        <i class="fa fa-glass" aria-hidden="true"></i> DineCity
+      <i class="fa fa-glass" aria-hidden="true"></i> DineCity
       <% end %>
     </div>
 
@@ -19,40 +19,47 @@
         <li><%= link_to 'Home', root_path, class: "nav-color" %></li>
         <li><%= link_to 'About', 'about.html', class: "nav-color" %></li>
 
- <% if current_user  %>
- <li><%= link_to 'Register as Restaurant Owner', new_user_registration_path, class: "nav-color" %> </li>
-      <% end  %>
+        <% if current_user  %>
+          <li>
+            <%= link_to 'Register as Restaurant Owner', new_user_registration_path, class: "nav-color" %>
+          </li>
+        <% end  %>
 
-         <li class="dropdown">
-          <button type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-lg dropdown-toggle btn-avatar"><%= image_tag "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png", class:"avatar"  %>
-           <% if current_user  %>
-          <h6 id="feiko-h6-override"><%= current_user.first_name%> </h6>
+        <li class="dropdown">
+          <button type="button" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-success btn-lg dropdown-toggle btn-avatar">
+          <%#= link_to "Log In", root_path, class: "log-in-button" %>
+
+            <!-- old -->
+            <%= image_tag "https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-fill-circle-512.png", class:"avatar"  %>
+            <% if current_user  %>
+            <h6 id="feiko-h6-override">
+              <%= current_user.first_name%>
+            </h6>
           </button></a>
           <!-- TODO: change this to user firstname -->
-              <% else %>
-         </button></a>
-                <% end  %>
+          <% else %>
+        </button></a>
+        <% end  %>
 
-          <ul class="dropdown-menu navbar-collapse feiko-dropdown-menu" id="bs-example-navbar-collapse-1", style="left: 0;">
+        <ul class="dropdown-menu navbar-collapse feiko-dropdown-menu" id="bs-example-navbar-collapse-1", style="left: 0;">
+          <% if current_user %>
+          <% if current_user.kind == "owner" %>
+          <li><%= link_to 'Your CMS', owner_restaurants_path %> </li>
+          <% end  %>
+          <li><%= link_to "Profile", bookings_path %> </li>
+          <!-- TODO: add profile path link! -->
+          <li><%= link_to "Log Out", destroy_user_session_path,  method: :delete%> </li>
 
-            <% if current_user %>
-              <% if current_user.kind == "owner" %>
-                <li><%= link_to 'Your CMS', owner_restaurants_path %> </li>
-                <% end  %>
-                <li><%= link_to "Profile", bookings_path %> </li>
-                <!-- TODO: add profile path link! -->
-                <li><%= link_to "Log-Out", destroy_user_session_path,  method: :delete%> </li>
+          <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %> </li>
 
-            <% else %>
-            <!-- <li><%#= link_to 'Log-In', new_user_session_path %></li> -->
-            <!-- <li><%#= link_to 'Sign-Up', new_user_registration_path %> </li> -->
-
-            <!-- this is temporary, we'll reroute this elsewhere -->
-            <% end  %>
-          </ul>
-        </li>
-      </ul>
-      </div>
+          <!-- this is temporary, we'll reroute this elsewhere -->
+          <% end  %>
+        </ul>
+      </li>
+    </ul>
+  </div>
     </div><!-- /.navbar-collapse
   </div><!-- /.container-fluid -->
 </nav>

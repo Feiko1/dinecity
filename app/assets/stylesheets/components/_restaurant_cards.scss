@@ -12,7 +12,6 @@
     width: 290px;
     margin: 0 auto;
   }
-
 }
 
 .card:hover {
@@ -23,12 +22,18 @@
   border-top: none;
 }
 
+.zonder-tangerine-font {
+  font-family: $base-font;
+  font-color: #171624;
+  align: left;
+}
+
 // Actual card inside
 
 .thumbnail-feiko {
  background-color: #F6F6F6;
  border-radius: 3px;
- height: 310px;
+ height: 320px;
  width: 370px;
  top: 0;
  float: left;
@@ -42,4 +47,13 @@
 
 .resto-name {
   font-weight: bold;
+}
+
+.btn-deal {
+  background-color: $brand-blue;
+  color: white;
+  border: 0;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in;
+
 }
