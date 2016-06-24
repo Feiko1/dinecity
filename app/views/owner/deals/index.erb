@@ -64,7 +64,9 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to 'View', restaurant_path(@restaurant) %>
+                <%= link_to restaurant_path(@restaurant), class: "btn btn-success btn-xs" do %>
+                <i class="fa fa-eye" aria-hidden="true"></i> View
+                <% end %>
               </td>
       <% end %>
     <% end %>
