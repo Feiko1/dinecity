@@ -19,7 +19,7 @@
       <%= time_ago_in_words(review.created_at) %> ago
     </span>
     <span>
-    <%= text_field_tag "rating_#{review.id}", review.rating, class: "rating-loading rating-static", :'data-size' => "sm" %>
+    <%= text_field_tag "rating_#{review.id}", review.rating, class: "rating-loading rating-static", :'data-size' => "xs" %>
     </span>
     <p class="review_text"> <%= review.content %> </p>
   </div>

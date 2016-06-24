@@ -43,6 +43,26 @@ ul li button .btn-success {
   padding-top: 5px;
 }
 
+// navbar: dropdown menu
+.feiko-dropdown-menu {
+  width: 100px;
+}
+
+// Testing new log in options
+.log-in-button {
+  // border: 1px solid white;
+  background-color: $brand-color-nav;
+  color: white;
+  outline: 1;
+  font-size: 17px;
+  padding: 0 auto;
+  :hover {
+    $brand-color-nav: white;
+    color: black;
+    outline: 0;
+  }
+}
+
 
 
 // navbar: avatar section
@@ -53,15 +73,21 @@ ul li button .btn-success {
   border: 0px;
   border-radius: 4px;
   padding: 5px 12px 2px 13px;
-  transition: background-color 0.5s ease;
+  width: 160px;
+  transition: background-color 0.25s ease;
   :hover {
     background-color: $brand-blue;
   }
 }
 
 .btn-avatar :hover {
+  // background-color: transparent;
+}
+
+#feiko-h6-override {
   background-color: transparent;
 }
+
 
 .btn-success:hover {
   color: #fff;
@@ -70,9 +96,9 @@ ul li button .btn-success {
 }
 
 .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
-    color: #fff;
-    background-color: $brand-blue;
-    border-color: $brand-blue;
+  color: #fff;
+  background-color: $brand-blue;
+  border-color: $brand-blue;
 }
 
 .avatar {
@@ -84,9 +110,9 @@ ul li button .btn-success {
 
 // User Name
 h6, .h6 {
-    font-size: 15px;
-    display: inline;
-    padding-left: 7px;
-    padding-right: 7px;
-    text-decoration: underline $brand-blue;
+  font-size: 15px;
+  display: inline;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-decoration: underline $brand-blue;
 }

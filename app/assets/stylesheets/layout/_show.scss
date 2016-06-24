@@ -75,6 +75,23 @@
   margin-top: 33.3px;
 }
 
+.button-base {
+  background-color: $brand-blue;
+  color: white;
+  transition: background-color 0.3s ease-in;
+  border: 0px;
+}
+
+#button-phase1-margin {
+  margin-top: 7px;
+}
+
+.button-base:hover {
+  color: #fff;
+  background-color: $brand-blue-hover;
+  border-color: 0px;
+}
+
 // BELOW: White space bottom
 #bottom-white-space {
 }

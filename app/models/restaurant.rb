@@ -15,7 +15,9 @@ class Restaurant < ActiveRecord::Base
     where("name LIKE ?", "%#{search}%") #TIS NEEDS TO BE MADE CASE INSENSITIVE
     where("city_name LIKE ?", "%#{search}%")
   end
+
 private
+
   def full_address
   self.street_name + self.street_number.to_s + self.city_name + self.country_name + self.postal_code
   end
