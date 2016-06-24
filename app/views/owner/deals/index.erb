@@ -4,19 +4,14 @@
 <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
 <% end %>
 <%= render 'form' %>
-<%= link_to 'Delete', class: "btn btn-warning btn-sm" do %>
-    <i class="fa fa-trash" aria-hidden="true"> </i> Delete
-<% end %>
 </div>
 <br /><br />
 <table class="table table-hover">
   <thead>
     <tr class="info del">
       <th>
-        <label>
-        <input type="checkbox">
-        </label>
-        </th>
+        Ref Num.
+      </th>
       <th>Menu Name</th>
       <th>Location</th>
       <th>Course Name</th>
@@ -33,12 +28,10 @@
       <% restaurant.deals.each do |deal| %>
             <tr>
               <td>
-               <label>
-               <input type="checkbox">
-               </label>
+              <%= deal_id %>
               </td>
               <td contenteditable="true">
-                <%=h deal.name %>
+                <%= deal.name %>
               </td>
               <td contenteditable="false">
                 <%= restaurant.city_name %>
@@ -67,6 +60,9 @@
                 <%= link_to restaurant_path(@restaurant), class: "btn btn-success btn-xs" do %>
                 <i class="fa fa-eye" aria-hidden="true"></i> View
                 <% end %>
+              </td>
+              <td>
+                <%= button_to 'Delete Task', deal_path, method: :delete %>
               </td>
       <% end %>
     <% end %>
