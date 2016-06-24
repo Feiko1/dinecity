@@ -16,8 +16,13 @@ class BookingsController < ApplicationController
   def new
 
     @number_of_people = params["number-of-people"]
+    @date = params["booking-date"]
+    @time = params["time"]
+    datetime = Time.parse("#{@date} #{@time}:00") if @date.present? && @time.present?
+
     @booking = Booking.new(
-      number_of_people: @number_of_people
+      number_of_people: @number_of_people,
+      date: datetime
     )
     @datetime= "#{params['booking-date']} #{params[:time]}"
     check_user  ##this interpolates

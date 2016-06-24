@@ -3,25 +3,48 @@
 <div id="restaurant-list">
 
   <h4 class="zonder-tangerine-font" style="text-align: center;">Today's deals</h4>
-  <!-- <h4 class="tangerine-font" style="text-align: center;">Today's deals</h4> -->
   <hr>
   <!-- <hr class="style-seven"> -->
   <div class="container">
     <div class="row">
       <% @restaurants.first(12).each do |resto| %>
       <div class="col-sm-4 col-md-4 card">
-        <div class="thumbnail-feiko">
+      <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
+       <div class="thumbnail-feiko">
          <div class=""></div>
          <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
          <% @unsplash_counter += 1 %>
          <h4><strong><%= resto.name %></strong></h4>
-         <p>Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only 25 euro. </p>
-         <p><%= link_to "View Restaurant", restaurant_path(resto), class: "btn btn-primary btn-deal" %></p>
+         <p>
+           Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only 25 euro.
+         </p>
 
+         <% end %>
        </div>
      </div>
      <% end %>
 
+
    </div>
+
+   <h4 class="zonder-tangerine-font" style="text-align: center; margin-top: 100px;">Upcoming deals</h4>
+   <hr>
+   <div class="row">
+     <% @restaurants.first(9).each do |resto| %>
+     <div class="col-sm-4 col-md-4 card">
+      <div class="thumbnail-feiko">
+       <div class=""></div>
+       <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
+       <% @unsplash_counter += 1 %>
+       <h4><strong><%= resto.name %></strong></h4>
+       <p>Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only 25 euro. </p>
+       <p><%= link_to "View Restaurant", restaurant_path(resto), class: "btn btn-primary btn-deal" %></p>
+
+     </div>
+   </div>
+   <% end %>
+
+
  </div>
+</div>
 </div>

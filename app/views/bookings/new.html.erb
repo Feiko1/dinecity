@@ -1,74 +1,80 @@
-<br>
-<br>
+<div style="background-color: #f3f3f3;">
+  <div class="booking_wrapper">
 
-
-<div class="booking_wrapper">
-
-  <!-- Login options -->
-  <div class="booking-login">
-    <div style="padding-top: 6px;">
-      <span>Remember details?</span>
-      <a href="#" class="btn btn-success styling-button">Register</a>
-      <a href="#" class="btn btn-success styling-button link-styling">Log In</a>
+    <!-- Login options -->
+    <div class="booking-login">
+      <div>
+        <span>Remember details?</span>
+        <a href="#" class="btn styling-button">Register</a>
+        <a href="#" class="btn styling-button link-styling">Log In</a>
+      </div>
     </div>
-  </div>
 
 
-<!-- Booking Overview -->
-<div class="booking-summary">
-  <h4>Reservation details</h4>
-  <ul>
-    <li>Date</li>
-    <li>Persons <%= @number_of_people %></li>
-    <li>Time</li>
-  </ul>
-</div>
+    <!-- Booking Overview -->
+    <div class="booking-summary">
+      <h3>1. Reservation details</h3>
+      <ul>
+        <li>Restaurant:</li>
+        <li><strong>Date:</strong>      <%= @date %></li>
+        <li><strong>Persons:</strong>      <%= @number_of_people %></li>
+        <li><strong>Time:</strong>      <%= @time %></li>
+      </ul>
+    </div>
 
 
+    <div class="details-input">
+      <h3>2. To confirm your booking</h3>
+      <br>
+      <%= simple_form_for [@restaurant, @booking] do |f| %>
+      <%= f.input :number_of_people, as: "hidden" %>
+      <%= f.input :date, as: "hidden" %>
 
-<h2>To confirm your booking</h2>
-<br>
-<%= simple_form_for [@restaurant, @booking] do |f| %>
-  <%= f.input :number_of_people, as: "hidden" %>
-<!-- add komma then new line, add a real datetime -->
+      <div class="space-around">
+        <div style="flex-grow: 1;">
+          <%= f.input :visitor_first_name, label: '*First name', error: 'name is mandatory', placeholder: 'enter first name' %>
+          <!-- this sets the attribute visitor_first_name -->
+        </div>
+        <div style="flex-grow: 1;">
+          <%= f.input :visitor_last_name, label: '*Last name', error: 'name is mandatory', placeholder: 'enter last name' %>
+          <!-- this sets the attribute visitor_second_name -->
+        </div>
+      </div>
 
-<div class="space-around">
-  <div style="flex-grow: 1;">
-    <%= f.input :visitor_first_name, label: 'your first name', error: 'name is mandatory', placeholder: 'enter first name' %>
-    <!-- this sets the attribute visitor_first_name -->
-  </div>
-  <div style="flex-grow: 1;">
-    <%= f.input :visitor_last_name, label: 'your last name', error: 'name is mandatory', placeholder: 'enter last name' %>
-    <!-- this sets the attribute visitor_second_name -->
-  </div>
-</div>
+      <%= f.input :visitor_email, label: '*Email (to confirm)', placeholder: 'user@domain.com' %>
+      <%= f.input :visitor_phone, label: '*Phone number', placeholder: 'tel.' %>
+      <!-- TODO: add number require & regex check -->
 
-<%= f.input :visitor_email, label: 'Your email (to confirm)', placeholder: 'user@domain.com' %>
-<%= f.input :visitor_phone, label: 'Your phone number', placeholder: 'tel.' %>
-<!-- TODO: add number require & regex check -->
+      <%= f.hidden_field :number_of_people, value: @number_of_people %>
+      <%= f.hidden_field :date, value: @datetime %>
 
-<%= f.hidden_field :number_of_people, value: @number_of_people %>
-<%= f.hidden_field :date, value: @datetime %>
+      <%= f.hidden_field :status, value: "booking_requested_by_user" %>
 
-<%= f.hidden_field :status, value: "booking_requested_by_user" %>
-
-<%= f.hidden_field :deal_id, value: @restaurant.deals.first.id %>
-<!-- PLEASE CHANGE THIS VALUE ONCE WE IMPLEMENT DEAL SELECTOR -->
-<%= f.submit "Send Booking Confirmation Mail" %>
-<% end %>
+      <%= f.hidden_field :deal_id, value: @restaurant.deals.first.id %>
+      <!-- PLEASE CHANGE THIS VALUE ONCE WE IMPLEMENT DEAL SELECTOR -->
+      <div class="testing-center">
+        <%= f.submit "Send Booking Confirmation Mail", class:"button-base", style:"border-radius: 3px; height: 40px;" %>
+      </div>
+      <% end %>
 
 
 <!--    <div class="form-group" id="reservation-button">
           <%= link_to "Make Reservation",  new_restaurant_booking_path(@restaurant), class:"btn btn-success" %>
         -->
-        <p>This information is for booking confirmation purposes only</p>
-        <p><strong>Please Note:</strong> your booking is not valid unless you click the link in the email after this form</p>
-
-        <p>You may need to check your email filters</p>
-        <% if current_user  %>
-
-        <% end  %>
       </div>
+      <div class="note">
+        <p>
+          <strong>Please Note:</strong>
+        </p>
+        <p>
+          Your booking is not valid unless you click the link in the email after this form. This information is for booking confirmation purposes only.
+        </p>
+      </div>
+      <% if current_user  %>
+
+      <% end  %>
 
       <br>
+    </div>
+  </div>
 </div>

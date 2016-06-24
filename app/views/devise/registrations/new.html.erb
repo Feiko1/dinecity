@@ -1,7 +1,9 @@
+<div style="background-color: #f3f3f3;">
+
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-4 col-md-4 padding-form matt-signup-wrapper">
-      <h3>Sign-up in Seconds!</h3>
+    <div class="padding-form sign-up-wrapper">
+      <h3>Ok let's get you registered!</h3>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -29,4 +31,8 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
+</div>
+
+
+
 </div>

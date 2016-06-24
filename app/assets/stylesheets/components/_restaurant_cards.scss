@@ -28,6 +28,16 @@
   align: left;
 }
 
+.link-to-cards {
+  color: #171624;
+}
+
+.link-to-cards:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+
 // Actual card inside
 
 .thumbnail-feiko {

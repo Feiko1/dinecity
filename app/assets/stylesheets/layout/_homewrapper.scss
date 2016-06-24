@@ -1,21 +1,11 @@
 .header-cover-image {
-    background: no-repeat center center;
-    background-image: image-url('banner-image.jpg');
-    // background-size: 100%;
-    //-webkit-background-size: cover;
-    //-moz-background-size: cover;
-    //-o-background-size: cover;
-    //background-size: cover;
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    // position: fixed;
-    margin-top: 50px;
-    left: 0px;
-    right: 0px;
-    height: 400px;
-    z-index: -1;
-
-  }
+  padding-top: 50px;
+  background: no-repeat center center;
+  background-image: image-url('banner-image.jpg');
+  background-size: cover;
+  margin-top: 50px;
+  left: 0px;
+  right: 0px;
+  height: 225px;
+  z-index: -1;
+}

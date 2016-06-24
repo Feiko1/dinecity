@@ -4,6 +4,11 @@
  * ------------------------------------- */
 
 // .pages-home  see application.html.erb body comment
+
+body {
+    font-family: Montserrat;
+}
+
 .pages-home {
   p {
     color: $color-text;
