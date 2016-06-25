@@ -1,31 +1,42 @@
 <table class="table table-hover">
+  <div class="total-cost" >
+    <button class="btn btn-info btn-xs">Export CSV</button>
+  </div>
   <thead>
     <tr class="info">
-      <th>#</th>
-      <th>ID</th>
-      <th>Ref No.</th>
-      <th>Customer</th>
-      <th>Date</th>
-      <th>Total</th>
+      <!-- <th>#</th> -->
+      <th>Deal ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Customer Email</th>
+      <th>Date Reserved</th>
+      <th>Persons</th>
       <th>Status</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
+    <% total_revenue = 0 %>
     <% for booking in @bookings %>
     <% if booking.deal.restaurant.user_id == current_user.id %>
     <tr>
-      <td>1</td>
       <td><%= booking.deal_id %></td>
       <td><%= booking.user.first_name %></td>
       <td><%= booking.user.last_name %></td>
       <td><%= booking.user.email %></td>
-      <td>$<%= booking.deal.price %></td>
-      <td>$<%= booking.number_of_people %></td>
-      <td>$<%= booking.date.strftime("%A the %dth of %B, at %H:%M") %></td>
+      <td><%= booking.date.strftime("%A the %dth of %B, at %H:%M") %></td>
+      <td><%= booking.number_of_people %></td>
       <td><%= booking.status %></td>
+      <td>&#128; <%= booking.deal.price %></td>
+      <% total_bookings_price = (booking.deal.price * booking.number_of_people) %>
+      <% total_revenue += total_bookings_price %>
+      <td>&#128;   <%= total_bookings_price %></td>
       <td><%= submit_tag "Confirm", class: "btn btn-success btn-sm" %> </td>
     </tr>
     <% end %>
     <% end %>
+            <h5>Total bookings created:<b> &#128; <%= total_revenue%> </b> </h5>
   </tbody>
 </table>

@@ -10,7 +10,7 @@
   <thead>
     <tr class="info del">
       <th>
-        Ref Num.
+        ID
       </th>
       <th>Menu Name</th>
       <th>Location</th>
@@ -28,9 +28,9 @@
       <% restaurant.deals.each do |deal| %>
             <tr>
               <td>
-              <%= deal_id %>
+                <%= deal.id %>
               </td>
-              <td contenteditable="true">
+              <td contenteditable="false">
                 <%= deal.name %>
               </td>
               <td contenteditable="false">
@@ -47,22 +47,24 @@
                       <%= course.course_name %>
                 <% end %>
               </td>
-              <td><%= deal.price %></td>
-              <td><%= deal.maximum_deal_capacity %></td>
-              <td><%= deal.start_date %></td>
-              <td><%= deal.end_date %></td>
-              <td>
-                <%= button_tag(type: "submit", class: "editbtn btn btn-success btn-xs") do %>
+              <td contenteditable="false">$ <%= deal.price %></td>
+              <td contenteditable="false"><%= deal.maximum_deal_capacity%></td>
+              <td contenteditable="false"><%= deal.start_date %></td>
+              <td contenteditable="false"><%= deal.end_date %></td>
+              <td contenteditable="false">
+                <%= button_tag(type: "submit", class: "editbtn btn btn-warning btn-xs btn-size") do %>
                  <i class="fa fa-pencil"> </i> Edit
                 <% end %>
-              </td>
-              <td>
-                <%= link_to restaurant_path(@restaurant), class: "btn btn-success btn-xs" do %>
+                <div class="clear"></div>
+                <%= link_to restaurant_path(@restaurant), class: "btn btn-info btn-xs btn-size" do %>
                 <i class="fa fa-eye" aria-hidden="true"></i> View
+                <% end %>
+                <div class="clear"></div>
+                <%= link_to owner_deal_path(deal), class: "btn btn-xs btn-danger btn-size", method: :delete do %>
+                <i class="fa fa-trash" aria-hidden="true"></i> Delete
                 <% end %>
               </td>
               <td>
-                <%= button_to 'Delete Task', deal_path, method: :delete %>
               </td>
       <% end %>
     <% end %>

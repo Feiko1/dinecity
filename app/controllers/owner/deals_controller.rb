@@ -43,14 +43,15 @@ module Owner
     end
 
     def destroy
+      @deal = Deal.find(params[:id])
       @deal.destroy
       flash[:danger] = "Deal was successfully deleted"
-      redirect_to deal_path
+      redirect_to owner_deals_path(@deal)
     end
 
     private
     def deal_params
-      params.require(:deal).permit(:name, :description, :restaurant_id, courses_attributes:[:id, :course_name, :description])
+      params.require(:deal).permit(:price, :maximum_deal_capacity, :name, :description, :start_date, :end_date, :restaurant_id, courses_attributes:[:id, :course_name, :description])
     end
 
     def find_restaurant

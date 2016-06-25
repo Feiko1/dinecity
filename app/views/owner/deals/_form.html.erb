@@ -30,6 +30,15 @@
                       <%= f.select :maximum_deal_capacity, options_for_select((1..20)), {}, class: "form-control" %>
                     </div>
                   </div>
+                    <div class="col-xs-12">
+                      <%= label_tag :start_date %>
+                      <%= f.date_select :start_date, type: "date", class: "form-control reservation-selector", name: "booking-date", placeholder: "Date.today" %>
+                    </div>
+                    <div class="col-xs-12">
+                      <%= label_tag :end_date %>&nbsp;&nbsp;
+                      <%= f.date_select :end_date, type: "date", class: "form-control reservation-selector", name: "booking-date", placeholder: "Date.today" %>
+                    </div>
+                    <br />
                     <%= f.simple_fields_for :courses do |course_form| %>
                     <%= course_form.input :course_name, placeholder: "Type the Course Title" %>
                   <div class="form-group">
@@ -37,19 +46,9 @@
                   </div>
                   <% end %>
                   <%= f.hidden_field :restaurant_id %>
-                  <div class="form-group col-xs-12">
-                    <div class="col-xs-6">
-                      <%= label_tag :start_date %>
-                      <%= f.date_field :start_date, type: "date", class: "form-control reservation-selector", name: "booking-date", placeholder: "Date.today" %>
-                    </div>
-                    <div class="col-xs-6">
-                      <%= label_tag :end_date %>
-                      <%= f.date_field :end_date, type: "date", class: "form-control reservation-selector", name: "booking-date", placeholder: "Date.today" %>
-                    </div>
-                  </div>
                   <div class='form-group'>
                     <div class='col-xs-12'>
-                      <%= f.submit 'Save Deal', class: 'btn btn-primary btn-sm col-xs-12' %>
+                      <%= f.submit 'Save Deal', class: 'btn btn-success btn-sm col-xs-12' %>
                     </div>
                   </div>
                   <% end %>
