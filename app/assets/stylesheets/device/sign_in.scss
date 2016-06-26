@@ -1,4 +1,4 @@
-// RESERVATION PHASE II BELOW  // FURTHER BELOW = SIGN UP
+// RESERVATION PHASE II BELOW  // FURTHER BELOW = SIGN UP CSS
 //below feiko
 .booking-login {
   border: 0px;
@@ -93,22 +93,37 @@
 // SIGN UP PAGE BELOW
 
 .sign-up-wrapper {
-  padding: 10px 15px 30px 15px;
   background-color: white;
+  padding: 70px 15px 30px 15px;
+  margin: auto;
   border-radius: 0;
   width: 500px;
-  margin-top: 50px;
-  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+
+// ################ above _SIGN-UP CSS_  ###################### !
+// ################ below _SIGN-IN CSS_  ###################### !
+
+//below Feiko
+
+.sign-in-wrapper {
+  background-color: white;
+  padding: 85px 70px 55px 70px;
+  width: 500px;
+  margin: auto;
+
+}
+
+
+
 //below matt
 
 .padding-form{
   // padding-top: 60px;
-  padding-bottom: 100px;
+  // padding-bottom: 100px;
 }
 
 matt-signin-wrapper{

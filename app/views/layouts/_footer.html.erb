@@ -1,71 +1,36 @@
 <footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="col-sm-4">
-          <div class="footer-logo">
-            <h3 style="margin-top: 10px;"><i class="fa fa-glass fa-1x" aria-hidden="true"></i> DineCity</h3>
-            <p style="font-size: 14px; color: white;">Experience new restaurants with discount<br>Online Restaurant &amp; Booking Platform</p>
-            <br>
-            <p class="muted">&copy;&nbsp;<%=Date.today.year%>&nbsp;<b>DineCity</b></p>
-         <!--    <a href="#">Terms of Service</a>
-         <a href="#">Privacy Policy</a> -->
-       </div>
-     </div>
-     <div class="col-sm-offset-2 col-sm-2">
-      <h5>Help</h5>
-      <ul class="list-unstyled">
-        <li><a href="#">How to?</a></li>
-        <li><a target="_blank" href="#">Reservations</a></li>
-        <li><a href="#" title="">Account</a></li>
-        <li><a href="#" title="">FAQ</a></li>
-      </ul>
-    </div>
-    <div class="col-sm-2">
-      <h5>About</h5>
-      <ul class="list-unstyled">
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Press Room</a></li>
-        <li><a target="_blank" href="#">Quality Assuarance</a></li>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">Jobs <span class="btn btn-primary btn-xs">We're hiring!</span></a></li>
-      </ul>
-    </div>
-    <div class="col-sm-2">
-      <h5>Legal</h5>
-      <ul class="list-unstyled">
-        <li><a href="#" target="_blank">Terms of service</a></li>
-        <li><a href="#" target="_blank">Privacy policy</a></li>
-        <li><a href="#" target="_blank">Cookie Policy</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-12 text-center">
-    <div class="newsletter" id="email">
-      <form action="subscribe" id="invite" method="POST" onsubmit="return false;">
-        <!-- <h5><strong>Newsletter</strong></h5> -->
-        <p style="color= white;">Sign up for exclusive discounts in top restaurants!</p>
-        <!-- @ Lars - I need some help with this one -->
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <div class="form-email">
-            <input class="form-control email-input" type="text" placeholder="your@email.com" name="email" id="address" style="width: 300px;">
-            <input class="btn btn-block btn-primary btnsignup" type="submit" value="Sign up">
-          </div>
-        </div>
-        <div class="col-md-3"></div>
-        <div class="clearfix"></div>
-        <br>
-        <div class="col-md-3"></div>
-        <div class="col-md-6"><span id="result"></span></div>
-        <div class="col-md-3"></div>
-      </form>
-    </div>
 
-    <%= content_for :after_js do %>
-    <script type="text/javascript">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="newsletter" id="email">
+        <form action="subscribe" id="invite" method="POST" onsubmit="return false;">
+          <p style="color: white; text-align: center; font-size: 20px; margin-bottom: 0px;">
+            Sign up and receive exclusive deals just for you
+          </p>
+          <p style="color: white; font-size: 12px; font-weight: 300;">
+            *Don't worry we won't spam you. Only one overview per month.
+          </p>
+          <div class="col-md-6 col-md-offset-3">
+            <div class="form-email">
+              <div id="email-service-input">
+                <input class="form-control email-input" type="text" placeholder="your@email.com" name="email" id="address" style="text-align: center; font-size: 16px;">
+              </div>
+              <div>
+                <input class="btn btn-block btn-primary btnsignup email-service-btn " type="submit" value="Sign up" style="font-size: 15px;">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+          <div class="clearfix"></div>
+          <br>
+          <div class="col-md-3"></div>
+          <div class="col-md-6"><span id="result"></span></div>
+          <div class="col-md-3"></div>
+        </form>
+      </div>
+
+  <%= content_for :after_js do %>
+  <script type="text/javascript">
           //JavaScript for Newsletter subscription
           $(document).ready(function() {
             $(".btnsignup").on("click",function(){
@@ -82,7 +47,7 @@
               setTimeout(function(){  $("#result").html("");  }, 15000);
             });
           });
-          function validateEmail(email) {
+          {
             var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
             return re.test(email);
           }
@@ -92,18 +57,59 @@
     </div>
   </div>
 
-<!-- @ LARS help needed with classes over here as well. -->
-  <!-- OPERATIONAL IN COUNTRIES: -->
-  <div class="row">
-    <div class="col-md-12">
-      <h4>Countries</h4>
-      <span>
-      <%= link_to "Netherlands", { :class=>"countries-styling"}  %>
-        <%= link_to "Germany", { :class=>"countries-styling"}  %>
-        <%= link_to "United Kingdom", { :class=>"countries-styling"}  %>
-        <%= link_to "Belgium", { :class=>"countries-styling"}  %>
-        <%= link_to "France", { :class=>"countries-styling"}  %>
-      </span>
+  <hr id="hairline-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="col-sm-4">
+          <div class="footer-logo">
+            <h3 style="margin-top: 10px;"><i class="fa fa-glass fa-1x" aria-hidden="true"></i> DineCity</h3>
+            <p style="font-size: 13px; color: white; font-weight: 300">Experience new restaurants with discount<br>Online Restaurant &amp; Booking Platform</p>
+            <br>
+            <p style="font-size: 13px; color: white; font-weight: 300">&copy;&nbsp;<%=Date.today.year%>&nbsp;<b>DineCity</b>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <h5>Help</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">How to?</a></li>
+              <li><a target="_blank" href="#">Reservations</a></li>
+              <li><a href="#" title="">Account</a></li>
+              <li><a href="#" title="">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-2">
+            <h5>Countries</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Netherlands</a></li>
+              <li><a href="#">Germany</a></li>
+              <li><a target="_blank" href="#">England</a></li>
+              <li><a href="#">France</a></li>
+              <li><a href="#">Italy</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-2">
+            <h5>About</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Press Room</a></li>
+              <li><a target="_blank" href="#">Quality Assuarance</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Jobs <span class="btn btn-primary btn-xs">We're hiring!</span></a></li>
+            </ul>
+          </div>
+          <div class="col-sm-2">
+            <h5>Legal</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" target="_blank">Terms of service</a></li>
+              <li><a href="#" target="_blank">Privacy policy</a></li>
+              <li><a href="#" target="_blank">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <br>
 </footer>
