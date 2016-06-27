@@ -17,12 +17,13 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Home', root_path, class: "nav-color" %></li>
-        <li><%= link_to 'About', 'about.html', class: "nav-color" %></li>
+        <!-- commented this one out for MVP -->
+        <!-- <li><%#= link_to 'About', 'about.html', class: "nav-color" %></li> -->
 
 
  <% if current_user  %>
  <li>
- <%= link_to 'Register as Restaurant Owner', new_restaurant_path, class: "nav-color" %> </li>
+ <%#= link_to 'Register Restaurant', new_restaurant_path, class: "nav-color" %> </li>
       <% end  %>
 
 
