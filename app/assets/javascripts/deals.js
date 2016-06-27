@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $('.editbtn').click(function () {
+    console.log('clicked edit button working!!')
       var currentTD = $(this).parents('tr').find('td');
       if ($(this).html() == 'Edit') {
           currentTD = $(this).parents('tr').find('td');
@@ -12,19 +13,19 @@ $(document).ready(function () {
           });
       }
       $(this).html($(this).html() == 'Edit' ? 'Update' : 'Edit')
-//     var gist = JSON.stringify({
-//     "city_name": $("#deal-name")
-//   });
+    var gist = JSON.stringify({
+    "city_name": $("#deal-name")
+  });
 //
 //
-//   $.ajax({
-//   type: "POST",
-//   url: Routes.owner_deal_path(parseInt($("#deal_id"))),
-//   data: gist,
-//   success: function(data) {
-//     console.log("Successfully created gist at " + data.html_url);
-//   }
-// });
+  $.ajax({
+  type: "PATCH",
+  url: Routes.owner_deal_path(parseInt($("#deal_id"))),
+  data: gist,
+  success: function(data) {
+    console.log("Successfully created gist at " + data.html_url);
+  }
+});
 });
 
   // //for Date functionality of the deal

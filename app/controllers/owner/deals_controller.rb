@@ -1,6 +1,5 @@
 module Owner
   class DealsController < Owner::BaseController
-    # before_filter only: [:index, :edit, :new, :update]
     before_action :find_owner, only: [:edit, :update]
 
     def show
