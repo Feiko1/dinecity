@@ -1,4 +1,5 @@
 <!-- Add button for offers -->
+<div class="hidden" id="user_id"><%= current_user.id %></div>
 <div class="add-edit-btn">
 <%= link_to "#addOffer", class: "btn btn-success btn-sm", "data-toggle" => "modal" do %>
 <i class="fa fa-plus-circle" aria-hidden="true"></i> Add
@@ -27,13 +28,13 @@
     <% @restaurants.each do |restaurant| %>
       <% restaurant.deals.each do |deal| %>
             <tr>
-              <td>
+              <td id="deal-id">
                 <%= deal.id %>
               </td>
-              <td contenteditable="false">
+              <td contenteditable="false" id="deal-name">
                 <%= deal.name %>
               </td>
-              <td contenteditable="false">
+              <td contenteditable="false" >
                 <%= restaurant.city_name %>
               </td>
               <td contenteditable="false">
