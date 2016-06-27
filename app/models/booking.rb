@@ -2,7 +2,7 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :deal
 
-  after_create :send_user_booking_request_confirmation_email
+  # after_create :send_user_booking_request_confirmation_email
 # COMMENT THIS BEFORE SEED
 
   # after_create :send_owner_booking_confirmation_email
