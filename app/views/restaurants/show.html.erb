@@ -161,38 +161,91 @@
             </div>
 
             <div role="tabpanel" class="tab-pane feiko-content-padding" id="contact">
-              <ul>
-                <strong><h3> Restaurant <%= @restaurant.name %></h3></strong>
+              <ul id="remove-bullets">
+              <strong><h3> Restaurant <%= @restaurant.name %></h3></strong>
                 <li>
-                  <strong>Address:</strong> <%= @restaurant.street_name %> <%= @restaurant.street_number %> • <%= @restaurant.postal_code %> <%= @restaurant.city_name %> <%= @restaurant.country_name %>
-                </li>
-                <li>
-                  <strong>Tel.:</strong> <%= @restaurant.phone_number %>
-                </li>
-                <li>
-                  <strong>Email:</strong> <%= @restaurant.email_address %>
-                </li>
-                <li>
-                  <strong>Opening times:</strong>
-                  12:00-13:30 & 19:00-21:00
-                </li>
-                <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
+                  <li><h4>Contact Details</h4></li>
+                  <strong>Address:</strong>
+                  <li>
+                    <%= @restaurant.street_name %> <%= @restaurant.street_number %>
+                  </li>
+                  <li>
+                    <strong>City:</strong>
+                    <li><%= @restaurant.city_name %>, <%= @restaurant.postal_code %>
+                    </li>
+                  </li>
+                  <li>
+                    <strong>Country:</strong>
+                    <li><%= @restaurant.country_name %>
+                    </li>
+                  </li>
+                  <li>
+                    <strong>Telephone:</strong>
+                    <li> <%= @restaurant.phone_number %>
+                    </li>
+                  </li>
+                  <li>
+                    <strong>Email:</strong>
+                    <li> <%= @restaurant.email_address %>
+                    </li>
+                  </li>
+                  <li>
+                    <li>
+                      <h4>Opening times:</h4>
+                    </li>
+                    <li>
+                      12:00-13:30 & 19:00-21:00
+                    </li>
+                  </li>
+                  <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
 
-                <li>
-                  <strong>Opening days:</strong>
-                  Tuesday and Wednesday dinner;
-                  Thursday, Friday and Saturday lunch & dinner
-                </li>
+                  <li>
+                    <strong>Opening days:</strong>
+                    Tuesday and Wednesday dinner;
+                    Thursday, Friday and Saturday lunch & dinner
+                  </li>
 
-                <li>
-                  <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
-                  </p>
-                </li>
+               <!--    <li>
+                    <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
+                    </p>
+                  </li> -->
 
-              </ul>
-              <br>
+                </ul>
+                <br>
 
-            </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
+                <% if @restaurant.reviews.any? %>
+                <h4>
+                  Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>, with an average rating of
+                  <% sum = 0 %>
+                  <% @restaurant.reviews.each do |review| %>
+                  <% sum = sum + review.rating %>
+                  <% end  %>
+                  <% rating_average = (sum / @restaurant.reviews.size) %>
+                  <%= rating_average %>
+                  <span>
+                    <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
+                  </span>
+                </h4>
+                <hr>
+                <% end %>
+
+                <!-- This form = actual input for rating & review -->
+                <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+                <hr>
+
+                <!-- The list of reviews  -->
+                <div id="reviews">
+                  <% if @restaurant.reviews.blank? %>
+                  Be the first to leave a review for <%= @restaurant.name %>
+                  <% else %>
+                  <% @restaurant.reviews.each do |review| %>
+                  <%= render 'reviews/show', review: review %>
+                  <% end %>
+                  <% end %>
+                </div>
 
             <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
               <h4>
@@ -222,23 +275,22 @@
                 <%= render 'reviews/show', review: review %>
                 <% end %>
                 <% end %>
+
               </div>
-
             </div>
+
           </div>
-
         </div>
+        <br><br><br>
+        <br>
+        <br>
+
       </div>
-      <br><br><br>
-      <br>
-      <br>
-
+      <%= render 'restaurants/map' %>
     </div>
-    <%= render 'restaurants/map' %>
+
+
   </div>
-
-
-</div>
 </div>
 
 
