@@ -9,14 +9,21 @@
     <div class="row">
       <% @restaurants.first(12).each do |resto| %>
       <div class="col-sm-4 col-md-4 card">
-      <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
-       <div class="thumbnail-feiko">
+        <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
+        <div class="thumbnail-feiko">
          <div class=""></div>
-         <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
-         <% @unsplash_counter += 1 %>
-         <h4><strong><%= resto.name %></strong></h4>
+         <% @restaurant = resto  %>
+           <% if @restaurant.photos.any? %>
+             <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+           <% elsif  %>
+            <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
+            <% @unsplash_counter += 1 %>
+         <% end  %>
+         <h4>
+        <strong><%= resto.name %></strong>
+         </h4>
          <p>
-           Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only 25 euro.
+           Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only <%= resto.deals.first.price %> euro.
          </p>
 
          <% end %>
