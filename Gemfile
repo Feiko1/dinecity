@@ -8,6 +8,8 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'country_select'
+gem 'cloudinary'
+gem 'carrierwave'
 
 gem 'sass-rails'
 gem 'jquery-rails'

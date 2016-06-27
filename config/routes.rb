@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
     resources :restaurants, only: [:index, :show, :edit, :update] do
       resources :deals, only: :create
+      resources :photos, only: [:create] #, :show, :edit, :update
     end
       resources :bookings, only: [:index, :edit, :update]
       resources :deals, only: [:index, :edit, :create, :new, :update, :destroy]

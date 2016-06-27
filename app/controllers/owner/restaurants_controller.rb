@@ -6,6 +6,7 @@ module Owner
 
     def edit
       @restaurant = current_user.restaurants.find(params[:id])
+      @photo = Photo.new
     end
 
     def update
