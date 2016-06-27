@@ -15,9 +15,16 @@ module Owner
       end
     end
 
+    def destroy
+      @photo = Photo.find(params[:id])
+      @photo.destroy
+      flash[:danger] = "Photo was successfully deleted"
+      redirect_to edit_owner_restaurant_path(@restaurant)
+    end
+
     private
     def photo_params
-      params.require(:photo).permit(:photo, :photo_cache)
+      params.require(:photo).permit(:photo, :photo_cache, :restaurant_id)
     end
 
     def find_restaurant

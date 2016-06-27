@@ -26,6 +26,22 @@
             <%# restaurant.photos.each do |photo| %>
 
             <div class="carousel-inner" role="listbox">
+
+
+              <div class="item-active">
+                <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+
+              <% @restaurant.photos.to_a.drop(1).each do |p|  %>
+              <div class="item">
+                <%= cl_image_tag p.photo, height: 350, width: 450, crop: :fill %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+              <% end  %>
+
               <div class="item active">
                 <%#= image_tag photo.image_string %>
                 <%= image_tag("bocinq1.jpg") %>
@@ -33,19 +49,7 @@
                   <%#= link_to restaurant.name, "#"  %>
                 </div>
               </div>
-              <div class="item">
-                <%= image_tag("background.jpg") %>
-                <div class="carousel-caption">
-                </div>
-              </div>
-              <div class="item">
-                <%= image_tag("bocinqbar.jpg") %>
-                <div class="carousel-caption">
-                </div>
-              </div>
-              <div class="item">
-                <%= image_tag("beef.jpg") %>
-              </div>
+
             </div>
             <%# end %>
             <%# end %>
@@ -209,9 +213,9 @@
                 <% end  %>
                 <% rating_average = (sum / @restaurant.reviews.size) %>
                 <%= rating_average %>
-              <span>
-              <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
-              </span>
+                <span>
+                  <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
+                </span>
               </h4>
               <hr>
 

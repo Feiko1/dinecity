@@ -6,13 +6,15 @@ module Owner
 
     def edit
       @restaurant = current_user.restaurants.find(params[:id])
+      @owner = current_user
+
       @photo = Photo.new
     end
 
     def update
       @restaurant = current_user.restaurants.find(params[:id])
       @restaurant.update(restaurant_params)
-      redirect_to edit_owner_restaurant_path(current_user, @restaurant)
+      redirect_to edit_owner_restaurant_path(@restaurant)
     end
 
       # def index

@@ -1,16 +1,17 @@
 <div id="accounts-layout" class="row">
   <%= simple_form_for [:owner, @restaurant] do |form| %>
   <div class="col-md-4">
-    <%= form.input :name %>
+    <%= form.input :name, label: "Restaurant name" %>
     <%= form.input :email_address %>
     <%= form.input :phone_number, placeholder: "+39.." %>
-    <%= form.input :country_name %>
+    <%= form.input :street_name %>
+
   </div>
   <div class="col-md-4">
     <%= form.input :street_number %>
-    <%= form.input :street_name %>
     <%= form.input :city_name %>
     <%= form.input :postal_code %>
+    <%= form.input :country_name %>
     <!--  -->
 
     <!--  -->
@@ -19,20 +20,30 @@
   </div>
   <% end %>
   <div class="col-md-4">
+
     <%= simple_form_for(@photo, url: owner_restaurant_photos_path(@restaurant)) do |f| %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit %>
+    <%= f.input :restaurant_id, input_html: { value: @restaurant.id }, as: :hidden %>
+    <!-- <%= f.submit %> -->
+    <%= submit_tag "Upload photo", class: "btn btn-success" %>
+
     <% end %>
   </div>
-  <br>
-<div class="col-md-4">
-<% @restaurant.photos.each do |p|  %>
-<%= cl_image_tag p.image_string, height: 300, width: 400, crop: :fill %>
-<% end  %>
 
-</div>
+  <div class="col-md-4">
+    <% @restaurant.photos.each do |p|  %>
+    <%= cl_image_tag p.photo, height: 200, width: 200, crop: :fill %>
+
+      <%= link_to edit_owner_restaurant_path(@restaurant), class: "btn btn-xs btn-danger btn-size", method: :delete do %>
+      <i class="fa fa-trash" aria-hidden="true"></i> Delete
+    <% end %>
+
+    <% end  %>
+
+  </div>
   <div class="col-md-4">
     Your Business Information:
   </div>
+
 </div>
