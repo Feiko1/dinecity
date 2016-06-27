@@ -27,11 +27,10 @@
 
             <div class="carousel-inner" role="listbox">
 
-
-              <div class="item-active">
+              <div class="item active">
                 <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
-                <div class="carousel-caption">
-                </div>
+                  <div class="carousel-caption">
+                  </div>
               </div>
 
               <% @restaurant.photos.to_a.drop(1).each do |p|  %>
@@ -41,15 +40,6 @@
                 </div>
               </div>
               <% end  %>
-
-              <div class="item active">
-                <%#= image_tag photo.image_string %>
-                <%= image_tag("bocinq1.jpg") %>
-                <div class="carousel-caption">
-                  <%#= link_to restaurant.name, "#"  %>
-                </div>
-              </div>
-
             </div>
             <%# end %>
             <%# end %>
