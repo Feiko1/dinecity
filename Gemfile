@@ -10,7 +10,6 @@ gem 'redis'
 gem 'country_select'
 gem 'cloudinary'
 gem 'carrierwave'
-
 gem 'js-routes'
 
 gem 'sass-rails'

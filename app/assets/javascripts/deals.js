@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $('.editbtn').click(function () {
-    console.log('clicked edit button working!!')
       var currentTD = $(this).parents('tr').find('td');
       if ($(this).html() == 'Edit') {
           currentTD = $(this).parents('tr').find('td');
@@ -13,6 +12,7 @@ $(document).ready(function () {
           });
       }
       $(this).html($(this).html() == 'Edit' ? 'Update' : 'Edit')
+
     var gist = JSON.stringify({
     "city_name": $("#deal-name")
   });
