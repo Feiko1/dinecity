@@ -13,7 +13,6 @@
     <%= form.input :postal_code %>
     <%= form.input :country_name %>
     <!--  -->
-
     <!--  -->
     <%= submit_tag "Update", class: "btn btn-success" %>
     <!-- <%= link_to "Cancel", owner_restaurants_path, class: "btn btn-default" %> -->
@@ -34,16 +33,17 @@
   <div class="col-md-4">
     <% @restaurant.photos.each do |p|  %>
     <%= cl_image_tag p.photo, height: 200, width: 200, crop: :fill %>
-      <%= link_to owner_restaurant_photo_path(@restaurant, p), class: "btn btn-xs btn-danger btn-size", method: :delete do %>
+    <%= link_to owner_restaurant_photo_path(@restaurant, p), class: "btn btn-xs btn-danger btn-size", method: :delete do %>
 
-      <i class="fa fa-trash" aria-hidden="true"></i> Delete
+    <i class="fa fa-trash" aria-hidden="true"></i> Delete
     <% end %>
-<br>
+    <br>
     <% end  %>
 
   </div>
   <div class="col-md-4">
     Your Business Information:
   </div>
+
 
 </div>

@@ -16,8 +16,7 @@ Booking.destroy_all
 Review.destroy_all
 Course.destroy_all
 
-
-
+# User Seeds
 
 10.times do
   first_name = Faker::Name.first_name
@@ -33,7 +32,10 @@ Course.destroy_all
   user.save
 end
 
-r = Restaurant.create(name: "Ambrosia", #added one specific restaurant with semantically useful information
+# Restaurant Seeds
+
+r = Restaurant.create(
+name: "Ambrosia", #added one specific restaurant with semantically useful information
   phone_number: 065,
   street_name: "Lange Voorhout",
   street_number: 20,
@@ -45,28 +47,234 @@ r = Restaurant.create(name: "Ambrosia", #added one specific restaurant with sema
   )
 r.save
 
-30.times do
-  name = Faker::Lorem.word
-  user_id = (User.all.sample).id
-  phone_number = Faker::PhoneNumber.phone_number
-  street_name = Faker::Address.street_name
-  street_number = Faker::Address.building_number
-  city_name = Faker::Address.city
-  country_name = Faker::Address.country
-  postal_code = Faker::Address.postcode
-  email_address = Faker::Internet.email
+Restaurant.create(
+  name: "Bo Cinq",
+  phone_number: 0206220682,
+  street_name: "Prinsengracht"
+  street_number: 494,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1017 KH",
+  email_address: "info@bocinq.nl",
+  user_id: (User.all.sample).id
+  )
 
-  restaurant = Restaurant.create(name: name,
-    phone_number: phone_number,
-    street_name: street_name,
-    street_number: street_number,
-    city_name: city_name,
-    country_name: country_name,
-    postal_code: postal_code,
-    email_address: email_address,
-    user_id: user_id
-    )
-  restaurant.save
+Restaurant.create(
+  name: "Bo Cinq",
+  phone_number: 0206220682,
+  street_name: "Prinsengracht"
+  street_number: 494,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1017 KH",
+  email_address: "info@bocinq.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Wink",
+  phone_number: 020 7526243,
+  street_name: "Govert Flinckstraat"
+  street_number: 326,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1073 CJ",
+  email_address: "info@wink.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Le Petit Latin",
+  phone_number: 020 6249425,
+  street_name: "Nieuwezijds Voorburgwal"
+  street_number: 306,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1012 RV",
+  email_address: "info@restaurantlepetitlatin.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Envy",
+  phone_number: 020 203446407,
+  street_name: "Prinsengracht"
+  street_number: 381,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1016 HL",
+  email_address: "info@envy.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Ron Gastrobar",
+  phone_number: 020 4961943,
+  street_name: "Sophialaan"
+  street_number: 55,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1075 BP",
+  email_address: "info@rongastrobar.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Le Restaurant",
+  phone_number: 020 3792207,
+  street_name: "Tweede Jan Steenstraat"
+  street_number: 3,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1073 VK",
+  email_address: "info@lerestaurant.nl",
+  user_id: (User.all.sample).id
+  )
+
+
+Restaurant.create(
+  name: "Johannes",
+  phone_number: 020 6269503,
+  street_name: "Herengracht"
+  street_number: 413,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1017 BP",
+  email_address: "info@restaurantjohannes.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Restaurant Juuls",
+  phone_number: 020 4710711,
+  street_name: "Albert Cuypstraat"
+  street_number: 19,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1072 CK",
+  email_address: "info@restaurantjuuls.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Lastage",
+  phone_number: 020 7370811,
+  street_name: "Geldersekade"
+  street_number: 29,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1011 EJ",
+  email_address: "info@restaurantlastage.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Restaurant C",
+  phone_number: 020 2103011,
+  street_name: "Wibautstraat"
+  street_number: 125,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1091 GL",
+  email_address: "info@c.amsterdam.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "HappyHappyJoyJoy",
+  phone_number: 020 3446433,
+  street_name: "Bilderdijkstraat"
+  street_number: 158,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1053 LC",
+  email_address: "west@happyhappyjoyjoy.asia",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Pompstation",
+  phone_number: 020 6922888,
+  street_name: "Zeeburgerdijk"
+  street_number: 52,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1094 AE",
+  email_address: "info@pompstation.nu",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "Goudfazant",
+  phone_number: 020 6365170,
+  street_name: "Aambeeldstraat"
+  street_number: 10,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1021 KB",
+  email_address: "info@hoteldegoudfazant.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "De Kas",
+  phone_number: 020 4624562,
+  street_name: "Kamerlingh Onneslaan"
+  street_number: 3,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1097 DE",
+  email_address: "info@restaurantdekas.nl",
+  user_id: (User.all.sample).id
+  )
+
+Restaurant.create(
+  name: "En Pluche",
+  phone_number: 020 4714695,
+  street_name: "Ruysdaelstraat"
+  street_number: 50,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1071 XE",
+  email_address: "info@enpluche.nl",
+  user_id: (User.all.sample).id
+  )
+
+
+# 30.times do
+#   name = Faker::Lorem.word
+#   user_id = (User.all.sample).id
+#   phone_number = Faker::PhoneNumber.phone_number
+#   street_name = Faker::Address.street_name
+#   street_number = Faker::Address.building_number
+#   city_name = Faker::Address.city
+#   country_name = Faker::Address.country
+#   postal_code = Faker::Address.postcode
+#   email_address = Faker::Internet.email
+
+#   restaurant = Restaurant.create(name: name,
+#     phone_number: phone_number,
+#     street_name: street_name,
+#     street_number: street_number,
+#     city_name: city_name,
+#     country_name: country_name,
+#     postal_code: postal_code,
+#     email_address: email_address,
+#     user_id: user_id
+#     )
+#   restaurant.save
+
+
+# Review seeds
+
+# Review.create(
+#   content: "The 12restaurants experience menu was delicious.
+#   Service was fine but we could not eat outside.
+#   Will definetly visit again because there were many tasty dishes on the menu.",
+#   rating: 4,
+
+
+#   )
 
   3.times do
 
@@ -79,6 +287,8 @@ r.save
     review.rating     = rating
     review.save
   end
+
+  # Deal seeds
 
   name = Faker::Company.buzzword
   description = Faker::Lorem.words(4)

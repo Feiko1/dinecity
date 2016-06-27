@@ -1,6 +1,5 @@
 module Owner
   class DealsController < Owner::BaseController
-    # before_filter only: [:index, :edit, :new, :update]
     before_action :find_owner, only: [:edit, :update]
 
     def show
@@ -33,7 +32,7 @@ module Owner
     end
 
     def update
-      if @deal.update(deal_path)
+      if @deal.update(deal_params)
         flash[:success] = "Deal was successfully updated"
         redirect_to owner_deals_path(@deal)
         else

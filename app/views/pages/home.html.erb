@@ -123,9 +123,9 @@
 
         <% if current_user %>
         <!-- this checks whether there is a logged in user, in which case it'll link to a restaurant creation form; else it will link to sign up form -->
-          <%= link_to "Register Restaurant", new_restaurant_path, class: "btn btn-primary register-btn" %>
+        <%= link_to "Register Restaurant", new_restaurant_path, class: "btn btn-primary register-btn" %>
         <% else  %>
-          <%= link_to "Register Restaurant (Sign Up)", new_user_registration_path, class: "btn btn-primary register-btn" %>
+        <%= link_to "Register", new_user_registration_path, class: "btn btn-primary register-btn" %>
         <% end  %>
       </div>
     </div>

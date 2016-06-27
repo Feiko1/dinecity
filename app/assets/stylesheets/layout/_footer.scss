@@ -1,6 +1,6 @@
 // Your footer style
 footer.footer {
-    text-decoration: none;
+  text-decoration: none;
     // padding: 4em 0;
     color: white;
     background-color: $brand-color-footer;
@@ -12,23 +12,40 @@ footer.footer {
       color: white;
       text-decoration: none;
     }
-}
+  }
 
+// Email newsletter/exclusve deals
 .form-email {
   display: inline-flex;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   align: center;
-  input {
-    width: 300px;
-  }
+}
+
+.email-service-input {
+  width: 250px;
 }
 
 .email-input {
   width: 300px;
+  border: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
-// Operational Countries
-.countries-styling {
-  color: white;
+.email-service-btn {
+  width: 100px;
+  border: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background-color: $brand-blue;
+  height: 34px;
+
+}
+
+#hairline-footer {
+  width: 1200px;
+  margin: 10px 0px 10px 130px;
+  align: center;
+  text-align: center;
 }

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>CMS Dine City</title>
+  <%= favicon_link_tag 'owners/owner.ico' %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-
- <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
 </head>
   <%= render 'owner/layout/navOwner' %>
@@ -59,8 +59,10 @@
                    <i class="fa fa-money" aria-hidden="true"></i> Billings
                  <% end %>
                </li>
-               <li>
-                 <a href="#support-v"><i class="fa fa-phone-square" aria-hidden="true"></i> Support</a>
+               <li class="<%= owner_tab_css_class("Support") %>">
+                 <%= link_to owner_supports_path do %>
+                   <i class="fa fa-phone-square" aria-hidden="true"></i>  Support
+                 <% end %>
                </li>
              </ul>
            </div>
@@ -75,7 +77,6 @@
            </div>
            <div class="clearfix"></div>
     </div>
-
   </div>
     <div class="container">
     <hr>
