@@ -3,7 +3,20 @@ module Owner
     before_action :find_restaurant, only: [:new, :create, :booking, :summary, :confirm, :update]
     def index
       @bookings = Booking.all
+      respond_to do |format|
+        format.html
+        format.csv {send_data @bookings.to_csv}
+      end
     end
+# 
+#     def index
+#   @products = Product.order(:name)
+#   respond_to do |format|
+#     format.html
+#     format.csv { send_data @products.to_csv }
+#     format.xls # { send_data @products.to_csv(col_sep: "\t") }
+#   end
+# end
 
     def edit
     end

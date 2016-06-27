@@ -1,6 +1,8 @@
 <table class="table table-hover">
   <div class="total-cost" >
-    <button class="btn btn-info btn-xs">Export CSV</button>
+    <%= link_to owner_bookings_path(format: "csv"), class: "btn btn-info btn-xs" do %>
+    <i class="fa fa-download" aria-hidden="true"></i> Download CSV
+    <% end %>
   </div>
   <thead>
     <tr class="info">
