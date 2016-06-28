@@ -5,16 +5,21 @@ class RestaurantsController < ApplicationController
   def index
     @search = params[:search]
     @category = params[:category]
+    @cuisine = params[:cuisine]
     @restaurants = Restaurant.all
     @unsplash_counter = 242
 
     # Search form for index pages
     if @search.present?
-      @restaurants = @restaurants.search(params[:search])
+      @restaurants = @restaurants.search(@search)
     end
 
     if @category.present?
       @restaurants = @restaurants.where(category: @category)
+    end
+
+    if @cuisine.present?
+      @restaurants = @restaurants.where(cuisine: @cuisine)
     end
 
     @restaurants = @restaurants.order('created_at DESC').limit(12)

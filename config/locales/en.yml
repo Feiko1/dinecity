@@ -25,3 +25,10 @@ en:
       category:
         lovers: "Lovers"
         family: "Family"
+        culinairy: "Culinairy"
+        organic: "Organic"
+      cuisine:
+        french: "French"
+        italian: "Italian"
+        asian: "Asian"
+        arabic: "Arabic"

@@ -6,7 +6,19 @@
 
 
 
-  <h4 class="zonder-tangerine-font" style="text-align: center;">Today's deals</h4>
+
+
+  <h4 class="zonder-tangerine-font" style="text-align: center;">
+  Today's deals:
+  <%# if @category.present? %>
+    <%#= Restaurant.category.find_value(@category).text %>
+  <%# end %>
+  <%# if @cuisine.present? %>
+    <%#= Restaurant.cuisine.find_value(@cuisine).text %>
+  <%# end %>
+  </h4>
+
+
   <hr>
   <!-- <hr class="style-seven"> -->
   <div class="container">

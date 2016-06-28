@@ -1,8 +1,54 @@
   <div class="header-cover-image">
     <%= render 'layouts/searchForm' %>
   </div>
-  <div class="filter-bar">
-</div>
+  <div class="filter-bar flex-filter-bar">
+
+    <div class="dropdown" style="margin-left: 115px;">
+      <button class="btn btn-default dropdown-toggle filter-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Categories
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to "ALL", restaurants_path(cuisine: @cuisine) %></li>
+        <li role="separator" class="divider"></li>
+        <% Restaurant.category.options.each do |label, value| %>
+        <li><%= link_to label, restaurants_path(cuisine: @cuisine, category: value) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle filter-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Cuisine
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to "ALL", restaurants_path(category: @category) %></li>
+        <li role="separator" class="divider"></li>
+        <% Restaurant.cuisine.options.each do |label, value| %>
+        <li><%= link_to label, restaurants_path(cuisine: value, category: @category) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="flex-active-filters">
+      <div id="active-filters">
+        Active filters:
+      </div>
+
+      <div class="filter-button">
+        <% if @category.present? %>
+        <%= Restaurant.category.find_value(@category).text %>
+        <% end %>
+      </div>
+      <div class="filter-button">
+        <% if @cuisine.present? %>
+        <%= Restaurant.cuisine.find_value(@cuisine).text %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <br>
   <br>
   <div class="clear"></div>

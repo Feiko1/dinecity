@@ -1,9 +1,51 @@
 // filter bar
 .filter-bar {
-  height: 80px;
+  height: 50px;
   width: auto;
   background-color: #f3f3f3;
 }
+
+.flex-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.filter-button {
+  background-color: #f3f3f3;
+  border: 1px solid #767676;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  color: #323232;
+  width: 100px;
+  height: 35px;
+  margin-left: 20px;
+  //Note the style margin-left as temp fix in html
+}
+
+.filter-button:hover {
+  background-color: #f3f3f3;
+  border: 1px solid #767676;
+  border-radius: 3px;
+}
+
+.flex-active-filters {
+  position: absolute;
+  right: 125px;
+  display: flex;
+  padding: 5px;
+  margin-top: 3px;
+  // align-items: flex-end;
+  // justify-content: flex-end;
+}
+
+#active-filters {
+  margin-top: 8px;
+
+}
+
+
 
 // Card layout
 .card {
