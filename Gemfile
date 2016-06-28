@@ -8,6 +8,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'country_select'
+gem 'enumerize'
 
 gem 'sass-rails'
 gem 'jquery-rails'

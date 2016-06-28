@@ -4,15 +4,28 @@ footer.footer {
     // padding: 4em 0;
     color: white;
     background-color: $brand-color-footer;
-    -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
-    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    // -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    // -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    // box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
     padding-top: 30px;
-    a:hover {
+    p {
+      line-height: 25px;
+    }
+    li {
+      padding-top: 5px;
+    }
+    a {
       color: white;
+      opacity: 0.5;
+    }
+    a:hover {
+      color: $brand-blue;
       text-decoration: none;
+      opacity: 0.9;
     }
   }
+
+
 
 // Email newsletter/exclusve deals
 .form-email {
@@ -48,4 +61,5 @@ footer.footer {
   margin: 10px 0px 10px 130px;
   align: center;
   text-align: center;
+  opacity: 0.2;
 }

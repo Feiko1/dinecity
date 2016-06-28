@@ -3,15 +3,21 @@ class RestaurantsController < ApplicationController
 # before_action :find_restaurant, only: [:new, :create, :booking, :summary, :confirm, :update]
 
   def index
+    @search = params[:search]
+    @category = params[:category]
     @restaurants = Restaurant.all
     @unsplash_counter = 242
 
-    #Search form for index pages
-    if params[:search]
-      @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
-    else
-      @restaurants = Restaurant.all.order('created_at DESC')
+    # Search form for index pages
+    if @search.present?
+      @restaurants = @restaurants.search(params[:search])
     end
+
+    if @category.present?
+      @restaurants = @restaurants.where(category: @category)
+    end
+
+    @restaurants = @restaurants.order('created_at DESC').limit(12)
   end
 
   def registration
