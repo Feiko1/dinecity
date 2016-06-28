@@ -137,6 +137,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    js-routes (1.2.6)
+      railties (>= 3.2)
+      sprockets-rails
     json (1.8.3)
     jwt (1.5.1)
     kaminari (0.17.0)
@@ -293,6 +296,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
+  js-routes
   letter_opener
   materialize-sass
   omniauth-facebook
