@@ -15,7 +15,7 @@
          <% @restaurant = resto  %>
            <% if @restaurant.photos.any? %>
              <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
-           <% elsif  %>
+           <% else  %>
             <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
             <% @unsplash_counter += 1 %>
          <% end  %>

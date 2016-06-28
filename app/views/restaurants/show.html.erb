@@ -26,19 +26,30 @@
             <%# restaurant.photos.each do |photo| %>
 
             <div class="carousel-inner" role="listbox">
-
               <div class="item active">
-                <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+               <% if @restaurant.photos.any? %>
+                 <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+               <% else  %>
+                <img src="http://unsplash.it/1/130" alt="">
+               <% end  %>
                   <div class="carousel-caption">
                   </div>
               </div>
 
-              <% @restaurant.photos.to_a.drop(1).each do |p|  %>
-              <div class="item">
-                <%= cl_image_tag p.photo, height: 350, width: 450, crop: :fill %>
-                <div class="carousel-caption">
-                </div>
-              </div>
+               <% if @restaurant.photos.any? %>
+                <% @restaurant.photos.to_a.drop(1).each do |p|  %>
+                  <div class="item">
+                    <%= cl_image_tag p.photo, height: 350, width: 450, crop: :fill %>
+                  <div class="carousel-caption">
+                  </div>
+                  </div>
+                  <% end  %>
+                  <% else  %>
+                    <div class="item">
+                      <img src="http://unsplash.it/2/130" alt="">
+                    <div class="carousel-caption">
+                    </div>
+                  </div>
               <% end  %>
             </div>
             <%# end %>
@@ -299,5 +310,5 @@
 
 </div>
 
-
+</div>
 
