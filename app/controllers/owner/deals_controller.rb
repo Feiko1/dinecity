@@ -33,6 +33,7 @@ module Owner
     end
 
     def update
+      @deal = current_user.deals.find(params[:id])
       if @deal.update(deal_params)
         flash[:success] = "Deal was successfully updated"
         redirect_to owner_deals_path(@deal)
