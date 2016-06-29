@@ -13,6 +13,15 @@
   letter-spacing: 1px;
 }
 
+.index-logo {
+  z-index: 999;
+  width: 150px;
+  padding: 5px;
+  margin-left: 125px;
+  height: auto;
+  // padding-bottom: 60px;
+}
+
 
 // Logo/title Dinecity (left side)
 .navbar-header > a.nav-color {
@@ -101,8 +110,8 @@ ul li button .btn-success {
 }
 
 .avatar {
-  width: 33px;
-  height: 33px;
+  width: 30px;
+  height: 30px;
   background-color: $brand-blue;
   border: 2px solid $brand-blue;
   margin-top: 5px;

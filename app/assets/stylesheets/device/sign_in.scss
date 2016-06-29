@@ -26,6 +26,18 @@
   background-color: white;
   margin-top: 5px;
   border: 0px;
+  font-size: 16px;
+  .fa{
+    color: gray;
+    padding-right: 10px;
+  }
+}
+
+#styling-ul-summary li {
+  list-style-type: none;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  color: gray;
 }
 
 .reservation-details-style {

@@ -103,6 +103,29 @@
 }
 }
 
+.price-label-card {
+  width: 59px;
+  height: 53px;
+  background-color: #f3f3f3;
+  position: absolute;
+  right: 28px;
+  top: 0px;
+  color: #E23340;
+  opacity: 0.9;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+#original-price {
+  font-size: 13px;
+  color: #2E2E2E;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+
 
 .resto-name {
   font-weight: bold;

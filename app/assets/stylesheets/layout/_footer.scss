@@ -53,7 +53,10 @@ footer.footer {
   border-bottom-left-radius: 0px;
   background-color: $brand-blue;
   height: 34px;
-
+  transition: background-color 0.3s ease-in;
+  :hover {
+    background-color: $brand-blue-hover;
+  }
 }
 
 #hairline-footer {

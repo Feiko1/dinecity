@@ -5,17 +5,15 @@
 <div id="restaurant-list">
 
 
-
-
-
   <h4 class="zonder-tangerine-font" style="text-align: center;">
-  Today's deals:
-  <%# if @category.present? %>
+    Today's deals:
+    <!-- uncomment below if we want active filters inside content -->
+    <%# if @category.present? %>
     <%#= Restaurant.category.find_value(@category).text %>
-  <%# end %>
-  <%# if @cuisine.present? %>
+    <%# end %>
+    <%# if @cuisine.present? %>
     <%#= Restaurant.cuisine.find_value(@cuisine).text %>
-  <%# end %>
+    <%# end %>
   </h4>
 
 
@@ -25,12 +23,15 @@
     <div class="row">
       <% @restaurants.first(12).each do |resto| %>
       <div class="col-sm-4 col-md-4 card">
-      <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
-       <div class="thumbnail-feiko">
-         <div class=""></div>
+        <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
+        <div class="thumbnail-feiko">
          <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
+         <div class="price-label-card">
+           <strike id="original-price">&euro;45</strike>
+           &euro;25
+         </div>
          <% @unsplash_counter += 1 %>
-         <h4><strong><%= resto.name %></strong></h4>
+         <h4 style="padding-top: 10px;"><strong><%= resto.name %></strong></h4>
          <p>
            Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only 25 euro.
          </p>
