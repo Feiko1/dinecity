@@ -19,7 +19,7 @@
               <div class='row'>
                 <div class='col-xs-offset-2 col-xs-8'>
                   <%= simple_form_for @deal, url: owner_deals_path do |f| %>
-                    <%= f.input :name, input_html: {class: "text-center", placeholder: "Type of the Title of your Deal"} %>
+                    <%= f.input :name %>
                   <div class="form-group col-xs-12">
                     <div class="col-xs-5">
                       <%= label_tag :price %>
@@ -40,9 +40,9 @@
                     </div>
                     <br />
                     <%= f.simple_fields_for :courses do |course_form| %>
-                    <%= course_form.input :course_name, placeholder: "Type the Course Title" %>
+                    <%= course_form.input :course_name %>
                   <div class="form-group">
-                    <%= course_form.input :description, placeholder: "Type your Course Description" %>
+                    <%= course_form.input :description %>
                   </div>
                   <% end %>
                   <%= f.hidden_field :restaurant_id %>
