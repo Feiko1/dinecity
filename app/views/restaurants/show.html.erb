@@ -150,15 +150,11 @@
             <ul id="feiko-tab-deal">
               <% @restaurant.deals.each do |deal| %>
               <% deal.courses.each do |course| %>
-              <li><strong><%= course.course_name.capitalize  %></strong>
-                <p><%= course.description %></p> </li>
+              <li><h3><strong><%= course.course_name.capitalize  %></strong></h3>
+                <p style="font-size: large;"><%= course.description %></p> </li>
                 <% end  %>
                 <% end  %>
-            <!--
-                <li><strong>Starter</strong> <p> Mousse of ham from the Ardennes "Pierre Wynants" </p></li>
-                <li><strong>Soup</strong> <p>Portobello mushroom soup</p> </li>
-                <li><strong>Main course</strong> <p>Rack of veal and sweetbreads with morels and asparagus from Mechelen</p> </li>
-                <li><strong>Desert</strong> <p>Vanilla ice-cream with hot chocolate sauce</p> </li> -->
+
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane feiko-content-padding" id="details">
