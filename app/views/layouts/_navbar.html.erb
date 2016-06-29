@@ -49,7 +49,7 @@
           <% if current_user.kind == "owner" %>
           <li><%= link_to 'Your CMS', owner_restaurants_path %> </li>
           <% end  %>
-          <li><%= link_to "Profile", bookings_path %> </li>
+          <!-- <li><%#= link_to "Your Bookings", bookings_path %> </li> -->
           <!-- TODO: add profile path link! -->
           <li><%= link_to "Log Out", destroy_user_session_path,  method: :delete%> </li>
 
