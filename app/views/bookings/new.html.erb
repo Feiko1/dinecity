@@ -2,15 +2,18 @@
   <div class="booking_wrapper">
 
     <!-- Login options -->
+    <% if current_user %>
+    <% else  %>
     <div class="booking-login">
       <div>
         <span>Remember details?</span>
-        <a href="#" class="btn styling-button">Register</a>
-        <a href="#" class="btn styling-button link-styling">Log In</a>
+        <%= link_to 'Sign Up', new_user_registration_path, class:"btn styling-button" %>
+        <!-- <a href="#" class="btn styling-button">Register</a> -->
+        <%= link_to 'Log In', new_user_session_path, class: "btn styling-button link-styling" %>
+    <!--     <a href="#" class="btn styling-button link-styling">Log In</a> -->
       </div>
     </div>
-
-
+    <% end  %>
 
 
     <!-- Booking Overview -->
@@ -20,13 +23,13 @@
         <li>
           <i class="fa fa-map-marker"></i>
           <strong>
-            &nbsp;<%= @restaurant.name.capitalize  %>
+            &nbsp;<%= @restaurant.name.capitalize  %>, <%= @restaurant.street_name %> <%= @restaurant.street_number %>, <%= @restaurant.postal_code %> <%= @restaurant.city_name %>
           </strong>
         </li>
         <li>
           <strong>
           <i class="fa fa-calendar"></i>
-            <%= @date %>
+            <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %>
           </strong>
         </li>
         <li>
@@ -83,7 +86,7 @@
 
 
 <!--    <div class="form-group" id="reservation-button">
-          <%= link_to "Make Reservation",  new_restaurant_booking_path(@restaurant), class:"btn btn-success" %>
+          <%#= link_to "Make Reservation",  new_restaurant_booking_path(@restaurant), class:"btn btn-success" %>
         -->
       </div>
       <div class="note">
@@ -91,7 +94,7 @@
           <strong>Please Note:</strong>
         </p>
         <p>
-          Your booking is not valid unless you click the link in the email after this form. This information is for booking confirmation purposes only.
+          This information is for booking confirmation purposes only. Your booking is not valid unless you click the link in the email after this form.
         </p>
       </div>
       <% if current_user  %>

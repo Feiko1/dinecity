@@ -27,7 +27,7 @@
         <div class="thumbnail-feiko">
 
          <div class="price-label-card">
-           <strike id="original-price">&euro;45</strike>
+           <strike id="original-price">&euro;<%= resto.deals.first.price + 20 %></strike>
            &euro;<%= resto.deals.first.price %>
          </div>
          <% @restaurant = resto  %>

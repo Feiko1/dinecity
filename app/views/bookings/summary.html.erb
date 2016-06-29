@@ -1,27 +1,26 @@
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
 
-<% if current_user %>
-<p> Thank you <%= current_user.first_name %>! </p>
-<% else %>
-<p> Thank you!</p>
-<% end  %>
-<p>you have requested a booking at <strong><%= @restaurant.name  %> </strong> for <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %> for <%= @booking.number_of_people %> people </p>
+<div style="background-color: #f3f3f3;">
+  <div class="booking_wrapper">
+   <div class="note">
+    <br>
+    <% if current_user %>
+    <p> Thank you <%= current_user.first_name %>! </p>
+    <% else %>
+    <p> Thank you!</p>
+    <% end  %>
+    <p>You have requested a booking at <strong><%= @restaurant.name  %> </strong> on <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %>, for <%= @booking.number_of_people %> people. </p>
 
-<p><strong>Please Note:</strong> we have sent you a confirmation email.</p>
-<p> In order to confirm your booking, please click on the button in your email.</p>
+    <p><strong>Please Note:</strong> we have sent you a confirmation email. In order to confirm your booking, please click on the button in your email.</p>
 
-<p>We wish you a great meal, company, and evening!</p>
+    <p>We wish you a great meal, company, and evening!</p>
 
-<%= link_to "back to restaurant", restaurant_path(@restaurant)  %>
+    <h4>~ The 12restaurants Team</h4>
+    <br>
+    <%= link_to "To Restaurant", restaurant_path(@restaurant), class:"btn styling-button link-styling"%>
 
+  </div>
+  <br>
 </div>
-<br>
-<br>
-<br>
+</div>
+
