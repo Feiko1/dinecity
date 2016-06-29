@@ -15,7 +15,7 @@
 
   <div class="container">
     <div class="header-items">
-      <div class="row">
+      <div class="row" style="margin-top: 15px;">
 
         <div class="col-md-7 restaurant-gallery">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -81,16 +81,18 @@
 
       <div class="col-md-3 col-md-offset-1 restaurant-booking-form">
 
-        <%= form_tag(new_restaurant_booking_path(@restaurant), method: "get") do |form| %>
-        <div class="form-group">
-          <h5 style="text-align: center;">Reservation</h5>
-          <label for="Dateselector"></label>
-          <input type="date" class="form-control reservation-selector" name="booking-date" placeholder="Date.today">
-        </div>
-        <div class="form-group reservation-selector fix-positioning">
-          <label for="numberofpeople"></label>
-          <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
-          <input type="number" class="form-control reservation-selector" name="number-of-people" placeholder="Number of people" min="2" max="20" style="margin-top: 3px;">
+
+          <%= form_tag(new_restaurant_booking_path(@restaurant), method: "get") do |form| %>
+          <div class="form-group">
+            <h5 style="text-align: center; padding-top: 18px;">Reservation</h5>
+            <label for="Dateselector"></label>
+            <input type="date" class="form-control reservation-selector" name="booking-date" placeholder="Date.today">
+          </div>
+          <div class="form-group reservation-selector fix-positioning">
+            <label for="numberofpeople"></label>
+            <!-- In the next line should we interpolate the set # of people set by resto owner (for max) -->
+            <input type="number" class="form-control reservation-selector" name="number-of-people" placeholder="Number of people" min="2" max="20" style="margin-top: 3px;">
+
         </div>
         <div class="form-group">
           <select name="time" id="time">
@@ -114,6 +116,7 @@
             <option value="19:30">19:30</option>
             <option value="20:00">20:00</option>
             <option value="20:30">20:30</option>
+
           </div>
         </select>
 
@@ -209,19 +212,27 @@
                   </li>
                   <li>
                     <li>
-                      <h4>Opening times:</h4>
+                      <h4>Open:</h4>
+                    </li>
+
+                    <li>
+                      <strong>Opening days:</strong>
+                      <li>
+                        Tuesday and Wednesday dinner;
+                        Thursday, Friday and Saturday lunch & dinner
+                      </li>
                     </li>
                     <li>
-                      12:00-13:30 & 19:00-21:00
+                      <strong>Opening times:</strong>
+                      <li>
+                        Lunch: 12:00-13:30
+                      </li>
+                      <li>
+                        Dinner: 19:00-21:00
+                      </li>
                     </li>
                   </li>
                   <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
-
-                  <li>
-                    <strong>Opening days:</strong>
-                    Tuesday and Wednesday dinner;
-                    Thursday, Friday and Saturday lunch & dinner
-                  </li>
 
                <!--    <li>
                     <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.
@@ -233,37 +244,7 @@
 
               </div>
 
-              <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
-                <% if @restaurant.reviews.any? %>
-                <h4>
-                  Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>, with an average rating of
-                  <% sum = 0 %>
-                  <% @restaurant.reviews.each do |review| %>
-                  <% sum = sum + review.rating %>
-                  <% end  %>
-                  <% rating_average = (sum / @restaurant.reviews.size) %>
-                  <%= rating_average %>
-                  <span>
-                    <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
-                  </span>
-                </h4>
-                <hr>
-                <% end %>
 
-                <!-- This form = actual input for rating & review -->
-                <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
-                <hr>
-
-                <!-- The list of reviews  -->
-                <div id="reviews">
-                  <% if @restaurant.reviews.blank? %>
-                  Be the first to leave a review for <%= @restaurant.name %>
-                  <% else %>
-                  <% @restaurant.reviews.each do |review| %>
-                  <%= render 'reviews/show', review: review %>
-                  <% end %>
-                  <% end %>
-                </div>
 
                 <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
                   <h4>

@@ -1,9 +1,12 @@
 class Restaurant < ActiveRecord::Base
+  extend Enumerize
+  enumerize :category, in: [:lovers, :family, :culinairy, :organic]
+  enumerize :cuisine,  in: [:french, :italian, :asian, :arabic]
 
-    belongs_to :user
-    has_many :photos, dependent: :destroy
-    has_many :deals, dependent: :destroy
-    has_many :reviews, dependent: :destroy
+  belongs_to :user
+  has_many :photos, dependent: :destroy
+  has_many :deals, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   geocoded_by :full_address
   after_validation :geocode #, if: :street_name_changed?

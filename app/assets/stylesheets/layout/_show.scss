@@ -1,6 +1,6 @@
 // Spacing, layout, padding & margin
 #restaurant-name {
-  margin-left: 105px;
+  margin-left: 149px;
 }
 
 .restaurant-gallery {
@@ -37,7 +37,7 @@
 // BELOW: Reservation Form - Phase I
 
 .restaurant-booking-form {
-  background-color: #EAEAEA;
+  background-color: #f3f3f3;
   height: 350px;
   margin-left: 9.8%;
 }
@@ -50,6 +50,7 @@
   height: 38px;
   color: #57514a;
   width: 262.5px;
+  background-color: white;
 }
 
 .reservation-selector {
@@ -103,7 +104,7 @@
 // TABS & PANEL
 
 .feiko-tabs > li > a{
-
+  color: #E23340;
 }
 
 .feiko-tabs > li.active > a{
@@ -121,8 +122,8 @@
 }
 
 #menu-title {
-  font-size: 40px;
-  color: #38B999;
+  font-size: 25px;
+  color: #E23340;
   text-align: center;
 }
 
@@ -130,6 +131,7 @@
   list-style-type: none;
   line-height: 2;
   text-align: center;
+  padding-right: 30px;
 }
 
 // Contact tab

@@ -16,11 +16,33 @@
     <!-- Booking Overview -->
     <div class="booking-summary">
       <h3>1. Reservation details</h3>
-      <ul>
-        <li>Restaurant:</li>
-        <li><strong>Date:</strong>      <%= @date %></li>
-        <li><strong>Persons:</strong>      <%= @number_of_people %></li>
-        <li><strong>Time:</strong>      <%= @time %></li>
+      <ul id="styling-ul-summary">
+        <li>
+          <i class="fa fa-map-marker"></i>
+          <strong>
+            &nbsp;<%= @restaurant.name.capitalize  %>
+          </strong>
+        </li>
+        <li>
+          <strong>
+          <i class="fa fa-calendar"></i>
+            <%= @date %>
+          </strong>
+        </li>
+        <li>
+          <strong>
+            <i class="fa fa-user"></i>
+            Table for
+            <%= @number_of_people %>
+          </strong>
+        </li>
+        <li>
+          <strong>
+            <i class="fa fa-clock-o"></i>
+            At
+            <%= @time %>
+          </strong>
+        </li>
       </ul>
     </div>
 
@@ -80,4 +102,4 @@
     </div>
   </div>
 </div>
-  </div>
+</div>

@@ -1,3 +1,52 @@
+// filter bar
+.filter-bar {
+  height: 50px;
+  width: auto;
+  background-color: #f3f3f3;
+}
+
+.flex-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.filter-button {
+  background-color: #f3f3f3;
+  border: 1px solid #767676;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  color: #323232;
+  width: 100px;
+  height: 35px;
+  margin-left: 20px;
+  //Note the style margin-left as temp fix in html
+}
+
+.filter-button:hover {
+  background-color: #f3f3f3;
+  border: 1px solid #767676;
+  border-radius: 3px;
+}
+
+.flex-active-filters {
+  position: absolute;
+  right: 125px;
+  display: flex;
+  padding: 5px;
+  margin-top: 3px;
+  // align-items: flex-end;
+  // justify-content: flex-end;
+}
+
+#active-filters {
+  margin-top: 8px;
+
+}
+
+
+
 // Card layout
 .card {
   top: 0px;
@@ -53,6 +102,29 @@
   height: 190px;
 }
 }
+
+.price-label-card {
+  width: 59px;
+  height: 53px;
+  background-color: #f3f3f3;
+  position: absolute;
+  right: 28px;
+  top: 0px;
+  color: #E23340;
+  opacity: 0.9;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+#original-price {
+  font-size: 13px;
+  color: #2E2E2E;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
 
 
 .resto-name {
