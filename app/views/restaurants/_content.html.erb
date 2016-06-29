@@ -23,6 +23,9 @@
         <strong><%= resto.name %></strong>
          </h4>
          <p>
+<!--          <% @restaurant = resto  %>
+         <% if @restaurant.deals.any? %>
+           <%= resto.deal.first.description  %> -->
            Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only <%= resto.deals.first.price %> euro.
          </p>
 
