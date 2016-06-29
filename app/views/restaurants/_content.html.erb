@@ -8,12 +8,12 @@
   <h4 class="zonder-tangerine-font" style="text-align: center;">
     Today's deals:
     <!-- uncomment below if we want active filters inside content -->
-    <%# if @category.present? %>
-    <%#= Restaurant.category.find_value(@category).text %>
-    <%# end %>
-    <%# if @cuisine.present? %>
-    <%#= Restaurant.cuisine.find_value(@cuisine).text %>
-    <%# end %>
+    <% if @category.present? %>
+    <%= Restaurant.category.find_value(@category).text %>
+    <% end %>
+    <% if @cuisine.present? %>
+    <%= Restaurant.cuisine.find_value(@cuisine).text %>
+    <% end %>
   </h4>
 
 

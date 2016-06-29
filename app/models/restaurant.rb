@@ -1,6 +1,6 @@
 class Restaurant < ActiveRecord::Base
   extend Enumerize
-  enumerize :category, in: [:lovers, :family, :culinairy, :organic]
+  enumerize :category, in: [:lovers, :family, :culinary, :organic]
   enumerize :cuisine,  in: [:french, :italian, :asian, :arabic]
 
   belongs_to :user

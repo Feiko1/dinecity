@@ -121,7 +121,7 @@ Restaurant.create!(
   email_address: "info@restaurantlepetitlatin.nl",
   user_id: owner.id,
   category: :lovers,
-  cuisine: :french
+  cuisine: :italian
   )
 
 Restaurant.create!(
@@ -135,7 +135,7 @@ Restaurant.create!(
   email_address: "info@envy.nl",
   user_id: owner.id,
   category: :lovers,
-  cuisine: :french
+  cuisine: :italian
   )
 
 Restaurant.create!(
@@ -163,7 +163,7 @@ Restaurant.create!(
   email_address: "info@lerestaurant.nl",
   user_id: owner.id,
   category: :lovers,
-  cuisine: :french
+  cuisine: :asian
   )
 
 
@@ -178,7 +178,7 @@ Restaurant.create!(
   email_address: "info@restaurantjohannes.nl",
   user_id: owner.id,
   category: :lovers,
-  cuisine: :french
+  cuisine: :asian
   )
 
 Restaurant.create!(
@@ -191,8 +191,8 @@ Restaurant.create!(
   postal_code: "1072 CK",
   email_address: "info@restaurantjuuls.nl",
   user_id: owner.id,
-  category: :family,
-  cuisine: :french
+  category: :culinary,
+  cuisine: :asian
   )
 
 Restaurant.create!(
@@ -219,7 +219,7 @@ Restaurant.create!(
   postal_code: "1091 GL",
   email_address: "info@c.amsterdam.nl",
   user_id: owner.id,
-  category: :family,
+  category: :culinary,
   cuisine: :french
   )
 
@@ -248,7 +248,7 @@ Restaurant.create!(
   email_address: "info@pompstation.nu",
   user_id: owner.id,
   category: :family,
-  cuisine: :french
+  cuisine: :arabic
   )
 
 Restaurant.create!(
@@ -262,7 +262,7 @@ Restaurant.create!(
   email_address: "info@hoteldegoudfazant.nl",
   user_id: owner.id,
   category: :family,
-  cuisine: :french
+  cuisine: :arabic
   )
 
 Restaurant.create!(
@@ -276,9 +276,17 @@ Restaurant.create!(
   email_address: "info@restaurantdekas.nl",
   user_id: owner.id,
   category: :family,
-  cuisine: :french
+  cuisine: :arabic
   )
 
+#one special for RJ
+owner = User.create!(
+  first_name: "Ryan Jeff",
+  last_name: "Brual",
+  email: "admin@admin.com",
+  password: "password",
+  kind: "owner"
+  )
 Restaurant.create!(
   name: "En Pluche",
   phone_number: "020 4714695",
