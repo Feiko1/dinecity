@@ -15,7 +15,7 @@
          <% @restaurant = resto  %>
            <% if @restaurant.photos.any? %>
              <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
-           <% elsif  %>
+           <% else  %>
             <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
             <% @unsplash_counter += 1 %>
          <% end  %>
@@ -23,6 +23,9 @@
         <strong><%= resto.name %></strong>
          </h4>
          <p>
+          <%# @restaurant = resto  %>
+         <%# if @restaurant.deals.any? %>
+           <%#= resto.deal.first.description  %> -->
            Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only <%= resto.deals.first.price %> euro.
          </p>
 

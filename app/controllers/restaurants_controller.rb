@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
   end
 
   def registration
-    RestaurantMailer.registration(restaurant_request_params).deliver_now
+    # RestaurantMailer.registration(restaurant_request_params).deliver_now
     flash[:notice] = "Your information is being processed; you will hear from us within 24 hours"
     redirect_to root_path
   end
@@ -48,7 +48,7 @@ class RestaurantsController < ApplicationController
     @restaurant = current_user.restaurants.build(restaurant_params)
 
     if @restaurant.save
-      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      # RestaurantMailer.creation_confirmation(@restaurant).deliver_now
       # ^ COMMENT BEFORE SEED
       redirect_to restaurant_path(@restaurant)
     else

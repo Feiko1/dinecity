@@ -31,7 +31,7 @@
                  <!-- <a href="#accounts-v"><i class="fa fa-user" aria-hidden="true"></i> Accounts</a> -->
                </li>
                <li class="<%= owner_tab_css_class("restaurants") %>">
-                 <% if current_user.restaurants.count == 1 %>
+                 <% if current_user.restaurants.count >= 1 %>
                    <%= link_to edit_owner_restaurant_path(current_user.restaurants.first) do %>
                      <i class="fa fa-cutlery" aria-hidden="true"></i> Restaurant
                    <% end %>
