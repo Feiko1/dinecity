@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <%= f.input :visitor_email, label: '*Email (to confirm)', placeholder: 'user@domain.com' %>
+      <%= f.input :visitor_email, label: '*Email', placeholder: 'user@domain.com' %>
       <%= f.input :visitor_phone, label: '*Phone number', placeholder: 'tel.' %>
       <!-- TODO: add number require & regex check -->
 
@@ -80,7 +80,7 @@
       <%= f.hidden_field :deal_id, value: @restaurant.deals.first.id %>
       <!-- PLEASE CHANGE THIS VALUE ONCE WE IMPLEMENT DEAL SELECTOR -->
       <div class="testing-center">
-        <%= f.submit "Send Booking Confirmation Mail", class:"button-base", style:"border-radius: 3px; height: 40px;" %>
+        <%= f.submit "Confirm Booking", class:"button-base", style:"border-radius: 3px; height: 40px; margin-top: 10px;" %>
       </div>
       <% end %>
 
