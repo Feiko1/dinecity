@@ -18,16 +18,16 @@
             <div class="modal-body">
               <div class='row'>
                 <div class='col-xs-offset-2 col-xs-8'>
-                  <%= simple_form_for @deal, url: owner_deals_path do |f| %>
-                    <%= f.input :name %>
+                  <%= simple_form_for [:owner, deal] do |f| %>
+                    <%= f.input :name, label: "Menu name" %>
                   <div class="form-group col-xs-12">
                     <div class="col-xs-5">
                       <%= label_tag :price %>
-                      <%= f.select :price, options_for_select(["25","35","40"]), {}, class: "form-control" %>
+                      <%= f.select :price, options_for_select(["25","35","40"], deal.price), {}, class: "form-control" %>
                     </div>
                     <div class="col-xs-7">
                       <%= label_tag :Number_Person %>
-                      <%= f.select :maximum_deal_capacity, options_for_select((1..20)), {}, class: "form-control" %>
+                      <%= f.select :maximum_deal_capacity, options_for_select((1..20), deal.maximum_deal_capacity), {}, class: "form-control" %>
                     </div>
                   </div>
                     <div class="col-xs-12">
