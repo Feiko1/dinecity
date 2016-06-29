@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag "https://cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" %>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&sensor=false" %>
+  
 </head>
   <%= render 'owner/layout/navOwner' %>
   <div class="container">
@@ -51,9 +52,9 @@
                    <i class="fa fa-book" aria-hidden="true"></i> Bookings
                  <% end %>
                </li>
-               <li>
+               <!-- <li>
                  <a href="#analytics-v"><i class="fa fa-bar-chart" aria-hidden="true"></i> Analytics</a>
-               </li>
+               </li> -->
                <li class="<%= owner_tab_css_class("Billings") %>">
                  <%= link_to owner_billings_path do %>
                    <i class="fa fa-money" aria-hidden="true"></i> Billings
@@ -61,7 +62,7 @@
                </li>
                <li class="<%= owner_tab_css_class("Support") %>">
                  <%= link_to owner_supports_path do %>
-                   <i class="fa fa-phone-square" aria-hidden="true"></i>  Support
+                   <i class="fa fa-phone-square" aria-hidden="true"></i> Support
                  <% end %>
                </li>
              </ul>

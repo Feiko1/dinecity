@@ -1,9 +1,9 @@
 module Owner
   class DealsController < Owner::BaseController
-    before_action :find_owner, only: [:edit, :update]
+    # before_action :find_owner, only: [:edit, :update]
 
     def show
-      @deal = Deal.find(params[:id])
+      @deal = current_user.deals.find(params[:id])
       @course = Course.find(params[:id])
     end
 
@@ -25,24 +25,25 @@ module Owner
         redirect_to owner_deals_path(@deal)
       else
         render 'new'
+      end
     end
 
     def edit
-      @deal = Deal.find(params[:id])
+      @deal = current_user.deals.find(params[:id])
     end
 
     def update
+      @deal = current_user.deals.find(params[:id])
       if @deal.update(deal_params)
         flash[:success] = "Deal was successfully updated"
         redirect_to owner_deals_path(@deal)
-        else
+      else
         render 'edit'
-        end
       end
     end
 
     def destroy
-      @deal = Deal.find(params[:id])
+      @deal = current_user.deals.find(params[:id])
       @deal.destroy
       flash[:danger] = "Deal was successfully deleted"
       redirect_to owner_deals_path(@deal)

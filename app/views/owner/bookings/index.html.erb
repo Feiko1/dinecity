@@ -35,7 +35,12 @@
       <% total_bookings_price = (booking.deal.price * booking.number_of_people) %>
       <% total_revenue += total_bookings_price %>
       <td>&#128;   <%= total_bookings_price %></td>
-      <td><%= submit_tag "Confirm", class: "btn btn-success btn-sm" %> </td>
+      <td>
+        <div class="form-group">
+          <%= submit_tag "Cancel", class: "btn btn-danger btn-xs btn-booking" %>
+          <%= submit_tag "Confirm", class: "btn btn-success btn-xs btn-booking" %>
+        </div>
+        </td>
     </tr>
       <% end %>
     <% end %>
