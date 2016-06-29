@@ -247,6 +247,7 @@
 
 
                 <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
+                  <% if @restaurant.reviews.any?  %>
                   <h4>
                     Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>, with an average rating of
                     <% sum = 0 %>
@@ -259,6 +260,9 @@
                       <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
                     </span>
                   </h4>
+                  <% else  %>
+                  <h4>This restaurant has not yet been rated!</h4>
+                  <% end  %>
                   <hr>
 
                   <!-- This form = actual input for rating & review -->
