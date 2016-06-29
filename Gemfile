@@ -31,6 +31,9 @@ gem 'omniauth-facebook'
 gem "coffee-rails"
 gem "gmaps4rails"
 
+#google API for analytics
+gem 'google-analytics-rails', '~> 1.1'
+
 source 'https://rails-assets.org' do  # Add this at line 2
   gem "rails-assets-underscore"
   gem "rails-assets-bootstrap-star-rating"

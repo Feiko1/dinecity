@@ -80,4 +80,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: ENV['HOST'] || "www.12restaurants.com" }
+
+  #google analytics
+  GA.tracker = "UA-80005444-1"
 end
