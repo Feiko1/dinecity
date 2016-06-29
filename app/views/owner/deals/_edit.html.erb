@@ -1,0 +1,60 @@
+<div class="modal modal-md fade" id="<%= deal.id %>editOffer" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header model-default">
+                <button type="button" class="close"
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h5 class="modal-title text-center" id="myModalLabel">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                    Edit Your Deal
+                </h5>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class='row'>
+                <div class='col-xs-offset-2 col-xs-8'>
+                  <%= simple_form_for @deal, url: owner_deals_path do |f| %>
+                    <%= f.input :name, input_html: {class: "text-center", placeholder: "Type of the Title of your Deal"} %>
+                  <div class="form-group col-xs-12">
+                    <div class="col-xs-5">
+                      <%= label_tag :price %>
+                      <%= f.select :price, options_for_select(["25","35","40"]), {}, class: "form-control" %>
+                    </div>
+                    <div class="col-xs-7">
+                      <%= label_tag :Number_Person %>
+                      <%= f.select :maximum_deal_capacity, options_for_select((1..20)), {}, class: "form-control" %>
+                    </div>
+                  </div>
+                    <div class="col-xs-12">
+                      <%= label_tag :start_date %>
+                      <%= f.date_select :start_date, type: "date", class: "form-control reservation-selector", name: "booking-date", placeholder: "Date.today" %>
+                    </div>
+                    <div class="col-xs-12">
+                      <%= label_tag :end_date %>&nbsp;&nbsp;
+                      <%= f.date_select :end_date, type: "date", class: "form-control reservation-selector", name: "booking-date", placeholder: "Date.today" %>
+                    </div>
+                    <br />
+                    <%= f.simple_fields_for :courses do |course_form| %>
+                    <%= course_form.input :course_name, placeholder: "Type the Course Title" %>
+                  <div class="form-group">
+                    <%= course_form.input :description, placeholder: "Type your Course Description" %>
+                  </div>
+                  <% end %>
+                  <%= f.hidden_field :restaurant_id %>
+                  <div class='form-group'>
+                    <div class='col-xs-12'>
+                      <%= submit_tag 'Update', class: 'btn btn-success btn-sm col-xs-12' %>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
