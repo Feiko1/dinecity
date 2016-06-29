@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160628103048) do
 
   # These are extensions that must be enabled in order to support this database
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160628103048) do
     t.string   "image_string"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "photo"
   end
 
   add_index "photos", ["restaurant_id"], name: "index_photos_on_restaurant_id", using: :btree

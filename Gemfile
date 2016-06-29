@@ -9,6 +9,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'country_select'
 gem 'enumerize'
+gem 'cloudinary'
+gem 'carrierwave'
+
+gem 'js-routes'
 
 gem 'sass-rails'
 gem 'jquery-rails'

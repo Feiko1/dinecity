@@ -26,26 +26,20 @@
             <%# restaurant.photos.each do |photo| %>
 
             <div class="carousel-inner" role="listbox">
+
               <div class="item active">
-                <%#= image_tag photo.image_string %>
-                <%= image_tag("bocinq1.jpg") %>
-                <div class="carousel-caption">
-                  <%#= link_to restaurant.name, "#"  %>
-                </div>
+                <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+                  <div class="carousel-caption">
+                  </div>
               </div>
+
+              <% @restaurant.photos.to_a.drop(1).each do |p|  %>
               <div class="item">
-                <%= image_tag("background.jpg") %>
-                <div class="carousel-caption">
-                </div>
-              </div>
-              <div class="item">
-                <%= image_tag("bocinqbar.jpg") %>
+                <%= cl_image_tag p.photo, height: 350, width: 450, crop: :fill %>
                 <div class="carousel-caption">
                 </div>
               </div>
-              <div class="item">
-                <%= image_tag("beef.jpg") %>
-              </div>
+              <% end  %>
             </div>
             <%# end %>
             <%# end %>
@@ -260,6 +254,35 @@
                   <% end %>
                   <% end %>
                 </div>
+
+            <div role="tabpanel" class="tab-pane feiko-content-padding" id="reviews">
+              <h4>
+                Restaurant <strong><%= @restaurant.name %></strong> has <%= pluralize @restaurant.reviews.size, "review" %>, with an average rating of
+                <% sum = 0 %>
+                <% @restaurant.reviews.each do |review| %>
+                <% sum = sum + review.rating %>
+                <% end  %>
+                <% rating_average = (sum / @restaurant.reviews.size) %>
+                <%= rating_average %>
+                <span>
+                  <%= text_field_tag "average rating", rating_average, class: "rating-loading rating-static", :'data-size' => "xs" %>
+                </span>
+              </h4>
+              <hr>
+
+              <!-- This form = actual input for rating & review -->
+              <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+              <hr>
+
+              <!-- The list of reviews  -->
+              <div id="reviews">
+                <% if @restaurant.reviews.blank? %>
+                Be the first to leave a review for <%= @restaurant.name %>
+                <% else %>
+                <% @restaurant.reviews.each do |review| %>
+                <%= render 'reviews/show', review: review %>
+                <% end %>
+                <% end %>
 
               </div>
             </div>
