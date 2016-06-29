@@ -306,7 +306,7 @@ Restaurant.all.each do |resto|
     end_date: Faker::Date.forward(23),
     status: Faker::Boolean.boolean,
     discount_kind: "discount",
-    price: rand(1..60),
+    price: rand(25,35,45),
     maximum_deal_capacity: rand(1..40),
     monday: Faker::Boolean.boolean,
     tuesday: Faker::Boolean.boolean,

@@ -11,7 +11,7 @@ class Restaurant < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode #, if: :street_name_changed?
 
-  after_create :send_restaurant_creation_email  #
+  # after_create :send_restaurant_creation_email  #
   #DEACTIVATE BEFORE SEED
 
   def self.search(search)

@@ -3,7 +3,7 @@ class Booking < ActiveRecord::Base
   belongs_to :deal
 
 
-  after_create :send_user_booking_request_confirmation_email
+  # after_create :send_user_booking_request_confirmation_email
   # COMMENT THIS BEFORE SEED
   #attr_accessible :deal_id, :first_name, :last_name, :email, :date, :number_of_people, :price  Booking export to CSV
   def self.to_csv(options = {})
