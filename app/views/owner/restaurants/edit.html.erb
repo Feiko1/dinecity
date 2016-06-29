@@ -1,4 +1,8 @@
 <div id="accounts-layout" class="row">
+   <%= link_to restaurant_path(@restaurant), class: "btn btn-info btn-xs btn-size" do %>
+                <i class="fa fa-eye" aria-hidden="true"></i> View Your Restaurant
+                <% end %>
+
   <%= simple_form_for [:owner, @restaurant] do |form| %>
   <div class="col-md-3">
     <%= form.input :name, label: "Restaurant name" %>
