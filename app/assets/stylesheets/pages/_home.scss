@@ -6,7 +6,7 @@
 // .pages-home  see application.html.erb body comment
 
 body {
-    font-family: Lato;
+  font-family: Lato;
 }
 
 .pages-home {
@@ -30,9 +30,8 @@ body {
   align-items: center;
   color: white;
 
-  // background:rgba(0,0,0,0.6);
   h1, h2 {
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
     // rgba(1, 1, 1, 0.5)
     // red green blue [alpha = opacity]
   }
@@ -40,6 +39,7 @@ body {
 
 .header-1 {
   font-size: 77px;
+  letter-spacing: -2px;
 }
 
 .h2 {
@@ -66,9 +66,6 @@ body {
   }
 }
 
-.how-to-image {
-  width: 50px;
-}
 
 .feiko {
   width: 200px;

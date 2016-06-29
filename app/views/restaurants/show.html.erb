@@ -8,7 +8,7 @@
 
   <div class="container">
     <div class="header-items">
-      <div class="row">
+      <div class="row" style="margin-top: 15px;">
 
         <div class="col-md-7 restaurant-gallery">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -65,7 +65,7 @@
 
           <%= form_tag(new_restaurant_booking_path(@restaurant), method: "get") do |form| %>
           <div class="form-group">
-            <h5 style="text-align: center;">Reservation</h5>
+            <h5 style="text-align: center; padding-top: 18px;">Reservation</h5>
             <label for="Dateselector"></label>
             <input type="date" class="form-control reservation-selector" name="booking-date" placeholder="Date.today">
           </div>
@@ -162,7 +162,7 @@
 
             <div role="tabpanel" class="tab-pane feiko-content-padding" id="contact">
               <ul id="remove-bullets">
-              <strong><h3> Restaurant <%= @restaurant.name %></h3></strong>
+                <strong><h3> Restaurant <%= @restaurant.name %></h3></strong>
                 <li>
                   <li><h4>Contact Details</h4></li>
                   <strong>Address:</strong>
@@ -191,19 +191,27 @@
                   </li>
                   <li>
                     <li>
-                      <h4>Opening times:</h4>
+                      <h4>Open:</h4>
+                    </li>
+
+                    <li>
+                      <strong>Opening days:</strong>
+                      <li>
+                        Tuesday and Wednesday dinner;
+                        Thursday, Friday and Saturday lunch & dinner
+                      </li>
                     </li>
                     <li>
-                      12:00-13:30 & 19:00-21:00
+                      <strong>Opening times:</strong>
+                      <li>
+                        Lunch: 12:00-13:30
+                      </li>
+                      <li>
+                        Dinner: 19:00-21:00
+                      </li>
                     </li>
                   </li>
                   <!-- NOTE: in our schema, for restaurants database we may need to add variables for opening times and opening days  -->
-
-                  <li>
-                    <strong>Opening days:</strong>
-                    Tuesday and Wednesday dinner;
-                    Thursday, Friday and Saturday lunch & dinner
-                  </li>
 
                <!--    <li>
                     <p> <strong>Info:</strong> We can accommodate up to 140 guests for lunch or dinner in our 8-metre high main greenhouse and we also have a separate Garden Room for private gatherings.

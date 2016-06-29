@@ -4,8 +4,8 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create!([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create!(name: 'Emanuel', city: cities.first)
 
 
 User.destroy_all
@@ -24,7 +24,7 @@ Course.destroy_all
 #   email = Faker::Internet.email
 #   password = 'password'
 #   kind = "user"  #default is (regular) 'user'
-#   user = User.create(first_name: first_name,
+#   user = User.create!(first_name: first_name,
 #     last_name: last_name,
 #     email: email,
 #     password: password,
@@ -32,7 +32,7 @@ Course.destroy_all
 #   user.save
 # end
 
-User.create(
+User.create!(
   first_name: "Thomas",
   last_name: "Wilkinson",
   email: "T.Wilkinson@gmail.com",
@@ -40,7 +40,7 @@ User.create(
   kind: "user"
   )
 
-User.create(
+User.create!(
   first_name: "Ryan",
   last_name: "James",
   email: "R.james@gmail.com",
@@ -48,7 +48,7 @@ User.create(
   kind: "user"
   )
 
-User.create(
+User.create!(
   first_name: "Frans",
   last_name: "van Camp",
   email: "F.camp@gmail.com",
@@ -57,7 +57,7 @@ User.create(
   )
 
 
-owner = User.create(
+owner = User.create!(
   first_name: "Nicole",
   last_name: "Saidy",
   email: "N.saidy@gmail.com",
@@ -68,7 +68,7 @@ owner = User.create(
 # Restaurant Seeds
 
 
-Restaurant.create(
+Restaurant.create!(
   name: "Bo Cinq",
   phone_number: "020 6220682",
   street_name: "Prinsengracht",
@@ -77,10 +77,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1017 KH",
   email_address: "info@bocinq.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Bo Cinq",
   phone_number: "020 6220682",
   street_name: "Prinsengracht",
@@ -89,10 +91,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1017 KH",
   email_address: "info@bocinq.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Wink",
   phone_number: "020 7526243",
   street_name: "Govert Flinckstraat",
@@ -101,10 +105,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1073 CJ",
   email_address: "info@wink.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Le Petit Latin",
   phone_number: "020 6249425",
   street_name: "Nieuwezijds Voorburgwal",
@@ -113,10 +119,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1012 RV",
   email_address: "info@restaurantlepetitlatin.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Envy",
   phone_number: "020 203446407",
   street_name: "Prinsengracht",
@@ -125,10 +133,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1016 HL",
   email_address: "info@envy.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Ron Gastrobar",
   phone_number: "020 4961943",
   street_name: "Sophialaan",
@@ -137,10 +147,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1075 BP",
   email_address: "info@rongastrobar.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Le Restaurant",
   phone_number: "020 3792207",
   street_name: "Tweede Jan Steenstraat",
@@ -149,11 +161,13 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1073 VK",
   email_address: "info@lerestaurant.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
 
-Restaurant.create(
+Restaurant.create!(
   name: "Johannes",
   phone_number: "020 6269503",
   street_name: "Herengracht",
@@ -162,10 +176,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1017 BP",
   email_address: "info@restaurantjohannes.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :lovers,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Restaurant Juuls",
   phone_number: "020 4710711",
   street_name: "Albert Cuypstraat",
@@ -174,10 +190,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1072 CK",
   email_address: "info@restaurantjuuls.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Lastage",
   phone_number: "020 7370811",
   street_name: "Geldersekade",
@@ -186,10 +204,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1011 EJ",
   email_address: "info@restaurantlastage.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Restaurant C",
   phone_number: "020 2103011",
   street_name: "Wibautstraat",
@@ -198,10 +218,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1091 GL",
   email_address: "info@c.amsterdam.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "HappyHappyJoyJoy",
   phone_number: "020 3446433",
   street_name: "Bilderdijkstraat",
@@ -210,10 +232,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1053 LC",
   email_address: "west@happyhappyjoyjoy.asia",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Pompstation",
   phone_number: "020 6922888",
   street_name: "Zeeburgerdijk",
@@ -222,10 +246,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1094 AE",
   email_address: "info@pompstation.nu",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "Goudfazant",
   phone_number: "020 6365170",
   street_name: "Aambeeldstraat",
@@ -234,10 +260,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1021 KB",
   email_address: "info@hoteldegoudfazant.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "De Kas",
   phone_number: "020 4624562",
   street_name: "Kamerlingh Onneslaan",
@@ -246,10 +274,12 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1097 DE",
   email_address: "info@restaurantdekas.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
-Restaurant.create(
+Restaurant.create!(
   name: "En Pluche",
   phone_number: "020 4714695",
   street_name: "Ruysdaelstraat",
@@ -258,7 +288,9 @@ Restaurant.create(
   country_name: "The Netherlands",
   postal_code: "1071 XE",
   email_address: "info@enpluche.nl",
-  user_id: owner.id
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
   )
 
 puts "Just created the restaurants"
@@ -333,7 +365,7 @@ puts "Just created the deals"
 #   visitor_email = user_instance.email
 #   visitor_phone = Faker::PhoneNumber.phone_number
 
-#   booking = Booking.create(
+#   booking = Booking.create!(
 #     user_id: user_id,
 #     deal_id: deal_id,
 #     date: date,
@@ -357,7 +389,7 @@ puts "Just created the deals"
 #   postal_code = Faker::Address.postcode
 #   email_address = Faker::Internet.email
 
-#   restaurant = Restaurant.create(name: name,
+#   restaurant = Restaurant.create!(name: name,
 #     phone_number: phone_number,
 #     street_name: street_name,
 #     street_number: street_number,
@@ -372,7 +404,7 @@ puts "Just created the deals"
 
 # Review seeds
 
-# Review.create(
+# Review.create!(
 #   content: "The 12restaurants experience menu was delicious.
 #   Service was fine but we could not eat outside.
 #   Will definetly visit again because there were many tasty dishes on the menu.",
@@ -411,7 +443,7 @@ puts "Just created the deals"
   # saturday = Faker::Boolean.boolean
   # sunday = Faker::Boolean.boolean
 
-#   deal = Deal.create(name: name,
+#   deal = Deal.create!(name: name,
 #     description: description,
 #     start_date: start_date,
 #     end_date: end_date,
@@ -468,7 +500,7 @@ puts "Just created the deals"
 # 30.times do
 #   image_string = Faker::Avatar.image
 #   restaurant_id = (Restaurant.all.sample).id
-#   photo = Photo.create(image_string: image_string,
+#   photo = Photo.create!(image_string: image_string,
 #     restaurant_id: restaurant_id
 #     )
 #   photo.save
@@ -489,7 +521,7 @@ puts "Just created the deals"
 #   visitor_email = user_instance.email
 #   visitor_phone = Faker::PhoneNumber.phone_number
 
-#   booking = Booking.create(
+#   booking = Booking.create!(
 #     user_id: user_id,
 #     deal_id: deal_id,
 #     date: date,
@@ -508,7 +540,7 @@ puts "Just created the deals"
 #   restaurant_id = restaurant_instance.id
 #   content = Faker::Lorem.sentence
 
-#   review = Review.create(
+#   review = Review.create!(
 #     restaurant_id: restaurant_id,
 #     content: content)
 #   review.save

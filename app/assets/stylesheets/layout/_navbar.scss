@@ -2,9 +2,7 @@
 .background-nav{
   background-color: $brand-color-nav;
   opacity: 0.97;
-  -webkit-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
-  box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+  // box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
   border-bottom: 0px;
 }
 
@@ -13,6 +11,15 @@
   font-size: 24px;
   word-spacing: 2px;
   letter-spacing: 1px;
+}
+
+.index-logo {
+  z-index: 999;
+  width: 150px;
+  padding: 5px;
+  margin-left: 125px;
+  height: auto;
+  // padding-bottom: 60px;
 }
 
 
@@ -71,9 +78,10 @@ ul li button .btn-success {
   margin-right: 154px;
   background-color: #1A1B1F;
   border: 0px;
-  border-radius: 4px;
+  border-radius: 0px;
   padding: 5px 12px 2px 13px;
-  width: 160px;
+  width: 125px;
+  height: 50px;
   transition: background-color 0.25s ease;
   :hover {
     background-color: $brand-blue;
@@ -91,21 +99,23 @@ ul li button .btn-success {
 
 .btn-success:hover {
   color: #fff;
-  background-color: $brand-blue;
-  border-color: $brand-blue;
+  background-color: #0D0D0F;
+  border-color: #0D0D0F;
 }
 
 .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success {
   color: #fff;
-  background-color: $brand-blue;
-  border-color: $brand-blue;
+  background-color: #0D0D0F;
+  border-color: #0D0D0F;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: $brand-blue;
   border: 2px solid $brand-blue;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 // User Name

@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  enumerize:
+    restaurant:
+      category:
+        lovers: "Lovers"
+        family: "Family"
+        culinairy: "Culinairy"
+        organic: "Organic"
+      cuisine:
+        french: "French"
+        italian: "Italian"
+        asian: "Asian"
+        arabic: "Arabic"

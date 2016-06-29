@@ -1,8 +1,22 @@
 <!-- restaurants index -->
 
+<!-- <div class="filter-bar">
+</div> -->
 <div id="restaurant-list">
 
-  <h4 class="zonder-tangerine-font" style="text-align: center;">Today's deals</h4>
+
+  <h4 class="zonder-tangerine-font" style="text-align: center;">
+    Today's deals:
+    <!-- uncomment below if we want active filters inside content -->
+    <%# if @category.present? %>
+    <%#= Restaurant.category.find_value(@category).text %>
+    <%# end %>
+    <%# if @cuisine.present? %>
+    <%#= Restaurant.cuisine.find_value(@cuisine).text %>
+    <%# end %>
+  </h4>
+
+
   <hr>
   <!-- <hr class="style-seven"> -->
   <div class="container">
@@ -11,16 +25,22 @@
       <div class="col-sm-4 col-md-4 card">
         <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
         <div class="thumbnail-feiko">
-         <div class=""></div>
+
+         <div class="price-label-card">
+           <strike id="original-price">&euro;45</strike>
+           &euro;25
+         </div>
          <% @restaurant = resto  %>
-           <% if @restaurant.photos.any? %>
-             <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
-           <% elsif  %>
-            <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
-            <% @unsplash_counter += 1 %>
+         <% if @restaurant.photos.any? %>
+         <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+         <% elsif  %>
+         <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
+         <% @unsplash_counter += 1 %>
          <% end  %>
-         <h4>
-        <strong><%= resto.name %></strong>
+         <h4 style="padding-top: 10px;">
+           <strong>
+             <%= resto.name %>
+           </strong>
          </h4>
          <p>
            Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only <%= resto.deals.first.price %> euro.
