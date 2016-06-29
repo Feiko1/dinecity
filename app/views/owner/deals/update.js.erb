@@ -1,0 +1,7 @@
+<%- if @deal.errors.any? %>
+  $('#editOffer').html('<%= escape_javascript(render('form')) %>');
+<%- else %>
+  $('#editOffer').dialog('close');
+  $('#editOffer').remove();
+  window.location.reload();
+<%- end %>
