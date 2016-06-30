@@ -29,6 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  // flex-direction: column; //this redirects flex downwards
 
   h1, h2 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
@@ -36,6 +37,24 @@ body {
     // red green blue [alpha = opacity]
   }
 }
+
+.smooth-scroll {
+  color: white;
+  position: absolute;
+  bottom: 4px;
+  text-align: center;
+  left: 50%;
+  right: 50%;
+  opacity: 0.7;
+
+  transition: all 500ms ease;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
 
 .header-1 {
   font-size: 77px;
