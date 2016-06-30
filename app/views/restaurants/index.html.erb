@@ -5,7 +5,7 @@
 
     <div class="dropdown" style="margin-left: 115px;">
       <button class="btn btn-default dropdown-toggle filter-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Categories
+        We are... <!-- purpose  / category-->
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -16,7 +16,7 @@
         <% end %>
       </ul>
     </div>
-
+    &nbsp; &nbsp; &nbsp;...looking for...
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle filter-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Cuisine
@@ -34,22 +34,25 @@
     <div class="flex-active-filters">
     <% if @category.present? %>
       <div id="active-filters">
-        Active filters:
+        <strong>Active filters:</strong>
       </div>
       <% elsif @cuisine.present? %>
       <div id="active-filters">
-        Active filters:
+      <strong>Active filters:</strong>
       </div>
       <% end %>
 
       <% if @category.present? %>
-      <div class="filter-button">
+      <div class="filter-button" > <!-- style="background-color: #C32B35;" -->
         <%= Restaurant.category.find_value(@category).text %>
+        &nbsp;<%= link_to "", restaurants_path(cuisine: @cuisine), class:"fa fa-times" %>
       </div>
+
       <% end %>
       <% if @cuisine.present? %>
       <div class="filter-button">
         <%= Restaurant.cuisine.find_value(@cuisine).text %>
+        &nbsp;<%= link_to "", restaurants_path(category: @category), class:"fa fa-times" %>
       </div>
       <% end %>
     </div>
