@@ -104,6 +104,36 @@
   padding-top: 10px;
 }
 
+// CONFIRMATION PAGE BELOW
+
+.styling-button-confirmation {
+   background-color: white;
+  color: black;
+  font-weight: bold;
+  width: 170px;
+  height: 40px;
+  margin-left: 195px;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 50px;
+  border-radius: 0px;
+  border: 1px solid $brand-blue;
+  transition: background-color 0.3s ease-in;
+  a:hover {
+    color: white;
+    border: 0px;
+  }
+}
+
+.styling-button-confirmation:hover {
+  background-color: $brand-blue;
+  color: white;
+}
+
+#color {
+  color: $brand-blue;
+}
+
 // SIGN UP PAGE BELOW
 
 .sign-up-wrapper {

@@ -9,15 +9,18 @@
     <% else %>
     <p> Thank you!</p>
     <% end  %>
-    <p>You have requested a booking at <strong><%= @restaurant.name  %> </strong> on <%= @booking.date.strftime("%A the %dth of %B, at %H:%M")  %>, for <%= @booking.number_of_people %> people. </p>
+    <p>You have requested a booking at <strong id="color"><%= @restaurant.name  %> </strong> on <strong id="color"><%= @booking.date.strftime("%A %d of %B, at %H:%M")  %>, for <%= @booking.number_of_people %> people.</strong> </p>
 
-    <p><strong>Please Note:</strong> we have sent you a confirmation email. In order to confirm your booking, please click on the button in your email.</p>
+   <strong>Please note:</strong>
+    <p>
+    We have sent you a confirmation email. In order to confirm your booking, please click on the button in your email.
+    </p>
 
-    <p>We wish you a great meal, company, and evening!</p>
+    <p>We wish you a great dinner experience, company and evening!</p>
 
-    <h4>~ The 12restaurants Team</h4>
+    <h4 id="color">~ The 12restaurants Team</h4>
     <br>
-    <%= link_to "To Restaurant", restaurant_path(@restaurant), class:"btn styling-button link-styling"%>
+    <%= link_to "To Restaurant", restaurant_path(@restaurant), class:"btn styling-button-confirmation link-styling"%>
 
   </div>
   <br>
