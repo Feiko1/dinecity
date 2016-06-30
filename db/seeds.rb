@@ -352,7 +352,7 @@ happyjoy = Restaurant.create!(
   email_address: "west@happyhappyjoyjoy.asia",
   user_id: owner.id,
   category: :family,
-  cuisine: :french
+  cuisine: :asian
   )
 ['happyjoy-0.jpg', 'happyjoy-1.jpg', 'happyjoy-2.jpg', '8-1.jpg'].each do |filename|
   happyjoy.photos.create!(

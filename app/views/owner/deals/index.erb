@@ -16,10 +16,10 @@
       </th>
       <th>Menu Name</th>
       <th>Location</th>
-      <th>Course Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Persons</th>
+      <!-- <th>Course Name</th> -->
+      <th>Course Name & Description</th>
+      <th>Price per person</th>
+      <th>Max. # of Uses</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th> </th>
@@ -38,15 +38,18 @@
               <td contenteditable="false" >
                 <%= restaurant.city_name %>
               </td>
-              <td contenteditable="false">
+         <!--      <td contenteditable="false">
                 <% deal.courses.each do |course| %>
                   <%= course.course_name %>
+                  <br>
+                  <hr>
                 <% end %>
-              </td>
+              </td> -->
               <td contenteditable="false">
                 <% deal.courses.each do |course| %>
+                    <strong><%= course.course_name.capitalize %></strong> |
                     <%= course.description %>
-                    <%= course.course_name %>
+                    <br>
                 <% end %>
               </td>
               <td contenteditable="false">$ <%= deal.price %></td>
