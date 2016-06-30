@@ -66,13 +66,6 @@ owner = User.create!(
   )
 
 
-owner = User.create!(
-  first_name: "Matthijs",
-  last_name: "Maas",
-  email: "Matthijs.M.Maas@gmail.com",
-  password: "password",
-  kind: "owner"
-  )
 
 # Restaurant Seeds
 
