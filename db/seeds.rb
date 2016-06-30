@@ -65,10 +65,12 @@ owner = User.create!(
   kind: "owner"
   )
 
+
+
 # Restaurant Seeds
 
 
-Restaurant.create!(
+bo_cinq = Restaurant.create!(
   name: "Bo Cinq",
   phone_number: "020 6220682",
   street_name: "Prinsengracht",
@@ -82,21 +84,27 @@ Restaurant.create!(
   cuisine: :french
   )
 
-Restaurant.create!(
-  name: "Bo Cinq",
-  phone_number: "020 6220682",
-  street_name: "Prinsengracht",
-  street_number: 494,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1017 KH",
-  email_address: "info@bocinq.nl",
-  user_id: owner.id,
-  category: :lovers,
-  cuisine: :french
+['bocinq-1.jpg', 'culinaire-wandelingen.jpg', 'res1.jpg','restaurant-04.jpg'].each do |filename|
+  bo_cinq.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
+end
 
-Restaurant.create!(
+# Restaurant.create!(
+#   name: "Bo Cinq",
+#   phone_number: "020 6220682",
+#   street_name: "Prinsengracht",
+#   street_number: 494,
+#   city_name: "Amsterdam",
+#   country_name: "The Netherlands",
+#   postal_code: "1017 KH",
+#   email_address: "info@bocinq.nl",
+#   user_id: owner.id,
+#   category: :lovers,
+#   cuisine: :french
+#   )
+
+wink = Restaurant.create!(
   name: "Wink",
   phone_number: "020 7526243",
   street_name: "Govert Flinckstraat",
@@ -110,7 +118,13 @@ Restaurant.create!(
   cuisine: :french
   )
 
-Restaurant.create!(
+['restaurant-05.jpg', 'restaurant-06.jpg'].each do |filename|
+  wink.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+le_petit_latin = Restaurant.create!(
   name: "Le Petit Latin",
   phone_number: "020 6249425",
   street_name: "Nieuwezijds Voorburgwal",
@@ -123,6 +137,12 @@ Restaurant.create!(
   category: :lovers,
   cuisine: :italian
   )
+
+['2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg'].each do |filename|
+  le_petit_latin.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
 Restaurant.create!(
   name: "Envy",
@@ -138,7 +158,8 @@ Restaurant.create!(
   cuisine: :italian
   )
 
-Restaurant.create!(
+
+gastrobar = Restaurant.create!(
   name: "Ron Gastrobar",
   phone_number: "020 4961943",
   street_name: "Sophialaan",
@@ -152,7 +173,13 @@ Restaurant.create!(
   cuisine: :french
   )
 
-Restaurant.create!(
+['rgastrobar-1.jpg', 'rgastrobar-2.jpg', 'lerestaurant-2.jpg', '3-4.jpg'].each do |filename|
+  gastrobar.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+le_restaurant = Restaurant.create!(
   name: "Le Restaurant",
   phone_number: "020 3792207",
   street_name: "Tweede Jan Steenstraat",
@@ -166,8 +193,13 @@ Restaurant.create!(
   cuisine: :asian
   )
 
+['lerestaurant-1.jpg', '3-2.jpg', 'lerestaurant-2.jpg', '3-4.jpg'].each do |filename|
+  le_restaurant.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
-Restaurant.create!(
+johannes = Restaurant.create!(
   name: "Johannes",
   phone_number: "020 6269503",
   street_name: "Herengracht",
@@ -181,77 +213,14 @@ Restaurant.create!(
   cuisine: :asian
   )
 
-Restaurant.create!(
-  name: "Restaurant Juuls",
-  phone_number: "020 4710711",
-  street_name: "Albert Cuypstraat",
-  street_number: 19,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1072 CK",
-  email_address: "info@restaurantjuuls.nl",
-  user_id: owner.id,
-  category: :culinary,
-  cuisine: :asian
+['johannes-1.jpg', 'johannes-2.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+  johannes.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
+end
 
-Restaurant.create!(
-  name: "Lastage",
-  phone_number: "020 7370811",
-  street_name: "Geldersekade",
-  street_number: 29,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1011 EJ",
-  email_address: "info@restaurantlastage.nl",
-  user_id: owner.id,
-  category: :family,
-  cuisine: :french
-  )
 
-Restaurant.create!(
-  name: "Restaurant C",
-  phone_number: "020 2103011",
-  street_name: "Wibautstraat",
-  street_number: 125,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1091 GL",
-  email_address: "info@c.amsterdam.nl",
-  user_id: owner.id,
-  category: :culinary,
-  cuisine: :french
-  )
-
-Restaurant.create!(
-  name: "HappyHappyJoyJoy",
-  phone_number: "020 3446433",
-  street_name: "Bilderdijkstraat",
-  street_number: 158,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1053 LC",
-  email_address: "west@happyhappyjoyjoy.asia",
-  user_id: owner.id,
-  category: :family,
-  cuisine: :french
-  )
-
-Restaurant.create!(
-  name: "Pompstation",
-  phone_number: "020 6922888",
-  street_name: "Zeeburgerdijk",
-  street_number: 52,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1094 AE",
-  email_address: "info@pompstation.nu",
-  user_id: owner.id,
-  category: :family,
-  cuisine: :arabic
-  )
-
-Restaurant.create!(
+goudfazant = Restaurant.create!(
   name: "Goudfazant",
   phone_number: "020 6365170",
   street_name: "Aambeeldstraat",
@@ -264,8 +233,14 @@ Restaurant.create!(
   category: :family,
   cuisine: :arabic
   )
+['6-1.jpg', '6-2.jpg'].each do |filename|
+  goudfazant.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
-Restaurant.create!(
+
+de_kas = Restaurant.create!(
   name: "De Kas",
   phone_number: "020 4624562",
   street_name: "Kamerlingh Onneslaan",
@@ -279,15 +254,122 @@ Restaurant.create!(
   cuisine: :arabic
   )
 
-#one special for RJ
-owner = User.create!(
-  first_name: "Ryan Jeff",
-  last_name: "Brual",
-  email: "admin@admin.com",
-  password: "password",
-  kind: "owner"
+['5-1.jpg', '5-2.jpg', '5-3.jpg'].each do |filename|
+  de_kas.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
-Restaurant.create!(
+end
+
+lastage = Restaurant.create!(
+  name: "Lastage",
+  phone_number: "020 7370811",
+  street_name: "Geldersekade",
+  street_number: 29,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1011 EJ",
+  email_address: "info@restaurantlastage.nl",
+  user_id: owner.id,
+  category: :family,
+  cuisine: :french
+  )
+
+['3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+  lastage.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+
+restaurant_c = Restaurant.create!(
+  name: "Restaurant C",
+  phone_number: "020 2103011",
+  street_name: "Wibautstraat",
+  street_number: 125,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1091 GL",
+  email_address: "info@c.amsterdam.nl",
+  user_id: owner.id,
+  category: :culinary,
+  cuisine: :french
+  )
+['restaurantc-1.jpg', 'restaurantc-2.jpg', 'restaurantc-3.jpg', '9-1.jpg', '9-2.jpg'].each do |filename|
+  restaurant_c.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+
+
+pompstation = Restaurant.create!(
+  name: "Pompstation",
+  phone_number: "020 6922888",
+  street_name: "Zeeburgerdijk",
+  street_number: 52,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1094 AE",
+  email_address: "info@pompstation.nu",
+  user_id: owner.id,
+  category: :family,
+  cuisine: :arabic
+  )
+['pompstation-1.jpg', '7-1.jpg', '7-2.jpg', '7-3.jpg'].each do |filename|
+  pompstation.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+juuls = Restaurant.create!(
+  name: "Restaurant Juuls",
+  phone_number: "020 4710711",
+  street_name: "Albert Cuypstraat",
+  street_number: 19,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1072 CK",
+  email_address: "info@restaurantjuuls.nl",
+  user_id: owner.id,
+  category: :culinary,
+  cuisine: :asian
+  )
+
+['juuls-0.jpg', 'juuls-1.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+  juuls.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+happyjoy = Restaurant.create!(
+  name: "HappyHappyJoyJoy",
+  phone_number: "020 3446433",
+  street_name: "Bilderdijkstraat",
+  street_number: 158,
+  city_name: "Amsterdam",
+  country_name: "The Netherlands",
+  postal_code: "1053 LC",
+  email_address: "west@happyhappyjoyjoy.asia",
+  user_id: owner.id,
+  category: :family,
+  cuisine: :asian
+  )
+['happyjoy-0.jpg', 'happyjoy-1.jpg', 'happyjoy-2.jpg', '8-1.jpg'].each do |filename|
+  happyjoy.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+#one special for Mattijs
+owner = User.create!(
+  first_name: "Matthijs",
+  last_name: "Maas",
+  email: "Matthijs.m.maas@gmail.com",
+  password: "password",
+  kind: "owner",
+  admin: true
+  )
+en_pluche = Restaurant.create!(
   name: "En Pluche",
   phone_number: "020 4714695",
   street_name: "Ruysdaelstraat",
@@ -297,9 +379,16 @@ Restaurant.create!(
   postal_code: "1071 XE",
   email_address: "info@enpluche.nl",
   user_id: owner.id,
-  category: :family,
+  category: :lovers,
   cuisine: :french
   )
+
+['4-1.jpg', '4-2.jpg'].each do |filename|
+  en_pluche.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
 
 puts "Just created the restaurants"
 
