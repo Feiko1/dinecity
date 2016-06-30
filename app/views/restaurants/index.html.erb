@@ -32,20 +32,26 @@
     </div>
 
     <div class="flex-active-filters">
+    <% if @category.present? %>
       <div id="active-filters">
         Active filters:
       </div>
+      <% elsif @cuisine.present? %>
+      <div id="active-filters">
+        Active filters:
+      </div>
+      <% end %>
 
+      <% if @category.present? %>
       <div class="filter-button">
-        <% if @category.present? %>
         <%= Restaurant.category.find_value(@category).text %>
-        <% end %>
       </div>
+      <% end %>
+      <% if @cuisine.present? %>
       <div class="filter-button">
-        <% if @cuisine.present? %>
         <%= Restaurant.cuisine.find_value(@cuisine).text %>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 
