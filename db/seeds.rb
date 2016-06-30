@@ -91,7 +91,7 @@ bo_cinq = Restaurant.create!(
   cuisine: :french
   )
 
-['culinaire-wandelingen.jpg', 'res1.jpg','restaurant-04.jpg'].each do |filename|
+['bocinq-1.jpg', 'culinaire-wandelingen.jpg', 'res1.jpg','restaurant-04.jpg'].each do |filename|
   bo_cinq.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
@@ -166,7 +166,7 @@ Restaurant.create!(
   )
 
 
-Restaurant.create!(
+gastrobar = Restaurant.create!(
   name: "Ron Gastrobar",
   phone_number: "020 4961943",
   street_name: "Sophialaan",
@@ -180,7 +180,13 @@ Restaurant.create!(
   cuisine: :french
   )
 
-Restaurant.create!(
+['rgastrobar-1.jpg', 'rgastrobar-2.jpg', 'lerestaurant-2.jpg', '3-4.jpg'].each do |filename|
+  gastrobar.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+le_restaurant = Restaurant.create!(
   name: "Le Restaurant",
   phone_number: "020 3792207",
   street_name: "Tweede Jan Steenstraat",
@@ -194,8 +200,13 @@ Restaurant.create!(
   cuisine: :asian
   )
 
+['lerestaurant-1.jpg', '3-2.jpg', 'lerestaurant-2.jpg', '3-4.jpg'].each do |filename|
+  le_restaurant.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
-Restaurant.create!(
+johannes = Restaurant.create!(
   name: "Johannes",
   phone_number: "020 6269503",
   street_name: "Herengracht",
@@ -209,7 +220,13 @@ Restaurant.create!(
   cuisine: :asian
   )
 
-Restaurant.create!(
+['johannes-1.jpg', 'johannes-2.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+  johannes.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+juuls = Restaurant.create!(
   name: "Restaurant Juuls",
   phone_number: "020 4710711",
   street_name: "Albert Cuypstraat",
@@ -222,6 +239,12 @@ Restaurant.create!(
   category: :culinary,
   cuisine: :asian
   )
+
+['juuls-0.jpg', 'juuls-1.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+  juuls.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
 lastage = Restaurant.create!(
   name: "Lastage",
@@ -257,7 +280,7 @@ restaurant_c = Restaurant.create!(
   category: :culinary,
   cuisine: :french
   )
-['9-1.jpg', '9-2.jpg'].each do |filename|
+['restaurantc-1.jpg', 'restaurantc-2.jpg', 'restaurantc-3.jpg', '9-1.jpg', '9-2.jpg'].each do |filename|
   restaurant_c.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
@@ -277,7 +300,7 @@ happyjoy = Restaurant.create!(
   category: :family,
   cuisine: :french
   )
-['8-1.jpg'].each do |filename|
+['happyjoy-0.jpg', 'happyjoy-1.jpg', 'happyjoy-2.jpg', '8-1.jpg'].each do |filename|
   happyjoy.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
@@ -296,7 +319,7 @@ pompstation = Restaurant.create!(
   category: :family,
   cuisine: :arabic
   )
-['7-1.jpg', '7-2.jpg', '7-3.jpg'].each do |filename|
+['pompstation-1.jpg', '7-1.jpg', '7-2.jpg', '7-3.jpg'].each do |filename|
   pompstation.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
