@@ -65,10 +65,19 @@ owner = User.create!(
   kind: "owner"
   )
 
+
+owner = User.create!(
+  first_name: "Matthijs",
+  last_name: "Maas",
+  email: "Matthijs.M.Maas@gmail.com",
+  password: "password",
+  kind: "owner"
+  )
+
 # Restaurant Seeds
 
 
-Restaurant.create!(
+bo_cinq = Restaurant.create!(
   name: "Bo Cinq",
   phone_number: "020 6220682",
   street_name: "Prinsengracht",
@@ -82,21 +91,27 @@ Restaurant.create!(
   cuisine: :french
   )
 
-Restaurant.create!(
-  name: "Bo Cinq",
-  phone_number: "020 6220682",
-  street_name: "Prinsengracht",
-  street_number: 494,
-  city_name: "Amsterdam",
-  country_name: "The Netherlands",
-  postal_code: "1017 KH",
-  email_address: "info@bocinq.nl",
-  user_id: owner.id,
-  category: :lovers,
-  cuisine: :french
+['culinaire-wandelingen.jpg', 'res1.jpg','restaurant-04.jpg'].each do |filename|
+  bo_cinq.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
+end
 
-Restaurant.create!(
+# Restaurant.create!(
+#   name: "Bo Cinq",
+#   phone_number: "020 6220682",
+#   street_name: "Prinsengracht",
+#   street_number: 494,
+#   city_name: "Amsterdam",
+#   country_name: "The Netherlands",
+#   postal_code: "1017 KH",
+#   email_address: "info@bocinq.nl",
+#   user_id: owner.id,
+#   category: :lovers,
+#   cuisine: :french
+#   )
+
+wink = Restaurant.create!(
   name: "Wink",
   phone_number: "020 7526243",
   street_name: "Govert Flinckstraat",
@@ -110,7 +125,13 @@ Restaurant.create!(
   cuisine: :french
   )
 
-Restaurant.create!(
+['restaurant_05.jpg', 'restaurant-06.jpg'].each do |filename|
+  wink.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+le_petit_latin = Restaurant.create!(
   name: "Le Petit Latin",
   phone_number: "020 6249425",
   street_name: "Nieuwezijds Voorburgwal",
@@ -124,7 +145,13 @@ Restaurant.create!(
   cuisine: :italian
   )
 
-Restaurant.create!(
+['2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg'].each do |filename|
+  le_petit_latin.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
+envy = Restaurant.create!(
   name: "Envy",
   phone_number: "020 203446407",
   street_name: "Prinsengracht",
@@ -137,6 +164,12 @@ Restaurant.create!(
   category: :lovers,
   cuisine: :italian
   )
+
+['3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+  envy.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
 Restaurant.create!(
   name: "Ron Gastrobar",
@@ -287,7 +320,7 @@ owner = User.create!(
   password: "password",
   kind: "owner"
   )
-Restaurant.create!(
+en_pluche = Restaurant.create!(
   name: "En Pluche",
   phone_number: "020 4714695",
   street_name: "Ruysdaelstraat",
@@ -300,6 +333,13 @@ Restaurant.create!(
   category: :family,
   cuisine: :french
   )
+
+['4-1.jpg', '4-2.jpg', '4-3.jpg', '4-4.jpg'].each do |filename|
+  en_pluche.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
+
 
 puts "Just created the restaurants"
 
