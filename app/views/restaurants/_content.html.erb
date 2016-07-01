@@ -63,20 +63,41 @@
    <hr>
    <div class="row">
      <% @restaurants.first(9).each do |resto| %>
-     <div class="col-sm-4 col-md-4 card">
-      <div class="thumbnail-feiko">
-       <div class=""></div>
-       <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
-       <% @unsplash_counter += 1 %>
-       <h4><strong><%= resto.name %></strong></h4>
-       <p>Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only 25 euro. </p>
-       <p><%= link_to "View Restaurant", restaurant_path(resto), class: "btn btn-primary btn-deal" %></p>
+        <div class="col-sm-4 col-md-4 card">
+        <%= link_to restaurant_path(resto), class:"link-to-cards" do %>
+        <div class="thumbnail-feiko">
 
+         <div class="price-label-card">
+           <strike id="original-price">&euro;<%= resto.deals.first.price + 20 %></strike>
+           &euro;<%= resto.deals.first.price %>
+         </div>
+         <% @restaurant = resto  %>
+
+           <% if @restaurant.photos.any? %>
+             <%= cl_image_tag @restaurant.photos.first.photo, height: 350, width: 450, crop: :fill %>
+           <% else  %>
+            <img src="http://unsplash.it/<%= @unsplash_counter %>/130" alt="">
+            <% @unsplash_counter += 1 %>
+
+         <% end  %>
+         <h4 style="padding-top: 10px;">
+           <strong>
+             <%= resto.name %>
+           </strong>
+         </h4>
+         <p>
+          <%# @restaurant = resto  %>
+         <%# if @restaurant.deals.any? %>
+           <%#= resto.deal.first.description  %>
+           Exclusive deal today at <span class="resto-name"><%= resto.name %></span>! Try the chef's signature menu for only <%= resto.deals.first.price %> euro.
+         </p>
+
+         <% end %>
+       </div>
      </div>
-   </div>
    <% end %>
 
-
  </div>
+
 </div>
 </div>

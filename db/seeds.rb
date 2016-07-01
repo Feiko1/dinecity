@@ -32,7 +32,7 @@ Course.destroy_all
 #   user.save
 # end
 
-User.create!(
+u1 = User.create!(
   first_name: "Thomas",
   last_name: "Wilkinson",
   email: "T.Wilkinson@gmail.com",
@@ -40,7 +40,7 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u2 = User.create!(
   first_name: "Ryan",
   last_name: "James",
   email: "R.james@gmail.com",
@@ -48,13 +48,38 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u3 = User.create!(
+  first_name: "Patrick",
+  last_name: "Kluivert",
+  email: "P.Kluivert@gmail.com",
+  password: "password",
+  kind: "user"
+  )
+
+u4 = User.create!(
+  first_name: "Lisa",
+  last_name: "Flores",
+  email: "L.Flores@gmail.com",
+  password: "password",
+  kind: "user"
+  )
+
+u5 = User.create!(
   first_name: "Frans",
   last_name: "van Camp",
   email: "F.camp@gmail.com",
   password: "password",
   kind: "user"
   )
+
+u6 = User.create!(
+  first_name: "Feiko",
+  last_name: "Boerstra",
+  email: "feiko.boerstra@gmail.com",
+  password: "password",
+  kind: "user"
+  )
+
 
 
 owner = User.create!(
@@ -144,7 +169,7 @@ le_petit_latin = Restaurant.create!(
   )
 end
 
-Restaurant.create!(
+envy = Restaurant.create!(
   name: "Envy",
   phone_number: "020 203446407",
   street_name: "Prinsengracht",
@@ -157,7 +182,11 @@ Restaurant.create!(
   category: :lovers,
   cuisine: :italian
   )
-
+['envy-1.jpg', 'envy-2.jpg', 'envy-3.jpg'].each do |filename|
+  envy.photos.create!(
+    photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
+  )
+end
 
 gastrobar = Restaurant.create!(
   name: "Ron Gastrobar",
@@ -254,7 +283,7 @@ de_kas = Restaurant.create!(
   cuisine: :arabic
   )
 
-['5-1.jpg', '5-2.jpg', '5-3.jpg'].each do |filename|
+['de_kas-3.jpg','de_kas-1.jpg', 'de_kas-2.jpg'].each do |filename|
   de_kas.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
@@ -274,7 +303,7 @@ lastage = Restaurant.create!(
   cuisine: :french
   )
 
-['3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
+['lastage-1.jpg', '3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg'].each do |filename|
   lastage.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
@@ -360,6 +389,8 @@ happyjoy = Restaurant.create!(
   )
 end
 
+
+##HERE FULL INFO FOR 'EN PLUCHE' RESTAURANT FOR DEMO DAY
 #one special for Mattijs
 owner = User.create!(
   first_name: "Matthijs",
@@ -383,11 +414,44 @@ en_pluche = Restaurant.create!(
   cuisine: :french
   )
 
-['4-1.jpg', '4-2.jpg'].each do |filename|
+['en_pluche-1.jpeg', 'en_pluche-2.jpg', 'en_pluche-3.jpg', 'en_pluche-4.jpg'].each do |filename|
   en_pluche.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
 end
+
+Review.create!(
+    restaurant_id: en_pluche.id,
+    user_id: u1.id,
+    content: "Great Place, highly recommended!",
+    rating: 5
+  )
+Review.create!(
+    restaurant_id: en_pluche.id,
+    user_id: u2.id,
+    content: "it's good, try their dessert!",
+    rating: 4
+  )
+
+Review.create!(
+    restaurant_id: en_pluche.id,
+    user_id: User.last(8).sample,
+    content: "I took my fiance there, very hospitable and love the decor",
+    rating: 5
+  )
+
+Review.create!(
+    restaurant_id: en_pluche.id,
+    content: "It was ok, I look forward to come again",
+    rating: 3
+  )
+
+Review.create!(
+    restaurant_id: en_pluche.id,
+    user_id: u4.id,
+    content: "Best French kitchen in Amsterdam",
+    rating: 5
+  )
 
 
 puts "Just created the restaurants"
@@ -433,7 +497,7 @@ Restaurant.all.each do |resto|
   description: description)
 
 
-  course_name = "desert"
+  course_name = "dessert"
   description = "Semi-froddo chocolate cake"
 
   course = Course.create!(
@@ -441,13 +505,52 @@ Restaurant.all.each do |resto|
   course_name: course_name,
   description: description)
 
-
-
-
 end
 
 puts "Just created the deals"
 
+
+4.times do
+  user_instance = User.where(kind: 'user').sample
+
+  user_id = user_instance.id
+  deal_id = en_pluche.deals.first.id
+  date = Faker::Time.between(DateTime.now, DateTime.now + 21)
+  number_of_people = rand(2..7)
+  status = "booking_requested_by_user" #shouldn't status be a string variable? As we cannot 'destroy' it, only cancel it
+  visitor_first_name = user_instance.first_name
+  visitor_last_name = user_instance.last_name
+  visitor_email = user_instance.email
+  visitor_phone = Faker::PhoneNumber.phone_number
+
+  booking = Booking.create!(
+    user_id: user_id,
+    deal_id: deal_id,
+    date: date,
+    number_of_people: number_of_people,
+    status: status,
+    visitor_first_name: visitor_first_name,
+    visitor_last_name: visitor_last_name,
+    visitor_email: visitor_email,
+    visitor_phone: visitor_phone)
+end
+# 10.times do
+#   user_instance = User.where(kind: 'user').sample
+# booking.create!(
+#   restaurant_id: en_pluche.id,
+#   user_id: User.first(7).sample,
+#   deal_id: Deal.all.sample,
+#   date: Faker::Time.between(DateTime.now, DateTime.now + 21),
+#   number_of_people: rand(2..7),
+#   status: "booking_requested_by_user",
+#   visitor_first_name: user_instance.first_name,
+#   visitor_last_name: user_instance.last_name,
+#   visitor_email: user_instance.email,
+#   visitor_phone: Faker::PhoneNumber.phone_number
+#   )
+
+
+puts "Just created the bookings"
 
 #   10.times do
 #   user_instance = User.where(kind: 'user').sample
