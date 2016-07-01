@@ -32,7 +32,7 @@ Course.destroy_all
 #   user.save
 # end
 
-User.create!(
+u1 = User.create!(
   first_name: "Thomas",
   last_name: "Wilkinson",
   email: "T.Wilkinson@gmail.com",
@@ -40,7 +40,7 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u2 = User.create!(
   first_name: "Ryan",
   last_name: "James",
   email: "R.james@gmail.com",
@@ -48,7 +48,7 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u3 = User.create!(
   first_name: "Patrick",
   last_name: "Kluivert",
   email: "P.Kluivert@gmail.com",
@@ -56,7 +56,7 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u4 = User.create!(
   first_name: "Lisa",
   last_name: "Flores",
   email: "L.Flores@gmail.com",
@@ -64,7 +64,7 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u5 = User.create!(
   first_name: "Frans",
   last_name: "van Camp",
   email: "F.camp@gmail.com",
@@ -72,7 +72,7 @@ User.create!(
   kind: "user"
   )
 
-User.create!(
+u6 = User.create!(
   first_name: "Feiko",
   last_name: "Boerstra",
   email: "feiko.boerstra@gmail.com",
@@ -414,41 +414,41 @@ en_pluche = Restaurant.create!(
   cuisine: :french
   )
 
-['en_pluche-1.jpg', 'en_pluche-2.jpg', 'en_pluche-3.jpg', 'en_pluche-4.jpg'].each do |filename|
+['en_pluche-1.jpeg', 'en_pluche-2.jpg', 'en_pluche-3.jpg', 'en_pluche-4.jpg'].each do |filename|
   en_pluche.photos.create!(
     photo: File.open(Rails.root.join("db/seeds/images/#{filename}"))
   )
 end
 
-review.create!(
+Review.create!(
     restaurant_id: en_pluche.id,
-    user_id: User.last(8).sample,
+    user_id: u1.id,
     content: "Great Place, highly recommended!",
     rating: 5
   )
-review.create!(
+Review.create!(
     restaurant_id: en_pluche.id,
-    user_id: User.last(8).sample,
+    user_id: u2.id,
     content: "it's good, try their dessert!",
     rating: 4
   )
 
-review.create!(
+Review.create!(
     restaurant_id: en_pluche.id,
     user_id: User.last(8).sample,
     content: "I took my fiance there, very hospitable and love the decor",
     rating: 5
   )
 
-review.create!(
+Review.create!(
     restaurant_id: en_pluche.id,
     content: "It was ok, I look forward to come again",
     rating: 3
   )
 
-review.create!(
+Review.create!(
     restaurant_id: en_pluche.id,
-    user_id: User.last(8).sample,
+    user_id: u4.id,
     content: "Best French kitchen in Amsterdam",
     rating: 5
   )
@@ -505,9 +505,6 @@ Restaurant.all.each do |resto|
   course_name: course_name,
   description: description)
 
-
-
-
 end
 
 puts "Just created the deals"
@@ -517,7 +514,7 @@ puts "Just created the deals"
   user_instance = User.where(kind: 'user').sample
 
   user_id = user_instance.id
-  deal_id = Deal.last.id
+  deal_id = en_pluche.deals.first.id
   date = Faker::Time.between(DateTime.now, DateTime.now + 21)
   number_of_people = rand(2..7)
   status = "booking_requested_by_user" #shouldn't status be a string variable? As we cannot 'destroy' it, only cancel it
